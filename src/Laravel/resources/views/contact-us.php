@@ -4,10 +4,10 @@ $to = 'info@mediacity.co.in'; // Put in your email address here
 $subject = 'Contact Us Form'; // The default subject. Will appear by default in all messages. Change this if you want.
 
 // User info (DO NOT EDIT!)
-$name = stripslashes($_REQUEST['name']); // sender's name
-$email = stripslashes($_REQUEST['email']); // sender's email
-$subject = stripslashes($_REQUEST['subject']);
-$message = stripslashes($_REQUEST['message']);
+$name = stripslashes((string) $_REQUEST['name']); // sender's name
+$email = stripslashes((string) $_REQUEST['email']); // sender's email
+$subject = stripslashes((string) $_REQUEST['subject']);
+$message = stripslashes((string) $_REQUEST['message']);
 
 $msg = '';
 

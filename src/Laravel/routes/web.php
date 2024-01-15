@@ -27,9 +27,7 @@ Route::resource('/', 'HomePageController');
 
 Auth::routes();
 
-Route::get('home', function () {
-    return Redirect('/');
-});
+Route::get('home', fn () => Redirect('/'));
 
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
 Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@getRegister']);
@@ -49,7 +47,7 @@ Route::get('404', function () {
     $opening_times = Opening_hour::all();
     $contacts = Contact::all();
 
-    return view('404', compact('company_socials', 'services', 'opening_times', 'contacts'));
+    return view('404', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts]);
 });
 
 Route::get('403', function () {
@@ -58,7 +56,7 @@ Route::get('403', function () {
     $opening_times = Opening_hour::all();
     $contacts = Contact::all();
 
-    return view('403', compact('company_socials', 'services', 'opening_times', 'contacts'));
+    return view('403', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts]);
 });
 
 Route::get('pricing_plan', function () {
@@ -71,7 +69,7 @@ Route::get('pricing_plan', function () {
     $vehicle_types = Vehicle_type::all();
     $washing_prices = Washing_price::all();
 
-    return view('pricing_plan', compact('company_socials', 'services', 'opening_times', 'contacts', 'washing_plans', 'washing_includes', 'vehicle_types', 'washing_prices'));
+    return view('pricing_plan', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts, 'washing_plans' => $washing_plans, 'washing_includes' => $washing_includes, 'vehicle_types' => $vehicle_types, 'washing_prices' => $washing_prices]);
 });
 
 Route::get('faq', function () {
@@ -80,7 +78,7 @@ Route::get('faq', function () {
     $opening_times = Opening_hour::all();
     $contacts = Contact::all();
 
-    return view('faq', compact('company_socials', 'services', 'opening_times', 'contacts'));
+    return view('faq', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts]);
 });
 
 Route::get('coming_soon', function () {
@@ -89,7 +87,7 @@ Route::get('coming_soon', function () {
     $opening_times = Opening_hour::all();
     $contacts = Contact::all();
 
-    return view('coming_soon', compact('company_socials', 'services', 'opening_times', 'contacts'));
+    return view('coming_soon', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts]);
 });
 
 Route::get('under_construction', function () {
@@ -98,7 +96,7 @@ Route::get('under_construction', function () {
     $opening_times = Opening_hour::all();
     $contacts = Contact::all();
 
-    return view('under_construction', compact('company_socials', 'services', 'opening_times', 'contacts'));
+    return view('under_construction', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts]);
 });
 
 Route::get('gallery', function () {
@@ -108,7 +106,7 @@ Route::get('gallery', function () {
     $contacts = Contact::all();
     $galleries = Gallery::all();
 
-    return view('gallery', compact('company_socials', 'services', 'opening_times', 'contacts', 'galleries'));
+    return view('gallery', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts, 'galleries' => $galleries]);
 });
 
 Route::get('team', function () {
@@ -119,16 +117,14 @@ Route::get('team', function () {
     $teams = Team::all();
     $socials = Social_team::with('teams')->get();
 
-    return view('team', compact('company_socials', 'services', 'opening_times', 'contacts', 'teams', 'socials'));
+    return view('team', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts, 'teams' => $teams, 'socials' => $socials]);
 });
 
 Route::group(['middleware' => 'iscommon'], function () {
 
     Route::get('admin', 'AdminController@index');
 
-    Route::get('admin/profile', function () {
-        return view('profile');
-    });
+    Route::get('admin/profile', fn () => view('profile'));
 
     Route::resource('admin/users', 'AdminUsersController');
 
