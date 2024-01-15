@@ -1,39 +1,29 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAppointmentUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-     public function up()
-     {
-        if(!Schema::hasTable('appointment_users')){
-             Schema::create('appointment_users', function (Blueprint $table) {
-                 $table->increments('id');
-                 $table->integer('user_id')->unsigned();
-                 $table->integer('appointment_id')->unsigned();
-                 $table->string('discount')->nullable();
-                 $table->string('advance')->nullable();
-                 $table->integer('payment_method_id')->nullable();
-                 $table->string('remark')->nullable();
-                 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-                 $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
-                 $table->timestamps();
-             });
-         }
-     }
+    public function up()
+    {
+        if (! Schema::hasTable('appointment_users')) {
+            Schema::create('appointment_users', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->integer('user_id')->unsigned();
+                $blueprint->integer('appointment_id')->unsigned();
+                $blueprint->string('discount')->nullable();
+                $blueprint->string('advance')->nullable();
+                $blueprint->integer('payment_method_id')->nullable();
+                $blueprint->string('remark')->nullable();
+                $blueprint->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $blueprint->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
+                $blueprint->timestamps();
+            });
+        }
+    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('appointment_users');

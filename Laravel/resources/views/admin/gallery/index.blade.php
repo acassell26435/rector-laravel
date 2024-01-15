@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => 'active','home_section'=>'','slider' => '', 'services' => '', 'gallery' => 'active', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => 'active','home_section'=>'','slider' => '', 'services' => '', 'gallery' => 'active', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -37,16 +37,16 @@
           @foreach ($galleries as $gallery)
             <div class="col-md-2">
               <div class="admin-gallery-block">
-                <img src="{{asset('images/gallery')}}/{{$gallery->gallery_img}}" class="img-responsive" alt="gallery-img">
+                <img src="{{ asset('images/gallery') }}/{{ $gallery->gallery_img }}" class="img-responsive" alt="gallery-img">
                 <div class="overlay-bg"></div>
                 <div class="gallery-actions-block">
                   <div class="gallery-actions-btns">
-                    <button type="button" data-toggle="modal" data-target="#{{$gallery->id}}galleryEditModal" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                    <button type="button" data-toggle="modal" data-target="#{{$gallery->id}}galleryDeleteModal" title="Delete"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                    <button type="button" data-toggle="modal" data-target="#{{ $gallery->id }}galleryEditModal" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                    <button type="button" data-toggle="modal" data-target="#{{ $gallery->id }}galleryDeleteModal" title="Delete"><i class="fa fa-remove" aria-hidden="true"></i></button>
                   </div>
                 </div>
                 <!-- Gallery Update Modal -->
-                <div id="{{$gallery->id}}galleryEditModal" class="modal fade" role="dialog">
+                <div id="{{ $gallery->id }}galleryEditModal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -73,7 +73,7 @@
                   </div>
                 </div>
                 <!-- Gallery Delete Modal -->
-                <div id="{{$gallery->id}}galleryDeleteModal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $gallery->id }}galleryDeleteModal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <!-- Modal content-->
                     <div class="modal-content">

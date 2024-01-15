@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -96,26 +96,26 @@
           @foreach ($tasks as $task)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$task->team->name}}</td>
-              <td>{{$task->user->name}}</td>
-              <td>{{$task->task}}</td>
+              <td>{{ $task->team->name }}</td>
+              <td>{{ $task->user->name }}</td>
+              <td>{{ $task->task }}</td>
               <td>
                 @if ($task->status_id == '0')
                   None
                 @else
-                  {{$task->status->status}}
+                  {{ $task->status->status }}
                 @endif
               </td>
-              <td>{{$task->created_at->diffForHumans()}}</td>
-              <td>{{$task->updated_at->diffForHumans()}}</td>
+              <td>{{ $task->created_at->diffForHumans() }}</td>
+              <td>{{ $task->updated_at->diffForHumans() }}</td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{$task->id}}edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{ $task->id }}edit_Modal">Edit</button>
                 <!-- Edit Modal -->
-                <div id="{{$task->id}}edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $task->id }}edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -162,9 +162,9 @@
                 </div>
                 <!-- End Edit Button -->
                 <!-- Delete Button -->
-                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{$task->id}}delete_Modal">Delete</button>
+                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{ $task->id }}delete_Modal">Delete</button>
                 <!-- Delete Modal -->
-                <div id="{{$task->id}}delete_Modal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $task->id }}delete_Modal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <div class="modal-header">

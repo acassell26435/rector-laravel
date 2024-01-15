@@ -8,7 +8,7 @@
           <h3 class="section-heading">Faq's</h3>
         </div>
         <ol class="breadcrumb">
-          <li><a href="{{url('/')}}">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li><a href="#">Page</a></li>
           <li class="active"><a>Faq's</a></li>
         </ol>

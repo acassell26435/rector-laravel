@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Washing_plan;
 use App\Washing_plan_include;
+use Illuminate\Http\Request;
 
 class AdminWashingPlanController extends Controller
 {
@@ -18,7 +18,7 @@ class AdminWashingPlanController extends Controller
         $washing_plans = Washing_plan::all();
         $washing_includes = Washing_plan_include::all();
 
-        return view('admin.washing_plan.index', compact('washing_plans', 'washing_includes'));
+        return view('admin.washing_plan.index', ['washing_plans' => $washing_plans, 'washing_includes' => $washing_includes]);
     }
 
     /**
@@ -34,7 +34,6 @@ class AdminWashingPlanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -72,7 +71,6 @@ class AdminWashingPlanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

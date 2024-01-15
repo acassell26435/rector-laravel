@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => 'active', 'appointment' => 'active', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -141,41 +141,41 @@
           @foreach ($appointments as $appointment)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$appointment->user->name}}</td>
-              <td>{{$appointment->vehicle_company->vehicle_company}}</td>
-              <td>{{$appointment->vehicle_modal->vehicle_modal}}</td>
-              <td>{{$appointment->vehicle_type->type}}</td>
-              <td>{{$appointment->washing_plan->name}}</td>
-              <td>{{$appointment->appointment_date}}</td>
-              <td>{{$appointment->vehicle_no}}</td>
-              <td>{{$appointment->time_frame}}</td>
+              <td>{{ $appointment->user->name }}</td>
+              <td>{{ $appointment->vehicle_company->vehicle_company }}</td>
+              <td>{{ $appointment->vehicle_modal->vehicle_modal }}</td>
+              <td>{{ $appointment->vehicle_type->type }}</td>
+              <td>{{ $appointment->washing_plan->name }}</td>
+              <td>{{ $appointment->appointment_date }}</td>
+              <td>{{ $appointment->vehicle_no }}</td>
+              <td>{{ $appointment->time_frame }}</td>
               <td>
                 @foreach ($washing_prices as $washing_price)
                   @if ($washing_price->washing_plan_id == $appointment->washing_plan_id && $washing_price->vehicle_type_id == $appointment->vehicle_types_id)
-                    {{$washing_price->price}}
+                    {{ $washing_price->price }}
                   @endif
                 @endforeach
               </td>
-              <td>{{$appointment->appx_hour}}</td>
-              <td>{{$appointment->remark}}</td>
+              <td>{{ $appointment->appx_hour }}</td>
+              <td>{{ $appointment->remark }}</td>
               <td>
                   @if ($appointment->status_id == '')
                     -
                   @else
-                    {{$appointment->status->status}}
+                    {{ $appointment->status->status }}
                   @endif
               </td>
-              <td>{{$appointment->created_at->diffForHumans()}}</td>
-              <td>{{$appointment->updated_at->diffForHumans()}}</td>
+              <td>{{ $appointment->created_at->diffForHumans() }}</td>
+              <td>{{ $appointment->updated_at->diffForHumans() }}</td>
               <td>
                 <div class="action-btns">
                   <!-- Edit Button -->
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$appointment->id}}editModal">Edit</button>
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $appointment->id }}editModal">Edit</button>
                   <!-- Edit Modal -->
-                  <div id="{{$appointment->id}}editModal" class="modal fade" role="dialog">
+                  <div id="{{ $appointment->id }}editModal" class="modal fade" role="dialog">
                     <div class="modal-dialog modal-lg">
                       <!-- Modal content-->
                       <div class="modal-content">
@@ -259,9 +259,9 @@
                     </div>
                   </div>
                   <!-- Delete Button -->
-                  <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{$appointment->id}}DeleteModal">Delete</button>
+                  <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{ $appointment->id }}DeleteModal">Delete</button>
                   <!-- Delete Modal -->
-                  <div id="{{$appointment->id}}DeleteModal" class="delete-modal modal fade" role="dialog">
+                  <div id="{{ $appointment->id }}DeleteModal" class="delete-modal modal fade" role="dialog">
                     <div class="modal-dialog modal-sm">
                       <!-- Modal content-->
                       <div class="modal-content">
@@ -364,7 +364,7 @@
       @foreach ($appointments as $appointment)
         @if ($appointment->user_id == Auth::user()->id)
           <div class="user-appointment-block">
-            <h5 class="appointment-count">Appointment No. {{$i}}</h5>
+            <h5 class="appointment-count">Appointment No. {{ $i }}</h5>
             @php ($i++)
             <div class="info-table table-responsive">
               <table class="table">
@@ -378,10 +378,10 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{$appointment->vehicle_company->vehicle_company}}</td>
-                    <td>{{$appointment->vehicle_modal->vehicle_modal}}</td>
-                    <td>{{$appointment->vehicle_type->type}}</td>
-                    <td class="name">{{$appointment->washing_plan->name}}</td>
+                    <td>{{ $appointment->vehicle_company->vehicle_company }}</td>
+                    <td>{{ $appointment->vehicle_modal->vehicle_modal }}</td>
+                    <td>{{ $appointment->vehicle_type->type }}</td>
+                    <td class="name">{{ $appointment->washing_plan->name }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -396,13 +396,13 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{$appointment->appointment_date}}</td>
-                    <td>{{$appointment->vehicle_no}}</td>
-                    <td>{{$appointment->time_frame}}</td>
+                    <td>{{ $appointment->appointment_date }}</td>
+                    <td>{{ $appointment->vehicle_no }}</td>
+                    <td>{{ $appointment->time_frame }}</td>
                     <td>
                       @foreach ($washing_prices as $washing_price)
                         @if ($washing_price->washing_plan_id == $appointment->washing_plan_id && $washing_price->vehicle_type_id == $appointment->vehicle_types_id)
-                          {{$washing_price->price}}
+                          {{ $washing_price->price }}
                         @endif
                       @endforeach
                     </td>
@@ -424,17 +424,17 @@
                       @if ($appointment->status_id == '')
                         -
                       @else
-                        {{$appointment->status->status}}
+                        {{ $appointment->status->status }}
                       @endif
                     </td>
-                    <td>{{$appointment->created_at->diffForHumans()}}</td>
-                    <td>{{$appointment->updated_at->diffForHumans()}}</td>
+                    <td>{{ $appointment->created_at->diffForHumans() }}</td>
+                    <td>{{ $appointment->updated_at->diffForHumans() }}</td>
                     <td>
                       <div class="action-btns">
                         <!-- Edit Button -->
-                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$appointment->id}}editModal">Edit</button>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $appointment->id }}editModal">Edit</button>
                         <!-- Edit Modal -->
-                        <div id="{{$appointment->id}}editModal" class="modal fade" role="dialog">
+                        <div id="{{ $appointment->id }}editModal" class="modal fade" role="dialog">
                           <div class="modal-dialog modal-lg">
                             <!-- Modal content-->
                             <div class="modal-content">
@@ -499,9 +499,9 @@
                           </div>
                         </div>
                         <!-- Delete Button -->
-                        <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{$appointment->id}}DeleteModal">Delete</button>
+                        <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{ $appointment->id }}DeleteModal">Delete</button>
                         <!-- Delete Modal -->
-                        <div id="{{$appointment->id}}DeleteModal" class="delete-modal modal fade" role="dialog">
+                        <div id="{{ $appointment->id }}DeleteModal" class="delete-modal modal fade" role="dialog">
                           <div class="modal-dialog modal-sm">
                             <!-- Modal content-->
                             <div class="modal-content">

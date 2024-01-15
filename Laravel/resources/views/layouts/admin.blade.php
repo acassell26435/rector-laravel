@@ -11,26 +11,26 @@
   <title>Auto Plus</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- bootstrap -->
-  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="{{asset('css/datepicker.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
   <!-- Time Picker -->
-  <link rel="stylesheet" href="{{asset('css/bootstrap-timepicker.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap-timepicker.min.css') }}">
   <!-- Dropzone -->
-  <link rel="stylesheet" href="{{asset('css/dropzone.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/dropzone.css') }}">
   <!-- Select2 -->
-  <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-  <link rel="stylesheet" href="{{asset('css/fontawesome-iconpicker.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/fontawesome-iconpicker.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('css/AdminLTE.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/AdminLTE.css') }}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
   <!-- icon-font css -->
-  <link rel="stylesheet" href="{{asset('css/icon-font.css')}}"/>
-  <link rel="stylesheet" href="{{asset('css/skin-blue.css')}}">
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('css/icon-font.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('css/skin-blue.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
 </head>
@@ -40,7 +40,7 @@
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="{{url('/')}}" class="logo">
+    <a href="{{ url('/') }}" class="logo">
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">Auto Plus</span>
     </a>
@@ -55,28 +55,28 @@
         <ul class="nav navbar-nav">
           <!-- User Account Menu -->
           <li>
-            <a href="{{url('/')}}" class="btn btn-default btn-add"><i class="fa fa-eye" aria-hidden="true"></i> Visit Site</a>
+            <a href="{{ url('/') }}" class="btn btn-default btn-add"><i class="fa fa-eye" aria-hidden="true"></i> Visit Site</a>
           </li>
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{asset('images/users')}}/{{ Auth::user()->photo}}" class="user-image" alt="User Image">
+              <img src="{{ asset('images/users') }}/{{ Auth::user()->photo }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{asset('images/users')}}/{{Auth::user()->photo}}" class="img-circle" alt="User Image">
+                <img src="{{ asset('images/users') }}/{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
                 <p>
-                  {{Auth::user()->name}} - @if (Auth::user()->role == 'A') Administrator @else Subscriber @endif
+                  {{ Auth::user()->name }} - @if (Auth::user()->role == 'A') Administrator @else Subscriber @endif
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{url('/admin/profile')}}" class="btn btn-yellow btn-default">Profile</a>
+                  <a href="{{ url('/admin/profile') }}" class="btn btn-yellow btn-default">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-add">Sign out</a>
@@ -98,10 +98,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('images/users/')}}/{{Auth::user()->photo}}" class="img-circle" alt="User Image">
+          <img src="{{ asset('images/users/') }}/{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{Auth::user()->name}}</p>
+          <p>{{ Auth::user()->name }}</p>
           <i class="fa fa-circle text-success"></i> Online
         </div>
       </div>
@@ -128,15 +128,15 @@
     <section class="content crud-content container-fluid">
       @if (Session::has('added'))
         <div id="sessionModal" class="sessionmodal alert alert-success">
-          <p>{{session('added')}}</p>
+          <p>{{ session('added') }}</p>
         </div>
       @elseif (Session::has('updated'))
         <div id="sessionModal" class="sessionmodal alert alert-info">
-          <p>{{session('updated')}}</p>
+          <p>{{ session('updated') }}</p>
         </div>
       @elseif (Session::has('deleted'))
         <div id="sessionModal" class="sessionmodal alert alert-danger">
-          <p class="danger">{{session('deleted')}}</p>
+          <p class="danger">{{ session('deleted') }}</p>
         </div>
       @endif
       @yield('dashboard')
@@ -156,24 +156,24 @@
       Auto Plus
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; {{date('Y')}} <a href="#">Media City</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ date('Y') }} <a href="#">Media City</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- Scripts -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <!-- Select2 -->
-<script src="{{asset('js/select2.full.min.js')}}"></script>
+<script src="{{ asset('js/select2.full.min.js') }}"></script>
 <!-- bootstrap datepicker -->
-<script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
 <!-- Time Picker -->
-<script src="{{asset('js/bootstrap-timepicker.min.js')}}"></script>
+<script src="{{ asset('js/bootstrap-timepicker.min.js') }}"></script>
 <!-- Drop Zone -->
-<script src="{{asset('js/dropzone.js')}}"></script>
+<script src="{{ asset('js/dropzone.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{asset('js/adminlte.js')}}"></script>
-<script src="{{asset('js/fontawesome-iconpicker.min.js')}}"></script>
+<script src="{{ asset('js/adminlte.js') }}"></script>
+<script src="{{ asset('js/fontawesome-iconpicker.min.js') }}"></script>
 <script>
 $(function () {
    // Session Popup

@@ -7,7 +7,7 @@
         @if ($contacts)
           @foreach ($contacts as $contact)
             @for ($i=0; $i < 1; $i++)
-              <a href="{{url('/')}}"><img src="{{asset('/images/logo')}}/{{$contact->logo}}" class="img-responsive" alt="logo"></a>
+              <a href="{{ url('/') }}"><img src="{{ asset('/images/logo') }}/{{ $contact->logo }}" class="img-responsive" alt="logo"></a>
             @endfor
           @endforeach
         @endif
@@ -42,19 +42,19 @@
         <div class="form-group">
           <button type="submit" class="btn btn-default">
               Login
-          </button> 
+          </button>
            <h5 class="text-center"> OR </h5>
-           @if($social_login->fb_login == 1)
+           @if ($social_login->fb_login == 1)
               <a href="{{ url('/auth/facebook') }}" class="btn btn-default social-facebook"><i class="fa fa-facebook-f"></i> Login With Facebook</a><br/>
            @endif
-           @if($social_login->gogle_login == 1)
+           @if ($social_login->gogle_login == 1)
               <a href="{{ url('/auth/google') }}" class="btn btn-orange social-google"><i class="fa fa-google"></i> Login With Google</a>
             @endif
-          
-          <p class="messege" class="text-center">Not registered? <a href="{{url('/register')}}">Create an account</a></p>
+
+          <p class="messege" class="text-center">Not registered? <a href="{{ url('/register') }}">Create an account</a></p>
         </div>
         <div class="form-group text-center">
-          <a href="{{url('/password/reset')}}">Forgot Password?</a>
+          <a href="{{ url('/password/reset') }}">Forgot Password?</a>
         </div>
       </form>
     </div>

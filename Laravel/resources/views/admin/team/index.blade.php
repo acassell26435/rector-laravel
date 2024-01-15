@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -53,23 +53,23 @@
         @foreach ($teams as $team)
           <tr>
             <td>
-              {{$i}}
+              {{ $i }}
               @php($i++)
             </td>
-            <td><img width="80px" height="80px" src="{{asset('images/teams/')}}/{{$team->photo}}" alt="" class="img-responsive"></td>
-            <td>{{$team->name}}</td>
-            <td>{{$team->email}}</td>
-            <td>{{$team->sex == 'M' ? 'Male' : 'Female'}}</td>
-            <td>{{$team->dob}}</td>
-            <td>{{$team->mobile}}</td>
-            <td>{{$team->phone ? $team->phone : '-'}}</td>
-            <td>{{str_limit($team->address, 10)}}</td>
-            <td>{{$team->post}}</td>
-            <td>{{$team->status == 'A' ? 'Active' : 'Inactive'}}</td>
+            <td><img width="80px" height="80px" src="{{ asset('images/teams/') }}/{{ $team->photo }}" alt="" class="img-responsive"></td>
+            <td>{{ $team->name }}</td>
+            <td>{{ $team->email }}</td>
+            <td>{{ $team->sex == 'M' ? 'Male' : 'Female' }}</td>
+            <td>{{ $team->dob }}</td>
+            <td>{{ $team->mobile }}</td>
+            <td>{{ $team->phone ? $team->phone : '-' }}</td>
+            <td>{{ str_limit($team->address, 10) }}</td>
+            <td>{{ $team->post }}</td>
+            <td>{{ $team->status == 'A' ? 'Active' : 'Inactive' }}</td>
             <td>
-              <a href="#" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#{{$team->id}}createModal">Add Social</a>
+              <a href="#" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#{{ $team->id }}createModal">Add Social</a>
               <!-- Social Modal -->
-              <div id="{{$team->id}}createModal" class="modal fade" role="dialog">
+              <div id="{{ $team->id }}createModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
@@ -92,13 +92,13 @@
                             @foreach ($socials as $social)
                               @if ($social->team_id == $team->id)
                                 <tr>
-                                  <td>{{$social->url}}</td>
-                                  <td>{{$social->social}}</td>
-                                  <td><i class="fa {{$social->social_icon ? $social->social_icon : 'No Icon Select'}}"></i></td>
+                                  <td>{{ $social->url }}</td>
+                                  <td>{{ $social->social }}</td>
+                                  <td><i class="fa {{ $social->social_icon ? $social->social_icon : 'No Icon Select' }}"></i></td>
                                   <td>
-                                    <a href="" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit_modal{{$social->id}}">Edit</a>
+                                    <a href="" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit_modal{{ $social->id }}">Edit</a>
                                     <!-- Social Modal -->
-                                    <div id="edit_modal{{$social->id}}" class="modal fade" role="dialog">
+                                    <div id="edit_modal{{ $social->id }}" class="modal fade" role="dialog">
                                       <div class="modal-dialog">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -143,9 +143,9 @@
                                       </div>
                                     </div>
                                     <!-- delete button -->
-                                    <a href="" type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#delete_modal{{$social->id}}">Delete</a>
+                                    <a href="" type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#delete_modal{{ $social->id }}">Delete</a>
                                     <!-- Social Modal -->
-                                    <div id="delete_modal{{$social->id}}" class="delete-modal modal fade" role="dialog">
+                                    <div id="delete_modal{{ $social->id }}" class="delete-modal modal fade" role="dialog">
                                       <div class="modal-dialog modal-sm">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -210,17 +210,17 @@
                 </div>
               </div>
             </td>
-            <td>{{$team->created_at->diffForHumans()}}</td>
-            <td>{{$team->updated_at->diffForHumans()}}</td>
+            <td>{{ $team->created_at->diffForHumans() }}</td>
+            <td>{{ $team->updated_at->diffForHumans() }}</td>
             <td>
               <!-- edit button -->
-              <a href="{{route('team.edit', $team->id)}}" class="btn btn-info btn-sm">Edit</a>
+              <a href="{{ route('team.edit', $team->id) }}" class="btn btn-info btn-sm">Edit</a>
             </td>
             <td>
               <!-- Delete button -->
-              <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{$team->id}}deleteModal">Delete</button>
+              <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{ $team->id }}deleteModal">Delete</button>
               <!-- Delete Modal -->
-              <div id="{{$team->id}}deleteModal" class="delete-modal modal fade" role="dialog">
+              <div id="{{ $team->id }}deleteModal" class="delete-modal modal fade" role="dialog">
                 <div class="modal-dialog modal-sm">
                   <!-- Modal content-->
                   <div class="modal-content">

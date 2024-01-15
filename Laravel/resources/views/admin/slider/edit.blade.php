@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => 'active','home_section'=>'','slider' => 'active', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => 'active','home_section'=>'','slider' => 'active', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -27,9 +27,9 @@
 @section('content')
 
   <div class="box-header">
-    <div class="box-title">Slider Edit Form : <b>{{$slider->heading}}</b></div>
+    <div class="box-title">Slider Edit Form : <b>{{ $slider->heading }}</b></div>
   </div>
-  <form method="POST" action="{{route('slider.update',$id)}}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('slider.update',$id) }}" enctype="multipart/form-data">
     @csrf
    @method('PUT')
     <div class="box-body">
@@ -37,15 +37,15 @@
         <div class="col-md-8">
           <div class="form-group">
             <label for="">Heading</label>
-            <input type="text" name="heading" class="form-control" value="{{$slider->heading ? $slider->heading : '' }}" required>
+            <input type="text" name="heading" class="form-control" value="{{ $slider->heading ? $slider->heading : '' }}" required>
           </div>
           <div class="form-group">
             <label for="">Sub Heading</label>
-            <input type="text" name="sub_heading" value="{{$slider->sub_heading ? $slider->sub_heading : '' }}" class="form-control" required>
+            <input type="text" name="sub_heading" value="{{ $slider->sub_heading ? $slider->sub_heading : '' }}" class="form-control" required>
           </div>
           <div class="form-group">
             <label for="">Detail</label>
-            <textarea class="form-control" name="detail" id="" cols="30" rows="10">{{$slider->detail ? $slider->detail : '' }}</textarea>
+            <textarea class="form-control" name="detail" id="" cols="30" rows="10">{{ $slider->detail ? $slider->detail : '' }}</textarea>
           </div>
           <div class="form-group{{ $errors->has('button1') ? ' has-error' : '' }} switch-main-block">
             <div class="row">
@@ -53,7 +53,7 @@
                 {!! Form::label('button1', 'Button1') !!}
               </div>
               <div class="col-xs-5 pad-0">
-                <label class="switch">                
+                <label class="switch">
                   {!! Form::checkbox('button1', 1, $slider->button1, ['class' => 'checkbox-switch', 'id'=>'button1_enable']) !!}
                   <span class="slider round"></span>
                 </label>
@@ -63,14 +63,14 @@
               <small class="text-danger">{{ $errors->first('button1') }}</small>
             </div>
           </div>
-          <div id="buttonbox1" style="{{$slider->button1 == 1 ? '': 'display:none;' }}">
+          <div id="buttonbox1" style="{{ $slider->button1 == 1 ? '': 'display:none;' }}">
             <div class="form-group">
               <label for="">Button Text</label>
-              <input type="input" class="form-control" name="button1_text" value="{{$slider->button1_text ? $slider->button1_text : '' }}" placeholder="Please enter button text ex:- Read More">
+              <input type="input" class="form-control" name="button1_text" value="{{ $slider->button1_text ? $slider->button1_text : '' }}" placeholder="Please enter button text ex:- Read More">
             </div>
             <div class="form-group">
               <label for="">Button Link</label>
-              <input type="url" class="form-control" name="button1_link" value="{{$slider->button1_link ? $slider->button1_link : '' }}" placeholder="Please enter button link ex:- https://yourdomain.com/read-more">
+              <input type="url" class="form-control" name="button1_link" value="{{ $slider->button1_link ? $slider->button1_link : '' }}" placeholder="Please enter button link ex:- https://yourdomain.com/read-more">
             </div>
           </div>
 
@@ -80,7 +80,7 @@
                 {!! Form::label('button2', 'Button2') !!}
               </div>
               <div class="col-xs-5 pad-0">
-                <label class="switch">                
+                <label class="switch">
                   {!! Form::checkbox('button2', 1, $slider->button2, ['class' => 'checkbox-switch', 'id'=>'button2_enable']) !!}
                   <span class="slider round"></span>
                 </label>
@@ -90,23 +90,23 @@
               <small class="text-danger">{{ $errors->first('button2') }}</small>
             </div>
           </div>
-          <div id="buttonbox2" style="{{$slider->button2 == 1 ? '': 'display:none;' }}">
+          <div id="buttonbox2" style="{{ $slider->button2 == 1 ? '': 'display:none;' }}">
             <div class="form-group">
               <label for="">Button Text</label>
-              <input type="input" class="form-control" name="button2_text" value="{{$slider->button2_text ? $slider->button2_text : '' }}" placeholder="Please enter button text ex:- contact">
+              <input type="input" class="form-control" name="button2_text" value="{{ $slider->button2_text ? $slider->button2_text : '' }}" placeholder="Please enter button text ex:- contact">
             </div>
             <div class="form-group">
               <label for="">Button Link</label>
-              <input type="url" class="form-control" name="button2_link" value="{{$slider->button2_link ? $slider->button2_link : '' }}" placeholder="Please enter button link ex:- https://yourdomain.com/contact">
+              <input type="url" class="form-control" name="button2_link" value="{{ $slider->button2_link ? $slider->button2_link : '' }}" placeholder="Please enter button link ex:- https://yourdomain.com/contact">
             </div>
           </div>
-          
+
           <div class="form-group">
             <label for="">Image</label>
             <input type="file" name="image">
           </div>
-         
-         
+
+
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@
       </div>
     </div>
   </form>
- 
+
 @endsection
 @section('script')
 <script>
@@ -142,6 +142,6 @@
     });
   });
 
-  
+
 </script>
 @endsection

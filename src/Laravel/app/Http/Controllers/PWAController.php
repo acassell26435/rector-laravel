@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use DotenvEditor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Image;
-use Auth;
 
 /*==========================================
 =            Author: Media City            =
@@ -16,16 +16,15 @@ Author URI: https://mediacity.co.in
 
 class PWAController extends Controller
 {
-
     public function index()
     {
-       
+
         return view('admin.pwa.index');
     }
 
     public function updatesetting(Request $request)
     {
-       
+
         $request->validate([
             'shorticon_1' => 'mimes:png|max:2000',
             'shorticon_2_' => 'mimes:png|max:2000',
@@ -33,7 +32,7 @@ class PWAController extends Controller
 
         $env_keys_save = DotenvEditor::setKeys([
             'PWA_NAME' => $request->app_name,
-            'PWA_ENABLE' => isset($request->PWA_ENABLE) ? "1" : "0",
+            'PWA_ENABLE' => isset($request->PWA_ENABLE) ? '1' : '0',
             'PWA_BG_COLOR' => $request->PWA_BG_COLOR,
             'PWA_THEME_COLOR' => $request->PWA_THEME_COLOR,
         ]);
@@ -50,14 +49,13 @@ class PWAController extends Controller
 
             $image = $request->file('shorticon_1');
 
-            $short_icon1 = 'shorticon_1_'.uniqid().'.'.$image->getClientOriginalExtension();
+            $short_icon1 = 'shorticon_1_' . uniqid() . '.' . $image->getClientOriginalExtension();
 
             $img = Image::make($image->path());
 
             $img->resize(96, 96);
 
             $img->save($destinationPath . '/' . $short_icon1, 90);
- 
 
             $app_settings = DotenvEditor::setKeys([
                 'SHORTCUT_ICON1' => $short_icon1,
@@ -71,7 +69,7 @@ class PWAController extends Controller
 
             $image = $request->file('shorticon_2');
 
-            $short_icon2 = 'shorticon_2_'.uniqid().'.'.$image->getClientOriginalExtension();
+            $short_icon2 = 'shorticon_2_' . uniqid() . '.' . $image->getClientOriginalExtension();
 
             $img = Image::make($image->path());
 
@@ -85,28 +83,25 @@ class PWAController extends Controller
 
             $app_settings->save();
 
-
         }
 
         $env_keys_save->save();
 
-        \Artisan::call('view:cache');
-        \Artisan::call('view:clear');
+        Artisan::call('view:cache');
+        Artisan::call('view:clear');
 
-
-        return back()->with('updated','PWA App Setting Updated !');
+        return back()->with('updated', 'PWA App Setting Updated !');
 
     }
 
     public function updateicons(Request $request)
     {
-       
+
         $request->validate([
             'icon_512' => 'mimes:png|max:2000',
             'splash_2048' => 'mimes:png|max:2000',
         ]);
 
-        
         $destinationPath = public_path('/images/icons');
 
         if ($request->file('icon_512')) {
@@ -116,7 +111,6 @@ class PWAController extends Controller
             $image = $request->file('icon_512');
 
             $img = Image::make($image->path());
-
 
             // 512 x 512
 
@@ -142,13 +136,13 @@ class PWAController extends Controller
 
             $img->save($destinationPath . '/' . $icon192, 90);
 
-             // 152x152
+            // 152x152
 
-         	$icon152 = 'icon-152x152.' . $image->getClientOriginalExtension();
+            $icon152 = 'icon-152x152.' . $image->getClientOriginalExtension();
 
-         	$img->resize(152, 152);
+            $img->resize(152, 152);
 
-         	$img->save($destinationPath . '/' . $icon152, 90);
+            $img->save($destinationPath . '/' . $icon152, 90);
 
             // 144x144
 
@@ -187,7 +181,6 @@ class PWAController extends Controller
         /** Splash Screens */
 
         /** 2048x2732 */
-
         if ($file = $request->file('splash_2048')) {
 
             ini_set('max_execution_time', -1);
@@ -278,11 +271,9 @@ class PWAController extends Controller
 
         }
 
-        \Artisan::call('view:cache');
-        \Artisan::call('view:clear');
+        Artisan::call('view:cache');
+        Artisan::call('view:clear');
 
-      
-
-        return back()->with('updated','Icons are updated Successfully');
+        return back()->with('updated', 'Icons are updated Successfully');
     }
 }

@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> 'active', 'settings'=>'active','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -47,25 +47,25 @@
         </thead>
         <tbody>
 
-         
+
             <tr>
-              <td><img src="{{asset('images/logo')}}/{{$contacts->logo}}" class="img-responsive" alt="logo"></td>
+              <td><img src="{{ asset('images/logo') }}/{{ $contacts->logo }}" class="img-responsive" alt="logo"></td>
               <td>
                 @if ($contacts->logo_two)
-                  <img src="{{asset('/images/logo')}}/{{$contacts->logo_two}}" class="img-responsive" alt="logo_two">
+                  <img src="{{ asset('/images/logo') }}/{{ $contacts->logo_two }}" class="img-responsive" alt="logo_two">
                 @endif
               </td>
-              <td title="{{$contact->c_name}}">{{str_limit($contacts->c_name, 20)}}</td>
-              <td>{{$contacts->mobile}}</td>
-              <td>{{$contacts->phone}}</td>
-              <td>{{$contacts->address}}</td>
-              <td>{{$contacts->email}}</td>
-              <td>{{$contacts->website}}</td>
+              <td title="{{ $contact->c_name }}">{{ str_limit($contacts->c_name, 20) }}</td>
+              <td>{{ $contacts->mobile }}</td>
+              <td>{{ $contacts->phone }}</td>
+              <td>{{ $contacts->address }}</td>
+              <td>{{ $contacts->email }}</td>
+              <td>{{ $contacts->website }}</td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{$contacts->id}}type_edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{ $contacts->id }}type_edit_Modal">Edit</button>
                 <!-- Edit Modal -->
-                <div id="{{$contacts->id}}type_edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $contacts->id }}type_edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -128,15 +128,15 @@
                                     {!! Form::label('inspect', 'Inspect Element') !!}
                                   </div>
                                   <div class="col-xs-5 pad-0">
-                                    <label class="switch">                
-                                      <input class="checkbox-switch" type="checkbox" name="inspect" {{$contacts->inspect == 1 ? 'checked': ''}}>
+                                    <label class="switch">
+                                      <input class="checkbox-switch" type="checkbox" name="inspect" {{ $contacts->inspect == 1 ? 'checked': '' }}>
                                       <span class="slider round"></span>
                                     </label>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                         
+
                              <div class="col-md-6">
                                <div class="form-group{{ $errors->has('rightclick') ? ' has-error' : '' }} switch-main-block">
                                   <div class="row">
@@ -144,13 +144,13 @@
                                       {!! Form::label('rightclick', 'Rightclick') !!}
                                     </div>
                                     <div class="col-xs-5 pad-0">
-                                      <label class="switch">                
-                                        <input class="checkbox-switch" type="checkbox" name="rightclick" {{$contacts->rightclick == 1 ? 'checked': ''}}>
+                                      <label class="switch">
+                                        <input class="checkbox-switch" type="checkbox" name="rightclick" {{ $contacts->rightclick == 1 ? 'checked': '' }}>
                                         <span class="slider round"></span>
                                       </label>
                                     </div>
                                   </div>
-                                 
+
                                 </div>
                              </div>
 
@@ -161,8 +161,8 @@
                                       {!! Form::label('APP_DEBUG', 'Debug Mode') !!}
                                     </div>
                                     <div class="col-xs-5 pad-0">
-                                      <label class="switch">                
-                                         <input class="checkbox-switch" type="checkbox" name="APP_DEBUG" {{env('APP_DEBUG') == true ? 'checked' : ''}}>
+                                      <label class="switch">
+                                         <input class="checkbox-switch" type="checkbox" name="APP_DEBUG" {{ env('APP_DEBUG') == true ? 'checked' : '' }}>
                                         <span class="slider round"></span>
                                       </label>
                                     </div>
@@ -183,7 +183,7 @@
                 <!-- End Edit Button -->
               </td>
             </tr>
-        
+
         </tbody>
       </table>
       {{-- {!! Form::model($contacts, ['method' => 'PATCH', 'action' => ['AdminContactController@update', $contacts->id], 'files'=>true]) !!}
@@ -217,7 +217,7 @@
               </div>
               <div class="form-group{{ $errors->has('APP_DEBUG') ? ' has-error' : '' }}">
                   <label for=""> APP Debug</label>
-                  <input type="checkbox" name="APP_DEBUG" {{env('APP_DEBUG') == true ? 'checked' : ''}}>
+                  <input type="checkbox" name="APP_DEBUG" {{ env('APP_DEBUG') == true ? 'checked' : '' }}>
                   <small class="text-danger">{{ $errors->first('APP_DEBUG') }}</small>
               </div>
             </div>
@@ -242,18 +242,18 @@
 
               <div class="form-group{{ $errors->has('inspect') ? ' has-error' : '' }}">
                <label for="">Inspect Element</label>
-                  <input type="checkbox" name="inspect" {{$contacts->inspect == 1 ? 'checked': ''}}>
-                  
+                  <input type="checkbox" name="inspect" {{ $contacts->inspect == 1 ? 'checked': '' }}>
+
                 <small class="text-danger">{{ $errors->first('inspect') }}</small>
               </div>
 
               <div class="form-group{{ $errors->has('rightclick') ? ' has-error' : '' }}">
                <label for="">Right click Disable</label>
-                  <input type="checkbox" name="rightclick" {{$contacts->rightclick == 1 ? 'checked': ''}}>
+                  <input type="checkbox" name="rightclick" {{ $contacts->rightclick == 1 ? 'checked': '' }}>
                 <small class="text-danger">{{ $errors->first('rightclick') }}</small>
               </div>
             </div>
-           
+
           </div>
         </div>
         <div class="box-footer">
@@ -262,7 +262,7 @@
             </div>
         </div>
       {!! Form::close() !!} --}}
-        
+
    </div>
   @endif
 @endsection

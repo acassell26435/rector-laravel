@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Contact;
+use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -40,10 +40,37 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function getRegister()
+    {
+        $contacts = Contact::all();
+
+        return view('auth.register', ['contacts' => $contacts]);
+    }
+
+    public function postLogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+
+            return redirect($this->redirectPath());
+
+        } else {
+            return redirect('/auth/login')
+                ->withInput($request->only('email'))
+                ->withErrors([
+                    'email' => 'These credentials do not match our record',
+                ]);
+        }
+    }
+
+    public function redirectPath()
+    {
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -52,7 +79,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'sex'=> 'required',
+            'sex' => 'required',
             'dob' => 'required',
             'mobile' => 'required|max:14',
         ]);
@@ -61,7 +88,6 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
      * @retu  rn \App\User
      */
     protected function create(array $data)
@@ -70,37 +96,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'dob' => $data['dob'],
             'mobile' => $data['mobile'],
             'phone' => $data['phone'],
             'address' => $data['address'],
             'dob' => $data['dob'],
             'sex' => $data['sex'],
         ]);
-    }
-
-    public function getRegister(){
-      $contacts = Contact::all();
-      return view('auth.register', compact('contacts'));
-    }
-
-    public function postLogin(Request $request){
-        $credentials = $request->only('email','password');
-        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']]))  {
-
-            return redirect($this->redirectPath());
-
-        }
-        else
-        {
-        return redirect('/auth/login')
-           ->withInput($request->only('email'))
-           ->withErrors([
-               'email' => 'These credentials do not match our record',
-           ]);
-        }
-    }
-     public function redirectPath(){
-        return property_exists($this,'redirectTo') ? $this->redirectTo:'/';
     }
 }

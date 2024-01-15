@@ -1,42 +1,32 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        if(!Schema::hasTable('users')){
-            Schema::create('users', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('photo')->unique()->nullable();
-                $table->string('name');
-                $table->string('email')->unique();
-                $table->string('password');
-                $table->char('sex')->nullable();
-                $table->date('dob')->nullable();
-                $table->string('mobile')->unique();
-                $table->string('phone')->nullable();
-                $table->text('address')->nullable();
-                $table->char('role')->nullable();
-                $table->rememberToken();
-                $table->timestamps();
+        if (! Schema::hasTable('users')) {
+            Schema::create('users', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('photo')->unique()->nullable();
+                $blueprint->string('name');
+                $blueprint->string('email')->unique();
+                $blueprint->string('password');
+                $blueprint->char('sex')->nullable();
+                $blueprint->date('dob')->nullable();
+                $blueprint->string('mobile')->unique();
+                $blueprint->string('phone')->nullable();
+                $blueprint->text('address')->nullable();
+                $blueprint->char('role')->nullable();
+                $blueprint->rememberToken();
+                $blueprint->timestamps();
             });
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');

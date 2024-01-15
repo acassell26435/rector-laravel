@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
-use App\Team;
 use App\Status;
+use App\Team;
 use App\Team_task;
+use App\User;
+use Illuminate\Http\Request;
 
 class AdminTeamTaskController extends Controller
 {
@@ -22,7 +22,7 @@ class AdminTeamTaskController extends Controller
         $statuses = Status::pluck('status', 'id')->all();
         $tasks = Team_task::all();
 
-        return view('admin.team_task.index', compact('users', 'teams', 'statuses', 'tasks'));
+        return view('admin.team_task.index', ['users' => $users, 'teams' => $teams, 'statuses' => $statuses, 'tasks' => $tasks]);
     }
 
     /**
@@ -38,7 +38,6 @@ class AdminTeamTaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -75,7 +74,6 @@ class AdminTeamTaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

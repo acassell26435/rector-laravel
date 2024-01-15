@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> 'active', 'settings'=>'','company_social' => 'active','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -84,20 +84,20 @@
           @foreach ($socials as $social)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$social->social_site}}</td>
-              <td><i class="fa {{$social->social_icon}}"></i></td>
-              <td>{{$social->link}}</td>
-              <td>{{$social->created_at->diffForHumans()}}</td>
-              <td>{{$social->updated_at->diffForHumans()}}</td>
+              <td>{{ $social->social_site }}</td>
+              <td><i class="fa {{ $social->social_icon }}"></i></td>
+              <td>{{ $social->link }}</td>
+              <td>{{ $social->created_at->diffForHumans() }}</td>
+              <td>{{ $social->updated_at->diffForHumans() }}</td>
               <td>
                 <div class="action-btns">
                   <!-- Edit Button -->
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$social->id}}editModal">Edit</button>
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $social->id }}editModal">Edit</button>
                   <!-- Edit Modal -->
-                  <div id="{{$social->id}}editModal" class="modal fade" role="dialog">
+                  <div id="{{ $social->id }}editModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                       <!-- Modal content-->
                       <div class="modal-content">
@@ -133,9 +133,9 @@
                     </div>
                   </div>
                   <!-- Delete Button -->
-                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#{{$social->id}}DeleteModal">Delete</button>
+                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#{{ $social->id }}DeleteModal">Delete</button>
                   <!-- Delete Modal -->
-                  <div id="{{$social->id}}DeleteModal" class="delete-modal modal fade" role="dialog">
+                  <div id="{{ $social->id }}DeleteModal" class="delete-modal modal fade" role="dialog">
                     <div class="modal-dialog modal-sm">
                       <!-- Modal content-->
                       <div class="modal-content">

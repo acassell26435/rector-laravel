@@ -8,7 +8,7 @@
           <h3 class="section-heading">Portfolio</h3>
         </div>
         <ol class="breadcrumb">
-          <li><a href="{{url('/')}}">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li><a href="#">Gallery</a></li>
           <li class="active"><a>Portfolio 3 Column</a></li>
         </ol>
@@ -29,8 +29,8 @@
             @foreach ($galleries as $gallery)
               <div class="col-md-3 col-sm-6 work-gallery-block">
                 <div class="portfolio-img">
-                  <img src="{{asset('images/gallery/')}}/{{$gallery->gallery_img}}" class="img-responsive" alt="gallery">
-                  <div class="overlay-bg"><a href="{{asset('images/gallery/')}}/{{$gallery->gallery_img}}" title="Your Image Title"><i class="fa fa-plus"></i></a></div>
+                  <img src="{{ asset('images/gallery/') }}/{{ $gallery->gallery_img }}" class="img-responsive" alt="gallery">
+                  <div class="overlay-bg"><a href="{{ asset('images/gallery/') }}/{{ $gallery->gallery_img }}" title="Your Image Title"><i class="fa fa-plus"></i></a></div>
                 </div>
               </div>
             @endforeach

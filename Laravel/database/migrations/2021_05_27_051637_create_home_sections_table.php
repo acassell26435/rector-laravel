@@ -1,19 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateHomeSectionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        if(!Schema::hasTable('home_sections')){
+        if (! Schema::hasTable('home_sections')) {
             Schema::create('home_sections', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->boolean('slider_section')->default(0);
@@ -32,11 +27,6 @@ class CreateHomeSectionsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('home_sections');

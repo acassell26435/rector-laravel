@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Washing_plan;
 use App\Vehicle_type;
+use App\Washing_plan;
 use App\Washing_price;
+use Illuminate\Http\Request;
 
 class AdminWashingPriceController extends Controller
 {
@@ -20,7 +20,7 @@ class AdminWashingPriceController extends Controller
         $vehicle_types = Vehicle_type::pluck('type', 'id')->all();
         $washing_prices = Washing_price::all();
 
-        return view('admin.washing_price.index', compact('washing_plans', 'vehicle_types', 'washing_prices'));
+        return view('admin.washing_price.index', ['washing_plans' => $washing_plans, 'vehicle_types' => $vehicle_types, 'washing_prices' => $washing_prices]);
     }
 
     /**
@@ -36,7 +36,6 @@ class AdminWashingPriceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -74,7 +73,6 @@ class AdminWashingPriceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

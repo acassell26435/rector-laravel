@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\UsersCreateRequest;
 use App\Http\Requests\UsersUpdateRequest;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -16,23 +15,22 @@ class AdminUsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        if (Auth::user()->role == 'A') {
 
-       public function index()
-       {
-           if (Auth::user()->role == 'A') {
+            $users = User::where('id', '!=', Auth::id())->get();
 
-               $users = User::where('id', '!=', Auth::id())->get();
-               return view('admin.users.index', compact('users'));
+            return view('admin.users.index', ['users' => $users]);
 
-           }
+        }
 
-            if (Auth::user()->role == 'S') {
+        if (Auth::user()->role == 'S') {
 
-               return redirect('/admin');
+            return redirect('/admin');
 
-            }
-       }
-
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -41,44 +39,44 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-      if (Auth::user()->role == 'A') {
+        if (Auth::user()->role == 'A') {
 
-        return view('admin.users.create');
+            return view('admin.users.create');
 
-      }
+        }
 
-      if (Auth::user()->role == 'S') {
+        if (Auth::user()->role == 'S') {
 
-        return redirect('/admin');
+            return redirect('/admin');
 
-      }
+        }
 
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $usersCreateRequest
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersCreateRequest $request)
+    public function store(UsersCreateRequest $usersCreateRequest)
     {
         //
-        $input = $request->all();
+        $input = $usersCreateRequest->all();
 
-        if ($file = $request->file('photo')) {
+        if ($file = $usersCreateRequest->file('photo')) {
 
-          $name = time() . $file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
-          $file->move('images/users', $name);
+            $file->move('images/users', $name);
 
-          $input['photo'] = $name;
+            $input['photo'] = $name;
 
         }
 
-        $input['password'] = bcrypt($request->password);
+        $input['password'] = bcrypt($usersCreateRequest->password);
 
-        $input['dob'] = date("Y/m/d", strtotime($request->dob));
+        $input['dob'] = date('Y/m/d', strtotime((string) $usersCreateRequest->dob));
 
         User::create($input);
 
@@ -106,53 +104,47 @@ class AdminUsersController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        return view('admin.users.edit', compact('user'));
+
+        return view('admin.users.edit', ['user' => $user]);
 
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $usersUpdateRequest
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsersUpdateRequest $request, $id)
+    public function update(UsersUpdateRequest $usersUpdateRequest, $id)
     {
 
         $user = User::findOrFail($id);
 
-        if ($request->password == '') {
+        $input = $usersUpdateRequest->password == '' ? $usersUpdateRequest->except('password') : $usersUpdateRequest->all();
 
-          $input = $request->except('password');
+        if ($file = $usersUpdateRequest->file('photo')) {
 
-        }
-        else {
-          $input = $request->all();
-        }
+            $name = time() . $file->getClientOriginalName();
 
-        if ($file = $request->file('photo')) {
+            $file->move('images/users', $name);
 
-          $name = time() . $file->getClientOriginalName();
+            if ($user->photo) {
 
-          $file->move('images/users', $name);
+                unlink(public_path() . '/images/users/' . $user->photo);
 
-          if ($user->photo) {
+            }
 
-            unlink(public_path() . "/images/users/" . $user->photo);
-
-          }
-
-          $input['photo'] = $name;
+            $input['photo'] = $name;
 
         }
 
-        if (!$request->password == '') {
+        if (! $usersUpdateRequest->password == '') {
 
-          $input['password'] = bcrypt($request->password);
+            $input['password'] = bcrypt($usersUpdateRequest->password);
 
         }
-        $input['dob'] = date("Y/m/d", strtotime($request->dob));
+        $input['dob'] = date('Y/m/d', strtotime((string) $usersUpdateRequest->dob));
 
         $user->update($input);
 
@@ -172,7 +164,7 @@ class AdminUsersController extends Controller
 
         if ($user->photo) {
 
-          unlink(public_path() . "/images/users/" . $user->photo);
+            unlink(public_path() . '/images/users/' . $user->photo);
 
         }
 

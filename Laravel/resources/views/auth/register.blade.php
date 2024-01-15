@@ -7,7 +7,7 @@
       @if ($contacts)
         @foreach ($contacts as $contact)
           @for ($i=0; $i < 1; $i++)
-            <img src="{{asset('/images/logo')}}/{{$contact->logo}}" class="img-responsive" alt="logo">
+            <img src="{{ asset('/images/logo') }}/{{ $contact->logo }}" class="img-responsive" alt="logo">
           @endfor
         @endforeach
       @endif
@@ -85,10 +85,10 @@
           </div>
           <br/>
           <h5 class=""> OR </h5>
-           @if($social_login->fb_login == 1)
+           @if ($social_login->fb_login == 1)
               <a href="{{ url('/auth/facebook') }}" class="btn btn-default btn-add "><i class="fa fa-facebook-f"></i> Login With Facebook</a><br/>
            @endif
-           @if($social_login->gogle_login == 1)
+           @if ($social_login->gogle_login == 1)
               <a href="{{ url('/auth/google') }}" class="btn btn-orange btn-add"><i class="fa fa-google"></i> Login With Google</a>
             @endif
         </div>

@@ -3,24 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\HomeSection;
+use Exception;
 use Illuminate\Http\Request;
 
 class HomeSectionController extends Controller
 {
+    public $homeSection;
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct(){
+    public function __construct()
+    {
         $this->homeSection = HomeSection::query();
     }
 
     public function index()
     {
         $homesection = $this->homeSection->first();
-        return view('admin.home_section.index',compact('homesection'));
+
+        return view('admin.home_section.index', ['homesection' => $homesection]);
     }
 
     /**
@@ -36,12 +40,11 @@ class HomeSectionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        
+
         $home_section = $this->homeSection->first();
         $input['slider_section'] = $request->slider_section ? 1 : 0;
         $input['about_section'] = $request->about_section ? 1 : 0;
@@ -54,21 +57,19 @@ class HomeSectionController extends Controller
         $input['testinomial_section'] = $request->testinomial_section ? 1 : 0;
         $input['blog_section'] = $request->blog_section ? 1 : 0;
         $input['client_section'] = $request->client_section ? 1 : 0;
-        try{
-            if($home_section == NULL){
+        try {
+            if ($home_section == null) {
                 $query = $this->homeSection->create($input);
-                return back()->with('added','Home Section has been successfully inserted!');
-            }else{
-                $query = $this->homeSection->update($input);
-                 return back()->with('added','Home Section has been successfully updated!');
-            }
-        }catch(\Exception $e){
-            return back()->with('deleted',$e->getMessage());
-        }
-       
-       
-        
-    }
 
-   
+                return back()->with('added', 'Home Section has been successfully inserted!');
+            } else {
+                $query = $this->homeSection->update($input);
+
+                return back()->with('added', 'Home Section has been successfully updated!');
+            }
+        } catch (Exception $e) {
+            return back()->with('deleted', $e->getMessage());
+        }
+
+    }
 }
