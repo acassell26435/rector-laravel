@@ -3,6 +3,7 @@
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
 use RectorLaravel\Set\LaravelSetList;
+use Rector\Set\ValueObject\LevelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
@@ -15,5 +16,5 @@ return static function (RectorConfig $rectorConfig): void {
 
     ]);
     $rectorConfig->disableParallel();
-    $rectorConfig->sets([LaravelSetList::LARAVEL_90, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
+    $rectorConfig->sets([LevelSetList::UP_TO_PHP_82,LaravelSetList::LARAVEL_100, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
 };
