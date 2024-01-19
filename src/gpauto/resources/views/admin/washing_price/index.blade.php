@@ -7,7 +7,7 @@
     'plan' => 'active', 'all_plan' => '', 'plan_price' => 'active',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -95,20 +95,20 @@
           @foreach ($washing_prices as $washing_price)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$washing_price->vehicle_type->type}}</td>
-              <td>{{$washing_price->washing_plan->name}}</td>
-              <td>{{$washing_price->price}}</td>
-              <td>{{$washing_price->duration}}</td>
-              <td>{{$washing_price->created_at->diffForHumans()}}</td>
-              <td>{{$washing_price->updated_at->diffForHumans()}}</td>
+              <td>{{ $washing_price->vehicle_type->type }}</td>
+              <td>{{ $washing_price->washing_plan->name }}</td>
+              <td>{{ $washing_price->price }}</td>
+              <td>{{ $washing_price->duration }}</td>
+              <td>{{ $washing_price->created_at->diffForHumans() }}</td>
+              <td>{{ $washing_price->updated_at->diffForHumans() }}</td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{$washing_price->id}}edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{ $washing_price->id }}edit_Modal">Edit</button>
                 <!-- Edit Modal -->
-                <div id="{{$washing_price->id}}edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $washing_price->id }}edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -155,9 +155,9 @@
                 </div>
                 <!-- End Edit Button -->
                 <!-- Delete Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn btn-danger" data-toggle="modal" data-target="#{{$washing_price->id}}delete_Modal">Delete</button>
+                <button type="button" class="btn btn-info btn-sm add-btn btn-danger" data-toggle="modal" data-target="#{{ $washing_price->id }}delete_Modal">Delete</button>
                 <!-- Create Delete Modal -->
-                <div id="{{$washing_price->id}}delete_Modal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $washing_price->id }}delete_Modal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <div class="modal-header">

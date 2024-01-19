@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateHomeSlidersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('home_sliders')) {
@@ -31,11 +26,6 @@ class CreateHomeSlidersTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('home_sliders');

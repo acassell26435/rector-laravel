@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Facades\Artisan;
 
 class HelpController extends Controller
@@ -35,7 +36,7 @@ class HelpController extends Controller
             Artisan::call('view:clear');
 
             return back()->with('added', 'Clear cache Successfully! ');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return back()->with('deleted', $e->getMessage());
         }
     }

@@ -47,7 +47,7 @@ class AdminServiceController extends Controller
 
         if ($file = $request->file('icon')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/services', $name);
 
@@ -101,11 +101,11 @@ class AdminServiceController extends Controller
 
         if ($file = $request->file('icon')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/services', $name);
 
-            unlink(public_path().'images/services/'.$name);
+            unlink(public_path() . 'images/services/' . $name);
 
             $input['icon'] = $name;
 
@@ -129,7 +129,7 @@ class AdminServiceController extends Controller
 
         if ($service->icon) {
 
-            unlink(public_path().'/images/services/'.$service->icon);
+            unlink(public_path() . '/images/services/' . $service->icon);
 
         }
 

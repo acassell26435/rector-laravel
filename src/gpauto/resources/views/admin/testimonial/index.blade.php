@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => 'ative','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => 'active', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => 'ative','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => 'active', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -97,21 +97,21 @@
           @foreach ($testimonials as $testimonial)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td><img width="50px" height="50px" src="{{asset('images/testimonial')}}/{{$testimonial->image}}" class="img-responsive" alt=""></td>
-              <td>{{$testimonial->name}}</td>
-              <td>{{$testimonial->post}}</td>
-              <td title="{{$testimonial->detail}}">{{Str::limit($testimonial->detail, 50)}}</td>
-              <td>{{$testimonial->created_at->diffForHumans()}}</td>
-              <td>{{$testimonial->updated_at->diffForHumans()}}</td>
+              <td><img width="50px" height="50px" src="{{ asset('images/testimonial') }}/{{ $testimonial->image }}" class="img-responsive" alt=""></td>
+              <td>{{ $testimonial->name }}</td>
+              <td>{{ $testimonial->post }}</td>
+              <td title="{{ $testimonial->detail }}">{{ Str::limit($testimonial->detail, 50) }}</td>
+              <td>{{ $testimonial->created_at->diffForHumans() }}</td>
+              <td>{{ $testimonial->updated_at->diffForHumans() }}</td>
               <td>
                 <div class="action-btns">
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$testimonial->id}}TestimonialUpdateModal">Edit</button>
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $testimonial->id }}TestimonialUpdateModal">Edit</button>
                   <!-- Testimonial Update Modal -->
-                  <div id="{{$testimonial->id}}TestimonialUpdateModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">  
+                  <div id="{{ $testimonial->id }}TestimonialUpdateModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
@@ -157,9 +157,9 @@
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{$testimonial->id}}TestimonialDeleteModal">Delete</button>
+                  <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{ $testimonial->id }}TestimonialDeleteModal">Delete</button>
                   <!-- Testimonial Delete Modal -->
-                  <div id="{{$testimonial->id}}TestimonialDeleteModal" class="delete-modal modal fade" role="dialog">
+                  <div id="{{ $testimonial->id }}TestimonialDeleteModal" class="delete-modal modal fade" role="dialog">
                     <div class="modal-dialog modal-sm">
                       <!-- Modal content-->
                       <div class="modal-content">

@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => 'active','home_section'=>'','slider' => 'active', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => 'active','home_section'=>'','slider' => 'active', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -30,7 +30,7 @@
     <div class="box-title">Slider Create Form</div>
 
   </div>
-  <form method="POST" action="{{route('slider.store')}}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="box-body">
       <div class="row">
@@ -47,14 +47,14 @@
             <label for="">Detail</label>
             <textarea class="form-control" name="detail" id="" cols="30" rows="10"></textarea>
           </div>
-          
+
          <div class="form-group{{ $errors->has('button1') ? ' has-error' : '' }} switch-main-block">
             <div class="row">
               <div class="col-xs-4">
                 {!! Form::label('button1', 'Button1') !!}
               </div>
               <div class="col-xs-5 pad-0">
-                <label class="switch">                
+                <label class="switch">
                   {!! Form::checkbox('button1', 1, null, ['class' => 'checkbox-switch', 'id'=>'button1_enable']) !!}
                   <span class="slider round"></span>
                 </label>
@@ -64,7 +64,7 @@
               <small class="text-danger">{{ $errors->first('button1') }}</small>
             </div>
           </div>
-           
+
           <div id="buttonbox1" style="display:none;">
             <div class="form-group">
               <label for="">Button Text</label>
@@ -82,7 +82,7 @@
                 {!! Form::label('button2', 'Button2') !!}
               </div>
               <div class="col-xs-5 pad-0">
-                <label class="switch">                
+                <label class="switch">
                   {!! Form::checkbox('button2', 1, null, ['class' => 'checkbox-switch', 'id'=>'button2_enable']) !!}
                   <span class="slider round"></span>
                 </label>
@@ -102,13 +102,13 @@
               <input type="url" class="form-control" name="button2_link" value="" placeholder="Please enter button link ex:- https://yourdomain.com/read-more">
             </div>
           </div>
-          
+
           <div class="form-group">
             <label for="">Image</label>
             <input type="file" name="image">
           </div>
-         
-         
+
+
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
         </div>
     </div>
   </form>
- 
+
 @endsection
 @section('script')
 <script>
@@ -144,6 +144,6 @@
     });
   });
 
-  
+
 </script>
 @endsection

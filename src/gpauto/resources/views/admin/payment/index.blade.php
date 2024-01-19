@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => 'active', 'appointment' => '', 'payment' => 'active', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -46,16 +46,16 @@
           @foreach ($payments as $payment)
             <tr>
               <td>
-                {{$j}}
+                {{ $j }}
                 @php($j++)
               </td>
-              <td>{{$payment->user->name}}</td>
-              <td>{{$payment->appointment_id}}</td>
+              <td>{{ $payment->user->name }}</td>
+              <td>{{ $payment->appointment_id }}</td>
               <td>
                 @if ($washing_prices)
                   @foreach ($washing_prices as $washing_price)
                     @if ($washing_price->washing_plan_id == $payment->appointment->washing_plan_id && $washing_price->vehicle_type_id == $payment->appointment->vehicle_types_id)
-                      {{$washing_price->price}}
+                      {{ $washing_price->price }}
                     @endif
                   @endforeach
                 @endif
@@ -64,35 +64,35 @@
                 @if ($payment->discount == '')
                   -
                 @else
-                  {{$payment->discount}}
+                  {{ $payment->discount }}
                 @endif
               </td>
               <td>
                 @if ($payment->advance == '')
                   -
                 @else
-                  {{$payment->advance}}
+                  {{ $payment->advance }}
                 @endif
               </td>
               <td>
                 @if ($payment->payment_mode_id == '')
                   -
                 @else
-                  {{$payment->payment_mode->mode}}
+                  {{ $payment->payment_mode->mode }}
                 @endif
               </td>
               <td>
                 @if ($payment->remark == '')
                   -
                 @else
-                  {{$payment->remark}}
+                  {{ $payment->remark }}
                 @endif
               </td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{$payment->id}}type_edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{ $payment->id }}type_edit_Modal">Edit</button>
                 <!-- Edit Modal -->
-                <div id="{{$payment->id}}type_edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $payment->id }}type_edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -139,9 +139,9 @@
                 </div>
                 <!-- End Edit Button -->
                 <!-- Delete Button -->
-                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{$payment->id}}type_del_Modal">Delete</button>
+                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{ $payment->id }}type_del_Modal">Delete</button>
                 <!-- Delete Modal -->
-                <div id="{{$payment->id}}type_del_Modal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $payment->id }}type_del_Modal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <div class="modal-header">

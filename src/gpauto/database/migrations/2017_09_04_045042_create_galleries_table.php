@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateGalleriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('galleries')) {
@@ -22,11 +17,6 @@ class CreateGalleriesTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('galleries');

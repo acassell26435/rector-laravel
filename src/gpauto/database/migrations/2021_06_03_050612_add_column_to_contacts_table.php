@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddColumnToContactsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (Schema::hasTable('contacts')) {
@@ -25,11 +20,6 @@ class AddColumnToContactsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         if (Schema::hasTable('contacts')) {

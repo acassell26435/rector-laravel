@@ -27,7 +27,7 @@ Route::resource('/', 'HomePageController');
 
 Auth::routes();
 
-Route::get('/home', function () {
+Route::get('home', function () {
     return Redirect('/');
 });
 
@@ -40,10 +40,10 @@ Route::get('password/reset{token}', ['as' => 'password.reset.token', 'uses' => '
 Route::post('subscribe', 'MailChimpController@subscribe');
 Route::post('subscribe', 'HomePageController@mailError');
 
-Route::get('/contact', 'contactMailController@index');
-Route::post('/contact', 'contactMailController@send');
+Route::get('contact', 'contactMailController@index');
+Route::post('contact', 'contactMailController@send');
 
-Route::get('/404', function () {
+Route::get('404', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -52,7 +52,7 @@ Route::get('/404', function () {
     return view('404', compact('company_socials', 'services', 'opening_times', 'contacts'));
 });
 
-Route::get('/403', function () {
+Route::get('403', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -61,7 +61,7 @@ Route::get('/403', function () {
     return view('403', compact('company_socials', 'services', 'opening_times', 'contacts'));
 });
 
-Route::get('/pricing_plan', function () {
+Route::get('pricing_plan', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -74,7 +74,7 @@ Route::get('/pricing_plan', function () {
     return view('pricing_plan', compact('company_socials', 'services', 'opening_times', 'contacts', 'washing_plans', 'washing_includes', 'vehicle_types', 'washing_prices'));
 });
 
-Route::get('/faq', function () {
+Route::get('faq', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -83,7 +83,7 @@ Route::get('/faq', function () {
     return view('faq', compact('company_socials', 'services', 'opening_times', 'contacts'));
 });
 
-Route::get('/coming_soon', function () {
+Route::get('coming_soon', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -92,7 +92,7 @@ Route::get('/coming_soon', function () {
     return view('coming_soon', compact('company_socials', 'services', 'opening_times', 'contacts'));
 });
 
-Route::get('/under_construction', function () {
+Route::get('under_construction', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -101,7 +101,7 @@ Route::get('/under_construction', function () {
     return view('under_construction', compact('company_socials', 'services', 'opening_times', 'contacts'));
 });
 
-Route::get('/gallery', function () {
+Route::get('gallery', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -111,7 +111,7 @@ Route::get('/gallery', function () {
     return view('gallery', compact('company_socials', 'services', 'opening_times', 'contacts', 'galleries'));
 });
 
-Route::get('/team', function () {
+Route::get('team', function () {
     $company_socials = Company_social::all();
     $services = Service::all();
     $opening_times = Opening_hour::all();
@@ -124,13 +124,13 @@ Route::get('/team', function () {
 
 Route::group(['middleware' => 'iscommon'], function () {
 
-    Route::get('/admin', 'AdminController@index');
+    Route::get('admin', 'AdminController@index');
 
-    Route::get('/admin/profile', function () {
+    Route::get('admin/profile', function () {
         return view('profile');
     });
 
-    Route::resource('/admin/users', 'AdminUsersController');
+    Route::resource('admin/users', 'AdminUsersController');
 
     Route::resource('admin/appointment', 'AdminAppointmentController');
 
@@ -139,9 +139,9 @@ Route::get('admin/downloadPDF', 'AdminAppointmentController@downloadPDF');
 
 Route::group(['middleware' => 'isadmin'], function () {
 
-    Route::resource('/admin/team', 'AdminTeamController');
+    Route::resource('admin/team', 'AdminTeamController');
 
-    Route::resource('/admin/team_social', 'AdminTeamSocialController');
+    Route::resource('admin/team_social', 'AdminTeamSocialController');
 
     Route::resource('admin/services', 'AdminServiceController');
 
@@ -193,26 +193,26 @@ Route::group(['middleware' => 'isadmin'], function () {
 
     Route::resource('admin/slider', 'HomeSliderController');
 
-    Route::get('/admin/report', 'AdminAppointmentController@report')->name('booking.report');
+    Route::get('admin/report', 'AdminAppointmentController@report')->name('booking.report');
 
-    Route::get('/admin/report/index', 'AdminAppointmentController@ajaxonLoad')->name('ajaxreport');
+    Route::get('admin/report/index', 'AdminAppointmentController@ajaxonLoad')->name('ajaxreport');
 
-    Route::get('/pwa-settings', 'PWAController@index')->name('pwa.setting.index');
+    Route::get('pwa-settings', 'PWAController@index')->name('pwa.setting.index');
 
-    Route::post('/pwa/update/setting', 'PWAController@updatesetting')->name('pwa.setting.update');
+    Route::post('pwa/update/setting', 'PWAController@updatesetting')->name('pwa.setting.update');
 
-    Route::post('/pwa/update/icons/setting', 'PWAController@updateicons')->name('pwa.icons.update');
+    Route::post('pwa/update/icons/setting', 'PWAController@updateicons')->name('pwa.icons.update');
 
     /*Social Login setting routes*/
-    Route::get('/admin/social-login/', 'SocialLoginController@index')->name('social.login');
-    Route::put('/admin/social-login/{id}', 'SocialLoginController@updatePage')->name('sociallogin.update');
+    Route::get('admin/social-login/', 'SocialLoginController@index')->name('social.login');
+    Route::put('admin/social-login/{id}', 'SocialLoginController@updatePage')->name('sociallogin.update');
     Route::get('admin/social-login/set', 'SocialLoginController@facebook')->name('set.facebook');
     Route::post('admin/facebook', 'SocialLoginController@updateFacebookKey')->name('key.facebook');
     Route::post('admin/google', 'SocialLoginController@updateGoogleKey')->name('key.google');
 
     /* HOme section */
-    Route::get('/admin/home-setting', 'HomeSectionController@index')->name('home.section');
-    Route::post('/admin/home-setting', 'HomeSectionController@store')->name('home.section.store');
+    Route::get('admin/home-setting', 'HomeSectionController@index')->name('home.section');
+    Route::post('admin/home-setting', 'HomeSectionController@store')->name('home.section.store');
 
     //help routes
 

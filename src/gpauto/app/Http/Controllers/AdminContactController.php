@@ -106,7 +106,7 @@ class AdminContactController extends Controller
 
             $name = $file->getClientOriginalName();
 
-            unlink(public_path().'/images/logo/'.$contact->logo);
+            unlink(public_path() . '/images/logo/' . $contact->logo);
 
             $file->move('images/logo', $name);
 
@@ -118,7 +118,7 @@ class AdminContactController extends Controller
 
             $name2 = $file2->getClientOriginalName();
 
-            unlink(public_path().'/images/logo/'.$contact->logo_two);
+            unlink(public_path() . '/images/logo/' . $contact->logo_two);
 
             $file2->move('images/logo', $name2);
             $input['logo_two'] = $name2;
@@ -151,7 +151,7 @@ class AdminContactController extends Controller
     {
         $contact = Contact::findOrFail($id);
 
-        unlink(public_path().'/images/logo/'.$contact->logo);
+        unlink(public_path() . '/images/logo/' . $contact->logo);
 
         $contact->delete();
 
@@ -177,7 +177,7 @@ class AdminContactController extends Controller
     public function store_mail_setting(Request $request)
     {
 
-        $input = $request->all();
+        $request->all();
         $env_update = DotenvEditor::setKeys([
             'MAIL_FROM_NAME' => $request->MAIL_FROM_NAME,
             'MAIL_DRIVER' => $request->MAIL_DRIVER,
@@ -210,7 +210,7 @@ class AdminContactController extends Controller
     public function store_mailchimp_setting(Request $request)
     {
 
-        $input = $request->all();
+        $request->all();
         $env_update = DotenvEditor::setKeys([
             'MAILCHIMP_API_KEY' => $request->MAILCHIMP_API_KEY,
             'MAILCHIMP_LIST_ID' => $request->MAILCHIMP_LIST_ID,

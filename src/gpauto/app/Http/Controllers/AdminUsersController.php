@@ -66,7 +66,7 @@ class AdminUsersController extends Controller
 
         if ($file = $request->file('photo')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/users', $name);
 
@@ -131,13 +131,13 @@ class AdminUsersController extends Controller
 
         if ($file = $request->file('photo')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/users', $name);
 
             if ($user->photo) {
 
-                unlink(public_path().'/images/users/'.$user->photo);
+                unlink(public_path() . '/images/users/' . $user->photo);
 
             }
 
@@ -170,7 +170,7 @@ class AdminUsersController extends Controller
 
         if ($user->photo) {
 
-            unlink(public_path().'/images/users/'.$user->photo);
+            unlink(public_path() . '/images/users/' . $user->photo);
 
         }
 

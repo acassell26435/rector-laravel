@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => 'active', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => 'active',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -72,17 +72,17 @@
           @foreach ($statuses as $status)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$status->status}}</td>
-              <td>{{$status->created_at->diffForHumans()}}</td>
-              <td>{{$status->updated_at->diffForHumans()}}</td>
+              <td>{{ $status->status }}</td>
+              <td>{{ $status->created_at->diffForHumans() }}</td>
+              <td>{{ $status->updated_at->diffForHumans() }}</td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{$status->id}}edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{ $status->id }}edit_Modal">Edit</button>
                 <!-- Edit Modal -->
-                <div id="{{$status->id}}edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $status->id }}edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -108,9 +108,9 @@
                 </div>
                 <!-- End Edit Button -->
                 <!-- Delete Button -->
-                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{$status->id}}delete_Modal">Delete</button>
+                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{ $status->id }}delete_Modal">Delete</button>
                 <!-- Delete Modal -->
-                <div id="{{$status->id}}delete_Modal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $status->id }}delete_Modal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <div class="modal-header">

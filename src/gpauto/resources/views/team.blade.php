@@ -8,7 +8,7 @@
           <h3 class="section-heading">Team</h3>
         </div>
         <ol class="breadcrumb">
-          <li><a href="{{url('/')}}">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li><a href="#">Team</a></li>
           <li class="active"><a>Team</a></li>
         </ol>
@@ -29,17 +29,17 @@
             <div class="col-md-3 col-sm-6">
               <div class="team-block text-center">
                 <div class="team-img">
-                  <a href="#"><img src="{{asset('images/teams')}}/{{$team->photo}}" class="img-responsive" alt="team">
+                  <a href="#"><img src="{{ asset('images/teams') }}/{{ $team->photo }}" class="img-responsive" alt="team">
                   <div class="overlay-bg"></div></a>
                 </div>
                 <div class="team-dtl">
-                  <a href="team-details.html"><h6 class="team-heading">{{$team->name}}</h6></a>
-                  <div class="team-post">{{$team->post}}</div>
+                  <a href="team-details.html"><h6 class="team-heading">{{ $team->name }}</h6></a>
+                  <div class="team-post">{{ $team->post }}</div>
                   <div class="team-social">
                     <ul>
                       @foreach ($socials as $social)
-                        @if($social->team_id == $team->id)
-                          <li><a href="{{$social->url}}" title="{{$social->social}}" target="_blank"><i class="fa {{$social->social_icon}}"></i></a></li>
+                        @if ($social->team_id == $team->id)
+                          <li><a href="{{ $social->url }}" title="{{ $social->social }}" target="_blank"><i class="fa {{ $social->social_icon }}"></i></a></li>
                         @endif
                       @endforeach
                     </ul>

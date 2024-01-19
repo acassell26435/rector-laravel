@@ -42,7 +42,7 @@ class SocialLoginController extends Controller
     public function updateFacebookKey(Request $request)
     {
         //return $request;
-        $input = $request->all();
+        $request->all();
         if (isset($request->fb_check)) {
 
             $request->validate([
@@ -77,7 +77,7 @@ class SocialLoginController extends Controller
 
     public function updateGoogleKey(Request $request)
     {
-        $input = $request->all();
+        $request->all();
         if (isset($request->google_login)) {
 
             $request->validate([

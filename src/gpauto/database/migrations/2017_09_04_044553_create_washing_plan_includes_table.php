@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateWashingPlanIncludesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('washing_plan_includes')) {
@@ -24,11 +19,6 @@ class CreateWashingPlanIncludesTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('washing_plan_includes');

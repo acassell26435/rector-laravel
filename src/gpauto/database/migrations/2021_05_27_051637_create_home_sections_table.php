@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateHomeSectionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('home_sections')) {
@@ -32,11 +27,6 @@ class CreateHomeSectionsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('home_sections');

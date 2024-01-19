@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 @section('sidebar_active')
   @include('include.sidebar_links', [
@@ -7,7 +6,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> 'active', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => 'active',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -51,16 +50,16 @@
 
 						    <div class="form-group switch-main-block">
 		            <div class="row">
-		             <label for="" class="col-xs-5"> {{__('Enable Facebook Login:')}} <span class="text-red"></span></label>
+		             <label for="" class="col-xs-5"> {{ __('Enable Facebook Login:') }} <span class="text-red"></span></label>
 		              <div class="col-xs-5 pad-0">
-		                <label class="switch">                
+		                <label class="switch">
 		                 <input  {{ $social_login->fb_login == 1 ? 'checked' : "" }} type="checkbox" class="checkbox-switch" name="fb_check" id="fb_check" >
 		                  <span class="slider round"></span>
 		                </label>
 		              </div>
 		            </div>
 		          </div>
-						  
+						
 							<div id="fb_box_dtl" style="{{ $social_login->fb_login == 1 ? '' : "display: none
 							" }}">
 								<div class="form-group">
@@ -95,13 +94,13 @@
 					
 					<div class="panel-body">
 						
-						<form action="{{  route('key.google') }}" method="POST">
+						<form action="{{ route('key.google') }}" method="POST">
 			     		{{ csrf_field() }}
 			     		 <div class="form-group switch-main-block">
 		            <div class="row">
-		             <label for="" class="col-xs-5"> {{__('Enable Google Login:')}} <span class="text-red"></span></label>
+		             <label for="" class="col-xs-5"> {{ __('Enable Google Login:') }} <span class="text-red"></span></label>
 		              <div class="col-xs-5 pad-0">
-		                <label class="switch">                
+		                <label class="switch">
 		                 <input  {{ $social_login->google_login == 1 ? 'checked' : "" }} type="checkbox" class="checkbox-switch" name="google_login" id="google_login" >
 		                  <span class="slider round"></span>
 		                </label>

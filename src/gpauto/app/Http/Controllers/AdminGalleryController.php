@@ -45,7 +45,7 @@ class AdminGalleryController extends Controller
 
         $file = $request->file('gallery_img');
 
-        $name = time().$file->getClientOriginalName();
+        $name = time() . $file->getClientOriginalName();
 
         $file->move('images/gallery', $name);
 
@@ -97,11 +97,11 @@ class AdminGalleryController extends Controller
 
         $file = $request->file('gallery_img');
 
-        $name = time().$file->getClientOriginalName();
+        $name = time() . $file->getClientOriginalName();
 
         $file->move('images/gallery', $name);
 
-        unlink(public_path().'/images/gallery/'.$gallery->gallery_img);
+        unlink(public_path() . '/images/gallery/' . $gallery->gallery_img);
 
         $input['gallery_img'] = $name;
 
@@ -121,7 +121,7 @@ class AdminGalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
-        unlink(public_path().'/images/gallery/'.$gallery->gallery_img);
+        unlink(public_path() . '/images/gallery/' . $gallery->gallery_img);
 
         $gallery->delete();
 

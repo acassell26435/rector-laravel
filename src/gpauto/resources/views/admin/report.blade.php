@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'active',
@@ -18,7 +18,7 @@
 
 
 @section('breadcum')
-  @if (Auth::user()->role == 'A') 
+  @if (Auth::user()->role == 'A')
     @include('include.breadcum', [
     'title' => 'Booking Report',
     'from' => 'Admin',
@@ -46,11 +46,11 @@ input[type=date]::-webkit-inner-spin-button {
 
 
     <div class="col-sm-2 pull-right form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-        
+
         <label>Select Date </label>
-        
-        {!! form::date('date',null,['class'=>'form-control','id'=>'mydate'])!!}
-        
+
+        {!! form::date('date',null,['class'=>'form-control','id'=>'mydate']) !!}
+
         <small class="text-danger">{{ $errors->first('date') }}</small>
     </div>
 
@@ -66,12 +66,12 @@ input[type=date]::-webkit-inner-spin-button {
        <button type="submit" class="btn btn-danger"> PDF </button>
     </div>
   &emsp;
-  {!! form::close()!!}
-  
+  {!! form::close() !!}
+
   <div id="maindata">
-     
+
   </div>
-    
+
 </div>
 @endsection
 @section('script')
@@ -80,7 +80,7 @@ input[type=date]::-webkit-inner-spin-button {
 
   <script type="text/javascript">
      $(document).ready(function(){
-       
+
         // var year = $('#yearbox').val();
         // var month  = $('#monthbox').val();
 

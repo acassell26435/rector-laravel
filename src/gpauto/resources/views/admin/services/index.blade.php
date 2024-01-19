@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => 'active','home_section'=>'','slider' => '', 'services' => 'active', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => 'active','home_section'=>'','slider' => '', 'services' => 'active', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -88,16 +88,16 @@
           @foreach ($services as $service)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td> <img height="50px" width="50px" class="img-responsive" src="{{asset('images/services')}}/{{$service->icon}}" alt=""></td>
-              <td>{{$service->name}}</td>
-              <td title="{{$service->description}}">{{Str::limit($service->description, 50)}}</td>
+              <td> <img height="50px" width="50px" class="img-responsive" src="{{ asset('images/services') }}/{{ $service->icon }}" alt=""></td>
+              <td>{{ $service->name }}</td>
+              <td title="{{ $service->description }}">{{ Str::limit($service->description, 50) }}</td>
               <td>
                 <!-- Modal -->
-                <a type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$service->id}}serviceEditModal">Edit</a>
-                <div id="{{$service->id}}serviceEditModal" class="modal fade" role="dialog">
+                <a type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $service->id }}serviceEditModal">Edit</a>
+                <div id="{{ $service->id }}serviceEditModal" class="modal fade" role="dialog">
                   <!-- Service Edit Modal -->
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -139,9 +139,9 @@
                     </div>
                   </div>
                 </div>
-                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#{{$service->id}}serviceDeleteModal">Delete</button>
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#{{ $service->id }}serviceDeleteModal">Delete</button>
                 <!-- Modal -->
-                <div id="{{$service->id}}serviceDeleteModal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $service->id }}serviceDeleteModal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <!-- Modal content-->
                     <div class="modal-content">

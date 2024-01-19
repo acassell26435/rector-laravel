@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => 'active', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => 'active',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -79,18 +79,18 @@
           @foreach ($vehicle_types as $vehicle_type)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td><i class="fa {{$vehicle_type->icon}}"></i></td>
-              <td>{{$vehicle_type->type}}</td>
-              <td>{{$vehicle_type->created_at->diffForHumans()}}</td>
-              <td>{{$vehicle_type->updated_at->diffForHumans()}}</td>
+              <td><i class="fa {{ $vehicle_type->icon }}"></i></td>
+              <td>{{ $vehicle_type->type }}</td>
+              <td>{{ $vehicle_type->created_at->diffForHumans() }}</td>
+              <td>{{ $vehicle_type->updated_at->diffForHumans() }}</td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{$vehicle_type->id}}type_edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm add-btn" data-toggle="modal" data-target="#{{ $vehicle_type->id }}type_edit_Modal">Edit</button>
                 <!-- Edit Modal -->
-                <div id="{{$vehicle_type->id}}type_edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $vehicle_type->id }}type_edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -127,9 +127,9 @@
                 </div>
                 <!-- End Edit Button -->
                 <!-- Delete Button -->
-                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{$vehicle_type->id}}type_del_Modal">Delete</button>
+                <button type="button" class="btn btn-danger btn-sm add-btn" data-toggle="modal" data-target="#{{ $vehicle_type->id }}type_del_Modal">Delete</button>
                 <!-- Delete Modal -->
-                <div id="{{$vehicle_type->id}}type_del_Modal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $vehicle_type->id }}type_del_Modal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <div class="modal-header">

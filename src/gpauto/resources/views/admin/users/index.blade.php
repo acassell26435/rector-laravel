@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -51,25 +51,25 @@
           @foreach ($users as $user)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td><img width="80px" height="80px" src="{{asset('images/users/')}}/{{$user->photo}}" alt="" class="img-responsive"></td>
-              <td>{{$user->name}}</td>
-              <td>{{$user->email}}</td>
-              <td>{{$user->sex == 'M' ? 'Male' : 'Female'}}</td>
-              <td>{{$user->dob}}</td>
-              <td>{{$user->mobile}}</td>
-              <td>{{$user->phone ? $user->phone : '-'}}</td>
-              <td>{{Str::limit($user->address, 10)}}</td>
-              <td>{{$user->role == 'A' ? 'Administrator' : 'Subscriber'}}</td>
-              <td>{{$user->created_at->diffForHumans()}}</td>
-              <td>{{$user->updated_at->diffForHumans()}}</td>
-              <td><a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-info">Edit</a></td>
+              <td><img width="80px" height="80px" src="{{ asset('images/users/') }}/{{ $user->photo }}" alt="" class="img-responsive"></td>
+              <td>{{ $user->name }}</td>
+              <td>{{ $user->email }}</td>
+              <td>{{ $user->sex == 'M' ? 'Male' : 'Female' }}</td>
+              <td>{{ $user->dob }}</td>
+              <td>{{ $user->mobile }}</td>
+              <td>{{ $user->phone ? $user->phone : '-' }}</td>
+              <td>{{ Str::limit($user->address, 10) }}</td>
+              <td>{{ $user->role == 'A' ? 'Administrator' : 'Subscriber' }}</td>
+              <td>{{ $user->created_at->diffForHumans() }}</td>
+              <td>{{ $user->updated_at->diffForHumans() }}</td>
+              <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-info">Edit</a></td>
               <td>
-                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#{{$user->id}}deleteModal">Delete</button>
+                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#{{ $user->id }}deleteModal">Delete</button>
                 <!-- Modal -->
-                <div id="{{$user->id}}deleteModal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $user->id }}deleteModal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <!-- Modal content-->
                     <div class="modal-content">

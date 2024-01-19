@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'active','system_status'=>'active','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -31,7 +31,7 @@
          @php
 
         $results = DB::select( DB::raw('SHOW VARIABLES LIKE "%version%"') );
-    
+
         foreach ($results as $key => $result) {
 
             if($result->Variable_name == 'version' ){
@@ -51,18 +51,18 @@
 
     @endphp
 
-   
 
-        
+
+
         <div id="message"></div>
 
         <table class="table table-striped">
-          
+
 
             <tbody>
                 <tr>
                     <td>
-                        <b>{{__('Laravel Version')}}</b>
+                        <b>{{ __('Laravel Version') }}</b>
                     </td>
                     <td>
                         {{ App::version() }} <i class="fa fa-check-circle text-green"></i>
@@ -75,19 +75,19 @@
 
         <table class="table table-bordered table-striped">
             <thead>
-                
+
                 <th colspan="2">
-                    {{__('MYSQL version info')}}
+                    {{ __('MYSQL version info') }}
                 </th>
                 <th>
-                    {{__('Status')}}
+                    {{ __('Status') }}
                 </th>
-                
+
             </thead>
-            
+
 
             <tbody>
-               @foreach($db_info as $key => $info)
+               @foreach ($db_info as $key => $info)
                     <tr>
                         <td>
                             {{ $key == 0 ? __('MYSQL Version') : __('Server Type') }}
@@ -96,7 +96,7 @@
                             {{ $info['value'] }}
                         </td>
                         <td>
-                            @if($key == 0 && $info['value'] < 5.7)
+                            @if ($key == 0 && $info['value'] < 5.7)
                                 @php
                                     array_push($servercheck, 0);
                                 @endphp
@@ -130,11 +130,11 @@
                 <td>
                   {{ __('php version') }} (<b>{{ $v }}</b>)
                   <br>
-                  <small class="text-muted">{{__('php version required less than 7.5 and greater than 7.0')}}</small>
+                  <small class="text-muted">{{ __('php version required less than 7.5 and greater than 7.0') }}</small>
                 </td>
                 <td>
 
-                 @if($v = 7.0 && $v < 7.5) <i class="text-green fa fa-check-circle"></i>
+                 @if ($v = 7.0 && $v < 7.5) <i class="text-green fa fa-check-circle"></i>
                         @php
                             array_push($servercheck, 1);
                         @endphp
@@ -145,9 +145,9 @@
                     <i class="text-red fa fa-times-circle"></i>
                     <br>
                     <small>
-                      {{__('Your php version is')}} <b>{{ $v }}</b>{{__('which is not supported')}}
+                      {{ __('Your php version is') }} <b>{{ $v }}</b>{{ __('which is not supported') }}
                     </small>
-                   
+
                     @endif
                 </td>
               </tr>
@@ -163,15 +163,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -187,15 +187,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                    
+
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -211,15 +211,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -235,15 +235,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                  
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                    
+
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -259,15 +259,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                  
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                  
+
                   @endif
                 </td>
               </tr>
@@ -275,7 +275,7 @@
               <tr>
                 <td>{{ __('session') }}</td>
                 <td>
-                    
+
 
                   @if (extension_loaded('session'))
 
@@ -284,7 +284,7 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
@@ -292,7 +292,7 @@
                         @endphp
 
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -308,15 +308,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                  
+
                   @endif
                 </td>
               </tr>
@@ -334,15 +334,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                  
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                    
+
                     <i class="text-red fa fa-times-circle"></i>
-                  
+
                   @endif
                 </td>
               </tr>
@@ -362,15 +362,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -386,15 +386,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                  
+
                   @endif
                 </td>
               </tr>
@@ -409,15 +409,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                  
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -433,7 +433,7 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
@@ -441,7 +441,7 @@
                         @endphp
 
                     <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
@@ -457,15 +457,15 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                 
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                     <i class="text-red fa fa-times-circle"></i>
-                  
+
                   @endif
                 </td>
               </tr>
@@ -481,7 +481,7 @@
                         @endphp
 
                     <i class="text-green fa fa-check-circle"></i>
-                  
+
                   @else
 
                         @php
@@ -489,7 +489,7 @@
                         @endphp
 
                     <i class="text-red fa fa-times-circle"></i>
-                  
+
                   @endif
                 </td>
               </tr>
@@ -505,26 +505,26 @@
                         @endphp
 
                   <i class="text-green fa fa-check-circle"></i>
-                
+
                   @else
 
                         @php
                             array_push($servercheck, 1);
                         @endphp
-                  
+
                   <i class="text-red fa fa-times-circle"></i>
-                 
+
                   @endif
                 </td>
               </tr>
 
               <tr>
-                <td><b>{{storage_path()}}</b> {{ __('is writable') }}?</td>
+                <td><b>{{ storage_path() }}</b> {{ __('is writable') }}?</td>
                 <td>
                   @php
                     $path = storage_path();
                   @endphp
-                  @if(is_writable($path))
+                  @if (is_writable($path))
 
                     @php
                         array_push($servercheck, 1);
@@ -542,12 +542,12 @@
               </tr>
 
               <tr>
-                <td><b>{{base_path('bootstrap/cache')}}</b> {{ __('is writable') }}?</td>
+                <td><b>{{ base_path('bootstrap/cache') }}</b> {{ __('is writable') }}?</td>
                 <td>
                   @php
                     $path = base_path('bootstrap/cache');
                   @endphp
-                  @if(is_writable($path))
+                  @if (is_writable($path))
 
                     @php
                         array_push($servercheck, 1);
@@ -566,12 +566,12 @@
               </tr>
 
               <tr>
-                <td><b>{{storage_path('framework/sessions')}}</b> {{ __('is writable') }}?</td>
+                <td><b>{{ storage_path('framework/sessions') }}</b> {{ __('is writable') }}?</td>
                 <td>
                   @php
                     $path = storage_path('framework/sessions');
                   @endphp
-                  @if(is_writable($path))
+                  @if (is_writable($path))
 
                     @php
                         array_push($servercheck, 1);
@@ -599,7 +599,7 @@
 @endsection
 @section('script')
     <script>
-        @if(!in_array(0, $servercheck))
+        @if (!in_array(0, $servercheck))
             $("#message").html('<div class="callout callout-success"><i class="fa fa-check-circle"></i> {{ __("All good ! No problem detected so far") }}</div>');
         @else
             $('#message').html(' <div class="callout callout-danger"><i class="fa fa-times-circle"></i> {{ __("Something went wrong ! Please check status column") }}</div>');

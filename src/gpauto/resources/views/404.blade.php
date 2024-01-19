@@ -8,7 +8,7 @@
           <h3 class="section-heading">404 Page</h3>
         </div>
         <ol class="breadcrumb">
-          <li><a href="{{url('/')}}">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li><a href="#">Page</a></li>
           <li class="active"><a>404 Page</a></li>
         </ol>

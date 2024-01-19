@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSocialTeamsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('social_teams')) {
@@ -26,11 +21,6 @@ class CreateSocialTeamsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('social_teams');

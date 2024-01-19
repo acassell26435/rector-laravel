@@ -10,10 +10,10 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/tests',
     ]);
     $rectorConfig->phpVersion(PhpVersion::PHP_74);
-     $rectorConfig->skip([
+    $rectorConfig->skip([
         __DIR__ . '/src/gpauto/vendor',
-]);
-$rectorConfig->disableParallel();
+    ]);
+    $rectorConfig->disableParallel();
 
     $rectorConfig->sets([
         SetList::DEAD_CODE,

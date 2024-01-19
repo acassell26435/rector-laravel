@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => 'active','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => 'active', 'clients' => '', 
+    'home_settings_section' => 'active','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => 'active', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -98,21 +98,21 @@
           @foreach ($blogs as $blog)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$blog->users->name}}</td>
-              <td title="{{$blog->title}}">{{Str::limit($blog->title, 25)}}</td>
-              <td>{{$blog->date}}</td>
-              <td title="{{$blog->dtl}}">{{Str::limit($blog->dtl, 45)}}</td>
-              <td>{{$blog->created_at->diffForHumans()}}</td>
-              <td>{{$blog->updated_at->diffForHumans()}}</td>
+              <td>{{ $blog->users->name }}</td>
+              <td title="{{ $blog->title }}">{{ Str::limit($blog->title, 25) }}</td>
+              <td>{{ $blog->date }}</td>
+              <td title="{{ $blog->dtl }}">{{ Str::limit($blog->dtl, 45) }}</td>
+              <td>{{ $blog->created_at->diffForHumans() }}</td>
+              <td>{{ $blog->updated_at->diffForHumans() }}</td>
               <td>
                 <div class="action-btns">
                   <!-- Edit Button -->
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$blog->id}}editModal">Edit</button>
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $blog->id }}editModal">Edit</button>
                   <!-- Edit Modal -->
-                  <div id="{{$blog->id}}editModal" class="modal fade" role="dialog">
+                  <div id="{{ $blog->id }}editModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                       <!-- Modal content-->
                       <div class="modal-content">
@@ -161,9 +161,9 @@
                     </div>
                   </div>
                   <!-- Delete Button -->
-                  <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{$blog->id}}DeleteModal">Delete</button>
+                  <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{ $blog->id }}DeleteModal">Delete</button>
                   <!-- Testimonial Delete Modal -->
-                  <div id="{{$blog->id}}DeleteModal" class="delete-modal modal fade" role="dialog">
+                  <div id="{{ $blog->id }}DeleteModal" class="delete-modal modal fade" role="dialog">
                     <div class="modal-dialog modal-sm">
                       <!-- Modal content-->
                       <div class="modal-content">

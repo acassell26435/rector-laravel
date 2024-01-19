@@ -10,7 +10,7 @@
   @if ($contacts)
     @foreach ($contacts as $contact)
       @for ($i=1; $i <= 1; $i++)
-        {{$contact->c_name}}
+        {{ $contact->c_name }}
       @endfor
     @endforeach
   @else
@@ -25,15 +25,15 @@
 <meta name="MobileOptimized" content="320" />
 <link rel="icon" type="image/icon" href="images/favicon/favicon.ico"> <!-- favicon-icon -->
 <!-- theme style -->
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
-<link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css"/> <!-- fontawesome css -->
-<link href="{{asset('css/icon-font.css')}}" rel="stylesheet" type="text/css"/> <!-- icon-font css -->
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
+<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/> <!-- fontawesome css -->
+<link href="{{ asset('css/icon-font.css') }}" rel="stylesheet" type="text/css"/> <!-- icon-font css -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Poppins:400,500,700" rel="stylesheet"> <!-- google font -->
-<link href="{{asset('css/menumaker.css')}}" rel="stylesheet" type="text/css"/> <!-- menu css -->
-<link href="{{asset('css/owl.carousel.css')}}" rel="stylesheet" type="text/css"/> <!-- owl carousel css -->
-<link href="{{asset('css/magnific-popup.css')}}" rel="stylesheet" type="text/css"/> <!-- magnify popup css -->
-<link href="{{asset('css/datepicker.css')}}" rel="stylesheet" type="text/css"/> <!-- datepicker css -->
-<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/> <!-- custom css -->
+<link href="{{ asset('css/menumaker.css') }}" rel="stylesheet" type="text/css"/> <!-- menu css -->
+<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css"/> <!-- owl carousel css -->
+<link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet" type="text/css"/> <!-- magnify popup css -->
+<link href="{{ asset('css/datepicker.css') }}" rel="stylesheet" type="text/css"/> <!-- datepicker css -->
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/> <!-- custom css -->
 <!-- end theme style -->
 </head>
 <!-- end head -->
@@ -56,7 +56,7 @@
             @if ($contacts)
               @foreach ($contacts as $contact)
                 @for ($i=0; $i < 1; $i++)
-                  <a href="{{url('/')}}"><img src="{{asset('images/logo')}}/{{$contact->logo}}" class="img-responsive" alt="logo"></a>
+                  <a href="{{ url('/') }}"><img src="{{ asset('images/logo') }}/{{ $contact->logo }}" class="img-responsive" alt="logo"></a>
                 @endfor
               @endforeach
             @endif
@@ -99,21 +99,21 @@
   </div>
 <!-- end error block -->
 <!-- jquery -->
-<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script> <!-- jquery library js -->
-<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script> <!-- bootstrap js -->
-<script type="text/javascript" src="{{asset('js/owl.carousel.js')}}"></script> <!-- owl carousel js -->
-<script type="text/javascript" src="{{asset('js/jquery.ajaxchimp.js')}}"></script> <!-- mail chimp js -->
-<script type="text/javascript" src="{{asset('js/smooth-scroll.js')}}"></script> <!-- smooth scroll js -->
-<script type="text/javascript" src="{{asset('js/jquery.magnific-popup.min.js')}}"></script> <!-- magnify popup js -->
-<script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script> <!-- facts count js required for jquery.counterup.js file -->
-<script type="text/javascript" src="{{asset('js/jquery.counterup.js')}}"></script> <!-- facts count js-->
-<script type="text/javascript" src="{{asset('js/menumaker.js')}}"></script> <!-- menu js-->
-<script type="text/javascript" src="{{asset('js/jquery.appear.js')}}"></script> <!-- progress bar js -->
-<script type="text/javascript" src="{{asset('js/jquery.countdown.js')}}"></script>  <!-- event countdown js -->
-<script type="text/javascript" src="{{asset('js/price-slider.js')}}"></script> <!-- price slider / filter js-->
-<script type="text/javascript" src="{{asset('js/bootstrap-datepicker.js')}}"></script> <!-- bootstrap datepicker js-->
-<script type="text/javascript" src="{{asset('js/jquery.elevatezoom.js')}}"></script> <!-- image zoom js-->
-<script type="text/javascript" src="{{asset('js/theme.js')}}"></script> <!-- custom js -->
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script> <!-- jquery library js -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script> <!-- bootstrap js -->
+<script type="text/javascript" src="{{ asset('js/owl.carousel.js') }}"></script> <!-- owl carousel js -->
+<script type="text/javascript" src="{{ asset('js/jquery.ajaxchimp.js') }}"></script> <!-- mail chimp js -->
+<script type="text/javascript" src="{{ asset('js/smooth-scroll.js') }}"></script> <!-- smooth scroll js -->
+<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script> <!-- magnify popup js -->
+<script type="text/javascript" src="{{ asset('js/waypoints.min.js') }}"></script> <!-- facts count js required for jquery.counterup.js file -->
+<script type="text/javascript" src="{{ asset('js/jquery.counterup.js') }}"></script> <!-- facts count js-->
+<script type="text/javascript" src="{{ asset('js/menumaker.js') }}"></script> <!-- menu js-->
+<script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script> <!-- progress bar js -->
+<script type="text/javascript" src="{{ asset('js/jquery.countdown.js') }}"></script>  <!-- event countdown js -->
+<script type="text/javascript" src="{{ asset('js/price-slider.js') }}"></script> <!-- price slider / filter js-->
+<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script> <!-- bootstrap datepicker js-->
+<script type="text/javascript" src="{{ asset('js/jquery.elevatezoom.js') }}"></script> <!-- image zoom js-->
+<script type="text/javascript" src="{{ asset('js/theme.js') }}"></script> <!-- custom js -->
 <!-- end jquery -->
 </body>
 <!--body end -->

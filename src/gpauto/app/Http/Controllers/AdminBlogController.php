@@ -47,7 +47,7 @@ class AdminBlogController extends Controller
 
         if ($file = $request->file('img')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/blog', $name);
 
@@ -100,11 +100,11 @@ class AdminBlogController extends Controller
 
         if ($file = $request->file('img')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/blog', $name);
 
-            unlink(public_path().'/images/blog/'.$blog->img);
+            unlink(public_path() . '/images/blog/' . $blog->img);
 
             $input['img'] = $name;
 
@@ -127,7 +127,7 @@ class AdminBlogController extends Controller
 
         if ($blog->img) {
 
-            unlink(public_path().'/images/blog/'.$blog->img);
+            unlink(public_path() . '/images/blog/' . $blog->img);
 
         }
 

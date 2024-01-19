@@ -7,7 +7,7 @@
       @if ($contacts)
         @foreach ($contacts as $contact)
           @for ($i=0; $i < 1; $i++)
-            <a href="{{url('/')}}"><img src="{{asset('/images/logo')}}/{{$contact->logo}}" class="img-responsive" alt="logo"></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('/images/logo') }}/{{ $contact->logo }}" class="img-responsive" alt="logo"></a>
           @endfor
         @endforeach
       @endif

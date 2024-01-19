@@ -8,6 +8,17 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
 {
+    use SendsPasswordResetEmails;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -24,17 +35,5 @@ class ForgotPasswordController extends Controller
         $contacts = Contact::all();
 
         return view('auth.passwords.email', compact('contacts'));
-    }
-
-    use SendsPasswordResetEmails;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
     }
 }
