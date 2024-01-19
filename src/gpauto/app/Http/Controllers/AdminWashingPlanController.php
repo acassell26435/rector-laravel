@@ -18,7 +18,7 @@ class AdminWashingPlanController extends Controller
         $washing_plans = Washing_plan::all();
         $washing_includes = Washing_plan_include::all();
 
-        return view('admin.washing_plan.index', compact('washing_plans', 'washing_includes'));
+        return view('admin.washing_plan.index', ['washing_plans' => $washing_plans, 'washing_includes' => $washing_includes]);
     }
 
     /**

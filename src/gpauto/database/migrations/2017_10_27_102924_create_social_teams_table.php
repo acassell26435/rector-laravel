@@ -9,14 +9,14 @@ class CreateSocialTeamsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('social_teams')) {
-            Schema::create('social_teams', function (Blueprint $table) {
-                $table->increments('id');
-                $table->integer('team_id')->unsigned();
-                $table->string('url');
-                $table->string('social');
-                $table->string('social_icon')->nullable();
-                $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
-                $table->timestamps();
+            Schema::create('social_teams', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->integer('team_id')->unsigned();
+                $blueprint->string('url');
+                $blueprint->string('social');
+                $blueprint->string('social_icon')->nullable();
+                $blueprint->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+                $blueprint->timestamps();
             });
         }
     }

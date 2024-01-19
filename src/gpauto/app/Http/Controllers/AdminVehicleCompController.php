@@ -16,7 +16,7 @@ class AdminVehicleCompController extends Controller
     {
         $vehicle_companies = Vehicle_company::all();
 
-        return view('admin.vehicle_company.index', compact('vehicle_companies'));
+        return view('admin.vehicle_company.index', ['vehicle_companies' => $vehicle_companies]);
     }
 
     /**

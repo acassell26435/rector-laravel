@@ -9,9 +9,9 @@ class AddLogoTwoColInContactTable extends Migration
     public function up()
     {
         if (Schema::hasTable('contacts')) {
-            Schema::table('contacts', function (Blueprint $table) {
+            Schema::table('contacts', function (Blueprint $blueprint) {
                 if (! Schema::hasColumn('contacts', 'logo_two')) {
-                    $table->string('logo_two')->nullable();
+                    $blueprint->string('logo_two')->nullable();
                 }
             });
         }
@@ -19,8 +19,8 @@ class AddLogoTwoColInContactTable extends Migration
 
     public function down()
     {
-        Schema::table('contacts', function (Blueprint $table) {
-            $table->dropColumn('logo_two');
+        Schema::table('contacts', function (Blueprint $blueprint) {
+            $blueprint->dropColumn('logo_two');
         });
     }
 }

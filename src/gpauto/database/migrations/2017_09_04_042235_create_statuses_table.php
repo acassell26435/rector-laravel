@@ -9,10 +9,10 @@ class CreateStatusesTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('statuses')) {
-            Schema::create('statuses', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('status');
-                $table->timestamps();
+            Schema::create('statuses', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('status');
+                $blueprint->timestamps();
             });
         }
     }

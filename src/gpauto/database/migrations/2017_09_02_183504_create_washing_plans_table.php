@@ -9,10 +9,10 @@ class CreateWashingPlansTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('washing_plans')) {
-            Schema::create('washing_plans', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('name');
-                $table->timestamps();
+            Schema::create('washing_plans', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('name');
+                $blueprint->timestamps();
             });
         }
     }

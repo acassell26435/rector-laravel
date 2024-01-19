@@ -20,7 +20,7 @@ class AdminPaymentController extends Controller
         $washing_prices = Washing_price::all();
         $payment_mode_lists = Payment_mode::pluck('mode', 'id')->all();
 
-        return view('admin.payment.index', compact('payments', 'washing_prices', 'payment_mode_lists'));
+        return view('admin.payment.index', ['payments' => $payments, 'washing_prices' => $washing_prices, 'payment_mode_lists' => $payment_mode_lists]);
     }
 
     /**

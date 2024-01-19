@@ -16,7 +16,7 @@ class AdminGalleryController extends Controller
     {
         $galleries = Gallery::all();
 
-        return view('admin.gallery.index', compact('galleries'));
+        return view('admin.gallery.index', ['galleries' => $galleries]);
     }
 
     /**

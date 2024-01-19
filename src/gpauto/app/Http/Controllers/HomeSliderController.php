@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class HomeSliderController extends Controller
 {
+    public $sliders;
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +24,7 @@ class HomeSliderController extends Controller
     {
         $sliders = $this->sliders->get();
 
-        return view('admin.slider.index', compact('sliders'));
+        return view('admin.slider.index', ['sliders' => $sliders]);
     }
 
     /**
@@ -51,7 +53,7 @@ class HomeSliderController extends Controller
 
         $input = $request->all();
 
-        if (isset($request->button1) && $request->button1 != null) {
+        if (property_exists($request, 'button1') && $request->button1 !== null && $request->button1 != null) {
             $request->validate([
                 'button_text1' => 'required|string',
                 'button_link1' => 'required|url',
@@ -61,7 +63,7 @@ class HomeSliderController extends Controller
 
         }
 
-        if (isset($request->button2) && $request->button2 != null) {
+        if (property_exists($request, 'button2') && $request->button2 !== null && $request->button2 != null) {
             $request->validate([
                 'button_text2' => 'required|string',
                 'button_link2' => 'required|url',
@@ -107,7 +109,7 @@ class HomeSliderController extends Controller
     {
         $slider = $this->sliders->find($id);
 
-        return view('admin.slider.edit', compact('id', 'slider'));
+        return view('admin.slider.edit', ['id' => $id, 'slider' => $slider]);
     }
 
     /**
@@ -129,7 +131,7 @@ class HomeSliderController extends Controller
 
         $slider = $this->sliders->find($id);
 
-        if (isset($request->button1) && $request->button1 != null) {
+        if (property_exists($request, 'button1') && $request->button1 !== null && $request->button1 != null) {
             $request->validate([
                 'button_text1' => 'required|string',
                 'button_link1' => 'required|url',
@@ -141,7 +143,7 @@ class HomeSliderController extends Controller
             $input['button1'] = 0;
         }
 
-        if (isset($request->button2) && $request->button2 != null) {
+        if (property_exists($request, 'button2') && $request->button2 !== null && $request->button2 != null) {
             $request->validate([
                 'button_text2' => 'required|string',
                 'button_link2' => 'required|url',

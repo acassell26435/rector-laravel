@@ -16,7 +16,7 @@ class AdminOpeningHoursController extends Controller
     {
         $timings = Opening_hour::all();
 
-        return view('admin.opening_hours.index', compact('timings'));
+        return view('admin.opening_hours.index', ['timings' => $timings]);
     }
 
     /**

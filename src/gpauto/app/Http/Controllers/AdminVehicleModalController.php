@@ -20,7 +20,7 @@ class AdminVehicleModalController extends Controller
 
         $vehicle_modals = Vehicle_modal::all();
 
-        return view('admin.vehicle_modal.index', compact('vehicle_companies', 'vehicle_modals'));
+        return view('admin.vehicle_modal.index', ['vehicle_companies' => $vehicle_companies, 'vehicle_modals' => $vehicle_modals]);
 
     }
 

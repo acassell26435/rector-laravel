@@ -9,13 +9,13 @@ class CreateWashingPricesTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('washing_prices')) {
-            Schema::create('washing_prices', function (Blueprint $table) {
-                $table->increments('id');
-                $table->integer('washing_plan_id');
-                $table->integer('vehicle_type_id');
-                $table->string('price');
-                $table->string('duration');
-                $table->timestamps();
+            Schema::create('washing_prices', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->integer('washing_plan_id');
+                $blueprint->integer('vehicle_type_id');
+                $blueprint->string('price');
+                $blueprint->string('duration');
+                $blueprint->timestamps();
             });
         }
     }

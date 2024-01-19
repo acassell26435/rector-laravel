@@ -21,7 +21,7 @@ class AdminUsersController extends Controller
 
             $users = User::where('id', '!=', Auth::id())->get();
 
-            return view('admin.users.index', compact('users'));
+            return view('admin.users.index', ['users' => $users]);
 
         }
 
@@ -56,15 +56,15 @@ class AdminUsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $usersCreateRequest
      * @return \Illuminate\Http\Response
      */
-    public function store(UsersCreateRequest $request)
+    public function store(UsersCreateRequest $usersCreateRequest)
     {
         //
-        $input = $request->all();
+        $input = $usersCreateRequest->all();
 
-        if ($file = $request->file('photo')) {
+        if ($file = $usersCreateRequest->file('photo')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -74,9 +74,9 @@ class AdminUsersController extends Controller
 
         }
 
-        $input['password'] = bcrypt($request->password);
+        $input['password'] = bcrypt($usersCreateRequest->password);
 
-        $input['dob'] = date('Y/m/d', strtotime($request->dob));
+        $input['dob'] = date('Y/m/d', strtotime($usersCreateRequest->dob));
 
         User::create($input);
 
@@ -105,31 +105,25 @@ class AdminUsersController extends Controller
         //
         $user = User::findOrFail($id);
 
-        return view('admin.users.edit', compact('user'));
+        return view('admin.users.edit', ['user' => $user]);
 
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $usersUpdateRequest
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsersUpdateRequest $request, $id)
+    public function update(UsersUpdateRequest $usersUpdateRequest, $id)
     {
 
         $user = User::findOrFail($id);
 
-        if ($request->password == '') {
+        $input = $usersUpdateRequest->password == '' ? $usersUpdateRequest->except('password') : $usersUpdateRequest->all();
 
-            $input = $request->except('password');
-
-        } else {
-            $input = $request->all();
-        }
-
-        if ($file = $request->file('photo')) {
+        if ($file = $usersUpdateRequest->file('photo')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -145,12 +139,12 @@ class AdminUsersController extends Controller
 
         }
 
-        if (! $request->password == '') {
+        if (! $usersUpdateRequest->password == '') {
 
-            $input['password'] = bcrypt($request->password);
+            $input['password'] = bcrypt($usersUpdateRequest->password);
 
         }
-        $input['dob'] = date('Y/m/d', strtotime($request->dob));
+        $input['dob'] = date('Y/m/d', strtotime($usersUpdateRequest->dob));
 
         $user->update($input);
 

@@ -21,7 +21,7 @@ class SocialLoginController extends Controller
 
         ];
 
-        return view('admin.sociallogin.index', compact('social_login', 'env_files'));
+        return view('admin.sociallogin.index', ['social_login' => $social_login, 'env_files' => $env_files]);
     }
 
     public function facebook()
@@ -35,7 +35,7 @@ class SocialLoginController extends Controller
             'GOOGLE_CALLBACK' => env('GOOGLE_CALLBACK') ? env('GOOGLE_CALLBACK') : '',
         ];
 
-        return view('admin.sociallogin.index', compact('env_files'));
+        return view('admin.sociallogin.index', ['env_files' => $env_files]);
 
     }
 
@@ -43,7 +43,7 @@ class SocialLoginController extends Controller
     {
         //return $request;
         $request->all();
-        if (isset($request->fb_check)) {
+        if (property_exists($request, 'fb_check') && $request->fb_check !== null) {
 
             $request->validate([
                 'FACEBOOK_CLIENT_ID' => 'required',
@@ -64,7 +64,7 @@ class SocialLoginController extends Controller
             'FACEBOOK_CALLBACK' => $request->FACEBOOK_CALLBACK,
         ]);
 
-        if (isset($request->fb_check)) {
+        if (property_exists($request, 'fb_check') && $request->fb_check !== null) {
             SocialLogin::where('id', '=', 1)->update(['fb_login' => '1']);
         } else {
             SocialLogin::where('id', '=', 1)->update(['fb_login' => '0']);
@@ -78,7 +78,7 @@ class SocialLoginController extends Controller
     public function updateGoogleKey(Request $request)
     {
         $request->all();
-        if (isset($request->google_login)) {
+        if (property_exists($request, 'google_login') && $request->google_login !== null) {
 
             $request->validate([
                 'GOOGLE_CLIENT_ID' => 'required',
@@ -99,7 +99,7 @@ class SocialLoginController extends Controller
             'GOOGLE_CALLBACK' => $request->GOOGLE_CALLBACK,
         ]);
 
-        if (isset($request->google_login)) {
+        if (property_exists($request, 'google_login') && $request->google_login !== null) {
             SocialLogin::where('id', '=', 1)->update(['google_login' => 1]);
         } else {
             SocialLogin::where('id', '=', 1)->update(['google_login' => 0]);

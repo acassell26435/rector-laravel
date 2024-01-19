@@ -9,12 +9,12 @@ class CreateCompanySocialsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('company_socials')) {
-            Schema::create('company_socials', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('link');
-                $table->string('social_site');
-                $table->string('social_icon')->nullable();
-                $table->timestamps();
+            Schema::create('company_socials', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('link');
+                $blueprint->string('social_site');
+                $blueprint->string('social_icon')->nullable();
+                $blueprint->timestamps();
             });
         }
     }

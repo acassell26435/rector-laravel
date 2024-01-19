@@ -20,7 +20,7 @@ class AdminWashingPriceController extends Controller
         $vehicle_types = Vehicle_type::pluck('type', 'id')->all();
         $washing_prices = Washing_price::all();
 
-        return view('admin.washing_price.index', compact('washing_plans', 'vehicle_types', 'washing_prices'));
+        return view('admin.washing_price.index', ['washing_plans' => $washing_plans, 'vehicle_types' => $vehicle_types, 'washing_prices' => $washing_prices]);
     }
 
     /**

@@ -25,6 +25,6 @@ class AdminController extends Controller
         $blogs = Blog::count();
         $testimonials = Testimonial::count();
 
-        return view('admin.index', compact('users', 'u_count', 'teams', 'washing_plan', 'team_task', 'appointment', 'services', 'blogs', 'testimonials'));
+        return view('admin.index', ['users' => $users, 'u_count' => $u_count, 'teams' => $teams, 'washing_plan' => $washing_plan, 'team_task' => $team_task, 'appointment' => $appointment, 'services' => $services, 'blogs' => $blogs, 'testimonials' => $testimonials]);
     }
 }

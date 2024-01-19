@@ -16,7 +16,7 @@ class AdminClientsController extends Controller
     {
         $clients = Clients::all();
 
-        return view('admin.clients.index', compact('clients'));
+        return view('admin.clients.index', ['clients' => $clients]);
     }
 
     /**

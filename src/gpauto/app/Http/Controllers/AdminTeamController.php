@@ -21,7 +21,7 @@ class AdminTeamController extends Controller
         $socials = Social_team::with('teams')->get();
         $teams = Team::all();
 
-        return view('admin.team.index', compact('teams', 'socials'));
+        return view('admin.team.index', ['teams' => $teams, 'socials' => $socials]);
     }
 
     /**
@@ -37,15 +37,15 @@ class AdminTeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $teamCreateRequest
      * @return \Illuminate\Http\Response
      */
-    public function store(TeamCreateRequest $request)
+    public function store(TeamCreateRequest $teamCreateRequest)
     {
         //
-        $input = $request->all();
+        $input = $teamCreateRequest->all();
 
-        if ($file = $request->file('photo')) {
+        if ($file = $teamCreateRequest->file('photo')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -55,8 +55,8 @@ class AdminTeamController extends Controller
 
         }
 
-        $input['dob'] = date('Y/m/d', strtotime($request->dob));
-        $input['join_date'] = date('Y/m/d', strtotime($request->join_date));
+        $input['dob'] = date('Y/m/d', strtotime($teamCreateRequest->dob));
+        $input['join_date'] = date('Y/m/d', strtotime($teamCreateRequest->join_date));
 
         Team::create($input);
 
@@ -86,24 +86,24 @@ class AdminTeamController extends Controller
 
         $team = Team::findOrFail($id);
 
-        return view('admin.team.edit', compact('team'));
+        return view('admin.team.edit', ['team' => $team]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $teamUpdateRequest
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TeamUpdateRequest $request, $id)
+    public function update(TeamUpdateRequest $teamUpdateRequest, $id)
     {
 
         $team = Team::findOrFail($id);
 
-        $input = $request->all();
+        $input = $teamUpdateRequest->all();
 
-        if ($file = $request->file('photo')) {
+        if ($file = $teamUpdateRequest->file('photo')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -119,8 +119,8 @@ class AdminTeamController extends Controller
 
         }
 
-        $input['dob'] = date('Y/m/d', strtotime($request->dob));
-        $input['join_date'] = date('Y/m/d', strtotime($request->join_date));
+        $input['dob'] = date('Y/m/d', strtotime($teamUpdateRequest->dob));
+        $input['join_date'] = date('Y/m/d', strtotime($teamUpdateRequest->join_date));
 
         $team->update($input);
 

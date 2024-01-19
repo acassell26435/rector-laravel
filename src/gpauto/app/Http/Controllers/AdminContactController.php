@@ -17,7 +17,7 @@ class AdminContactController extends Controller
     {
         $contacts = Contact::first();
 
-        return view('admin.contact.index', compact('contacts'));
+        return view('admin.contact.index', ['contacts' => $contacts]);
     }
 
     /**
@@ -82,7 +82,7 @@ class AdminContactController extends Controller
     {
         $contacts = Contact::first();
 
-        return view('admin.contact.index', compact('contacts'));
+        return view('admin.contact.index', ['contacts' => $contacts]);
     }
 
     /**
@@ -125,10 +125,10 @@ class AdminContactController extends Controller
 
         }
 
-        $input['inspect'] = isset($request->inspect) ? 1 : 0;
-        $input['rightclick'] = isset($request->rightclick) ? 1 : 0;
+        $input['inspect'] = property_exists($request, 'inspect') && $request->inspect !== null ? 1 : 0;
+        $input['rightclick'] = property_exists($request, 'rightclick') && $request->rightclick !== null ? 1 : 0;
 
-        if (isset($request->APP_DEBUG)) {
+        if (property_exists($request, 'APP_DEBUG') && $request->APP_DEBUG !== null) {
             $env_update = DotenvEditor::setKeys(['APP_DEBUG' => 'true']);
         } else {
             $env_update = DotenvEditor::setKeys(['APP_DEBUG' => 'false']);
@@ -171,7 +171,7 @@ class AdminContactController extends Controller
             'MAIL_ENCRYPTION' => env('MAIL_ENCRYPTION'),
         ];
 
-        return view('admin.contact.mailsetting', compact('env_files'));
+        return view('admin.contact.mailsetting', ['env_files' => $env_files]);
     }
 
     public function store_mail_setting(Request $request)
@@ -204,7 +204,7 @@ class AdminContactController extends Controller
             'MAILCHIMP_LIST_ID' => env('MAILCHIMP_LIST_ID'),
         ];
 
-        return view('admin.contact.mailchimp', compact('env_files'));
+        return view('admin.contact.mailchimp', ['env_files' => $env_files]);
     }
 
     public function store_mailchimp_setting(Request $request)

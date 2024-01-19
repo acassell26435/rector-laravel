@@ -9,10 +9,10 @@ class CreateVehicleCompaniesTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('vehicle_companies')) {
-            Schema::create('vehicle_companies', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('vehicle_company');
-                $table->timestamps();
+            Schema::create('vehicle_companies', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('vehicle_company');
+                $blueprint->timestamps();
             });
         }
     }

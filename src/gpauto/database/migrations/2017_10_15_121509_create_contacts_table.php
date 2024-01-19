@@ -9,16 +9,16 @@ class CreateContactsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('contacts')) {
-            Schema::create('contacts', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('c_name');
-                $table->string('logo');
-                $table->string('mobile');
-                $table->string('phone');
-                $table->string('address');
-                $table->string('email');
-                $table->string('website');
-                $table->timestamps();
+            Schema::create('contacts', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('c_name');
+                $blueprint->string('logo');
+                $blueprint->string('mobile');
+                $blueprint->string('phone');
+                $blueprint->string('address');
+                $blueprint->string('email');
+                $blueprint->string('website');
+                $blueprint->timestamps();
             });
         }
     }

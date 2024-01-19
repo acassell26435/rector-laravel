@@ -8,12 +8,12 @@ class CreateOpeningHoursTable extends Migration
 {
     public function up()
     {
-        Schema::create('opening_hours', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('day');
-            $table->string('opening_time');
-            $table->string('closing_time');
-            $table->timestamps();
+        Schema::create('opening_hours', function (Blueprint $blueprint) {
+            $blueprint->increments('id');
+            $blueprint->string('day');
+            $blueprint->string('opening_time');
+            $blueprint->string('closing_time');
+            $blueprint->timestamps();
         });
     }
 

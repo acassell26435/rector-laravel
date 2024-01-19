@@ -17,7 +17,7 @@ class AdminServiceController extends Controller
         //
         $services = Service::all();
 
-        return view('admin.services.index', compact('services'));
+        return view('admin.services.index', ['services' => $services]);
     }
 
     /**

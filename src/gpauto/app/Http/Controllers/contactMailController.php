@@ -18,7 +18,7 @@ class contactMailController extends Controller
         $opening_times = Opening_hour::all();
         $contacts = Contact::all();
 
-        return view('contact', compact('company_socials', 'services', 'opening_times', 'contacts'));
+        return view('contact', ['company_socials' => $company_socials, 'services' => $services, 'opening_times' => $opening_times, 'contacts' => $contacts]);
     }
 
     public function send(Request $request)
@@ -37,7 +37,7 @@ class contactMailController extends Controller
             'mail_message' => $request->mail_message,
         ];
 
-        Mail::send('emails.contact_mail', compact('data'), function ($message) use ($data) {
+        Mail::send('emails.contact_mail', ['data' => $data], function ($message) use ($data) {
             $message->from($data['email']);
             $message->to(env('MAIL_USERNAME'));
             $message->subject($data['subject']);

@@ -9,19 +9,19 @@ class CreateHomeSlidersTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('home_sliders')) {
-            Schema::create('home_sliders', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->text('heading');
-                $table->text('sub_heading')->nullable();
-                $table->longtext('detail')->nullable();
-                $table->boolean('button1')->default(0);
-                $table->text('button1_text')->nullable();
-                $table->text('button1_link')->nullable();
-                $table->boolean('button2')->default(0);
-                $table->text('button2_text')->nullable();
-                $table->text('button2_link')->nullable();
-                $table->string('image');
-                $table->timestamps();
+            Schema::create('home_sliders', function (Blueprint $blueprint) {
+                $blueprint->bigIncrements('id');
+                $blueprint->text('heading');
+                $blueprint->text('sub_heading')->nullable();
+                $blueprint->longtext('detail')->nullable();
+                $blueprint->boolean('button1')->default(0);
+                $blueprint->text('button1_text')->nullable();
+                $blueprint->text('button1_link')->nullable();
+                $blueprint->boolean('button2')->default(0);
+                $blueprint->text('button2_text')->nullable();
+                $blueprint->text('button2_link')->nullable();
+                $blueprint->string('image');
+                $blueprint->timestamps();
             });
         }
     }

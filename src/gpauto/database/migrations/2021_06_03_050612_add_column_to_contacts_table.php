@@ -9,12 +9,12 @@ class AddColumnToContactsTable extends Migration
     public function up()
     {
         if (Schema::hasTable('contacts')) {
-            Schema::table('contacts', function (Blueprint $table) {
+            Schema::table('contacts', function (Blueprint $blueprint) {
                 if (! Schema::hasColumn('contacts', 'inspect')) {
-                    $table->boolean('inspect')->default(1);
+                    $blueprint->boolean('inspect')->default(1);
                 }
                 if (! Schema::hasColumn('contacts', 'rightclick')) {
-                    $table->boolean('rightclick')->default(1);
+                    $blueprint->boolean('rightclick')->default(1);
                 }
             });
         }
@@ -23,9 +23,9 @@ class AddColumnToContactsTable extends Migration
     public function down()
     {
         if (Schema::hasTable('contacts')) {
-            Schema::table('contacts', function (Blueprint $table) {
-                $table->dropColumn('inspect');
-                $table->dropColumn('rightclick');
+            Schema::table('contacts', function (Blueprint $blueprint) {
+                $blueprint->dropColumn('inspect');
+                $blueprint->dropColumn('rightclick');
             });
         }
     }

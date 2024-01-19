@@ -32,7 +32,7 @@ class PWAController extends Controller
 
         $env_keys_save = DotenvEditor::setKeys([
             'PWA_NAME' => $request->app_name,
-            'PWA_ENABLE' => isset($request->PWA_ENABLE) ? '1' : '0',
+            'PWA_ENABLE' => property_exists($request, 'PWA_ENABLE') && $request->PWA_ENABLE !== null ? '1' : '0',
             'PWA_BG_COLOR' => $request->PWA_BG_COLOR,
             'PWA_THEME_COLOR' => $request->PWA_THEME_COLOR,
         ]);

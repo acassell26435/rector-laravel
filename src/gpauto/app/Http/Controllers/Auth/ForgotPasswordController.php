@@ -34,6 +34,6 @@ class ForgotPasswordController extends Controller
     {
         $contacts = Contact::all();
 
-        return view('auth.passwords.email', compact('contacts'));
+        return view('auth.passwords.email', ['contacts' => $contacts]);
     }
 }

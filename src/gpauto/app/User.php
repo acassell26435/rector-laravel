@@ -50,13 +50,7 @@ class User extends Authenticatable
 
             $user = Auth::user();
 
-            if ($user->role == 'A') {
-
-                return true;
-
-            }
-
-            return false;
+            return $user->role == 'A';
 
         }
 
@@ -70,13 +64,7 @@ class User extends Authenticatable
 
             $user = Auth::user();
 
-            if ($user->role == 'S' or $user->role == 'A') {
-
-                return true;
-
-            }
-
-            return false;
+            return $user->role == 'S' || $user->role == 'A';
 
         }
 

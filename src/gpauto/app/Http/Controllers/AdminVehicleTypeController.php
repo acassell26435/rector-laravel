@@ -16,7 +16,7 @@ class AdminVehicleTypeController extends Controller
     {
         $vehicle_types = Vehicle_type::all();
 
-        return view('admin.vehicle_type.index', compact('vehicle_types'));
+        return view('admin.vehicle_type.index', ['vehicle_types' => $vehicle_types]);
     }
 
     /**

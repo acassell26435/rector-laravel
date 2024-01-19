@@ -16,7 +16,7 @@ class AdminPaymentModeController extends Controller
     {
         $modes = Payment_mode::all();
 
-        return view('admin.payment_mode.index', compact('modes'));
+        return view('admin.payment_mode.index', ['modes' => $modes]);
     }
 
     /**

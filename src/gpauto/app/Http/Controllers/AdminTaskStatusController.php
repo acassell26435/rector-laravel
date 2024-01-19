@@ -16,7 +16,7 @@ class AdminTaskStatusController extends Controller
     {
         $statuses = Status::all();
 
-        return view('admin.status.index', compact('statuses'));
+        return view('admin.status.index', ['statuses' => $statuses]);
     }
 
     /**

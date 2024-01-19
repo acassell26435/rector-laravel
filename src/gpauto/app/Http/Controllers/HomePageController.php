@@ -44,8 +44,8 @@ class HomePageController extends Controller
         $washing_plans = Washing_plan::all();
         $washing_includes = Washing_plan_include::with('washing_plan')->get();
         $washing_prices = Washing_price::all();
-        $vehicle_companies = Vehicle_company::all();
-        $Vehicle_modals = Vehicle_modal::all();
+        Vehicle_company::all();
+        Vehicle_modal::all();
         $vehicle_types = Vehicle_type::all();
         $blogs = Blog::orderBy('id', 'DESC')->get();
         $clients = Clients::all();
@@ -60,7 +60,7 @@ class HomePageController extends Controller
         $vehicle_modal_lists = Vehicle_modal::pluck('vehicle_modal', 'id')->all();
         $vehicle_type_lists = Vehicle_type::pluck('type', 'id')->all();
 
-        return view('index', compact('galleries', 'services', 'teams', 'socials', 'facts', 'testimonials', 'washing_prices', 'washing_includes', 'washing_plans', 'washing_plan_lists', 'vehicle_company_lists', 'vehicle_modal_lists', 'contacts', 'vehicle_type_lists', 'blogs', 'clients', 'opening_times', 'company_socials', 'vehicle_types', 'slider', 'homeSection'));
+        return view('index', ['galleries' => $galleries, 'services' => $services, 'teams' => $teams, 'socials' => $socials, 'facts' => $facts, 'testimonials' => $testimonials, 'washing_prices' => $washing_prices, 'washing_includes' => $washing_includes, 'washing_plans' => $washing_plans, 'washing_plan_lists' => $washing_plan_lists, 'vehicle_company_lists' => $vehicle_company_lists, 'vehicle_modal_lists' => $vehicle_modal_lists, 'contacts' => $contacts, 'vehicle_type_lists' => $vehicle_type_lists, 'blogs' => $blogs, 'clients' => $clients, 'opening_times' => $opening_times, 'company_socials' => $company_socials, 'vehicle_types' => $vehicle_types, 'slider' => $slider, 'homeSection' => $homeSection]);
     }
 
     /**
@@ -117,12 +117,12 @@ class HomePageController extends Controller
                 'time_frame' => $time_frame,
             ];
 
-            Mail::send('emails.home_appointment_emails', compact('data'), function ($message) use ($data) {
+            Mail::send('emails.home_appointment_emails', ['data' => $data], function ($message) use ($data) {
                 $message->from(env('MAIL_USERNAME'));
                 $message->to($data['email']);
             });
 
-            Mail::send('emails.home_appointment_emails', compact('data'), function ($message) {
+            Mail::send('emails.home_appointment_emails', ['data' => $data], function ($message) {
                 $message->to(env('MAIL_USERNAME'));
             });
 
@@ -145,10 +145,8 @@ class HomePageController extends Controller
 
             $user->appointment()->save($new);
 
-            if (env('MAIL_USERNAME') == '' && env('MAIL_PASSWORD') == '') {
-                if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember_token)) {
-                    return back()->with('appointment_added', 'Appointment Has Been Booked!');
-                }
+            if (env('MAIL_USERNAME') == '' && env('MAIL_PASSWORD') == '' && Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember_token)) {
+                return back()->with('appointment_added', 'Appointment Has Been Booked!');
             }
 
             $data = [
@@ -162,12 +160,12 @@ class HomePageController extends Controller
                 'time_frame' => $time_frame,
             ];
 
-            Mail::send('emails.home_appointment_emails', compact('data'), function ($message) use ($data) {
+            Mail::send('emails.home_appointment_emails', ['data' => $data], function ($message) use ($data) {
                 $message->from(env('MAIL_USERNAME'));
                 $message->to($data['email']);
             });
 
-            Mail::send('emails.home_appointment_emails', compact('data'), function ($message) {
+            Mail::send('emails.home_appointment_emails', ['data' => $data], function ($message) {
                 $message->to(env('MAIL_USERNAME'));
             });
 

@@ -33,7 +33,7 @@ class AdminAppointmentController extends Controller
         $appointments = Appointment::all();
         $washing_prices = Washing_price::all();
 
-        return view('admin.appointment.index', compact('users', 'vehicle_companies', 'vehicle_modals', 'vehicle_types', 'washing_plans', 'status', 'appointments', 'washing_prices'));
+        return view('admin.appointment.index', ['users' => $users, 'vehicle_companies' => $vehicle_companies, 'vehicle_modals' => $vehicle_modals, 'vehicle_types' => $vehicle_types, 'washing_plans' => $washing_plans, 'status' => $status, 'appointments' => $appointments, 'washing_prices' => $washing_prices]);
 
     }
 
@@ -91,12 +91,12 @@ class AdminAppointmentController extends Controller
             'time_frame' => $time_frame,
         ];
 
-        Mail::send('emails.appointment_emails', compact('data'), function ($message) use ($data) {
+        Mail::send('emails.appointment_emails', ['data' => $data], function ($message) use ($data) {
             $message->from(env('MAIL_USERNAME'));
             $message->to($data['email']);
         });
 
-        Mail::send('emails.appointment_emails', compact('data'), function ($message) {
+        Mail::send('emails.appointment_emails', ['data' => $data], function ($message) {
             $message->to(env('MAIL_USERNAME'));
         });
 
@@ -168,9 +168,6 @@ class AdminAppointmentController extends Controller
     public function ajaxonLoad(Request $request)
     {
 
-        $month = $request->month_id;
-        $year = $request->year_id;
-
         $date = $request->date;
 
         $appointments = collect();
@@ -185,7 +182,7 @@ class AdminAppointmentController extends Controller
 
         $appointments = $appointments->flatten();
 
-        if (! count($appointments)) {
+        if (count($appointments) === 0) {
 
             return '<table class="table table-hover teams-table">
                             <thead>
@@ -208,7 +205,7 @@ class AdminAppointmentController extends Controller
 
         }
 
-        return view('admin.data', compact('appointments'));
+        return view('admin.data', ['appointments' => $appointments]);
 
     }
 

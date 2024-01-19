@@ -18,7 +18,7 @@ class AdminBlogController extends Controller
         $blogs = Blog::all();
         $users = User::pluck('name', 'id')->all();
 
-        return view('admin.blog.index', compact('blogs', 'users'));
+        return view('admin.blog.index', ['blogs' => $blogs, 'users' => $users]);
     }
 
     /**

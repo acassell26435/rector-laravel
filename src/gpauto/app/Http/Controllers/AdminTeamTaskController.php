@@ -22,7 +22,7 @@ class AdminTeamTaskController extends Controller
         $statuses = Status::pluck('status', 'id')->all();
         $tasks = Team_task::all();
 
-        return view('admin.team_task.index', compact('users', 'teams', 'statuses', 'tasks'));
+        return view('admin.team_task.index', ['users' => $users, 'teams' => $teams, 'statuses' => $statuses, 'tasks' => $tasks]);
     }
 
     /**

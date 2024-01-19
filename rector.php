@@ -1,9 +1,8 @@
 <?php
-use RectorLaravel\Set\LaravelSetList;
+
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
-use Rector\ValueObject\PhpVersion;
-
+use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
@@ -12,9 +11,9 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->skip([
         __DIR__ . '/tests',
-           __DIR__ . '/src/gpauto/vendor',
-                     
+        __DIR__ . '/src/gpauto/vendor',
+
     ]);
     $rectorConfig->disableParallel();
-   $rectorConfig->sets([LaravelSetList::LARAVEL_70, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
+    $rectorConfig->sets([LaravelSetList::LARAVEL_70, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
 };

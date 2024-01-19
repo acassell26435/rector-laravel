@@ -44,7 +44,7 @@ class RegisterController extends Controller
     {
         $contacts = Contact::all();
 
-        return view('auth.register', compact('contacts'));
+        return view('auth.register', ['contacts' => $contacts]);
     }
 
     public function postLogin(Request $request)

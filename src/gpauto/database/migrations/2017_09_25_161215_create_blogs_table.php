@@ -9,14 +9,14 @@ class CreateBlogsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('blogs')) {
-            Schema::create('blogs', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('title');
-                $table->string('img')->nullable();
-                $table->integer('user_id');
-                $table->date('date');
-                $table->text('dtl');
-                $table->timestamps();
+            Schema::create('blogs', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('title');
+                $blueprint->string('img')->nullable();
+                $blueprint->integer('user_id');
+                $blueprint->date('date');
+                $blueprint->text('dtl');
+                $blueprint->timestamps();
             });
         }
     }

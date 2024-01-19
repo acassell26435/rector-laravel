@@ -9,10 +9,10 @@ class CreateClientsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('clients')) {
-            Schema::create('clients', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('image');
-                $table->timestamps();
+            Schema::create('clients', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('image');
+                $blueprint->timestamps();
             });
         }
     }

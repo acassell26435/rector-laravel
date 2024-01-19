@@ -16,7 +16,7 @@ class AdminFactsController extends Controller
     {
         $facts = Facts::all();
 
-        return view('admin.facts.index', compact('facts'));
+        return view('admin.facts.index', ['facts' => $facts]);
     }
 
     /**

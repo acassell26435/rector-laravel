@@ -9,20 +9,20 @@ class CreateTeamsTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('teams')) {
-            Schema::create('teams', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('photo')->unique()->nullable();
-                $table->string('name');
-                $table->string('email')->unique();
-                $table->char('sex');
-                $table->string('mobile')->unique();
-                $table->string('phone')->nullable();
-                $table->date('dob');
-                $table->string('post');
-                $table->text('address');
-                $table->char('status');
-                $table->date('join_date');
-                $table->timestamps();
+            Schema::create('teams', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('photo')->unique()->nullable();
+                $blueprint->string('name');
+                $blueprint->string('email')->unique();
+                $blueprint->char('sex');
+                $blueprint->string('mobile')->unique();
+                $blueprint->string('phone')->nullable();
+                $blueprint->date('dob');
+                $blueprint->string('post');
+                $blueprint->text('address');
+                $blueprint->char('status');
+                $blueprint->date('join_date');
+                $blueprint->timestamps();
             });
         }
     }

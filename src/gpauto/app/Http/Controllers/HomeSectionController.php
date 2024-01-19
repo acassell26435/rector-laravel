@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class HomeSectionController extends Controller
 {
+    public $homeSection;
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +24,7 @@ class HomeSectionController extends Controller
     {
         $homesection = $this->homeSection->first();
 
-        return view('admin.home_section.index', compact('homesection'));
+        return view('admin.home_section.index', ['homesection' => $homesection]);
     }
 
     /**

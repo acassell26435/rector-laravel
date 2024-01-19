@@ -16,7 +16,7 @@ class AdminCompanySocialController extends Controller
     {
         $socials = Company_social::all();
 
-        return view('admin.company_social.index', compact('socials'));
+        return view('admin.company_social.index', ['socials' => $socials]);
     }
 
     /**

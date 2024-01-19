@@ -9,12 +9,12 @@ class CreateServicesTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('services')) {
-            Schema::create('services', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('icon');
-                $table->string('name');
-                $table->text('description');
-                $table->timestamps();
+            Schema::create('services', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->string('icon');
+                $blueprint->string('name');
+                $blueprint->text('description');
+                $blueprint->timestamps();
             });
         }
     }

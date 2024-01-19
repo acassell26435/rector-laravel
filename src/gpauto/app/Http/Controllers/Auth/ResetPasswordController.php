@@ -42,6 +42,6 @@ class ResetPasswordController extends Controller
     {
         $contacts = Contact::all();
 
-        return view('auth.passwords.reset', compact('token', 'contacts'));
+        return view('auth.passwords.reset', ['token' => $token, 'contacts' => $contacts]);
     }
 }

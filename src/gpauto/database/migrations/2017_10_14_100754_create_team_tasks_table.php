@@ -9,13 +9,13 @@ class CreateTeamTasksTable extends Migration
     public function up()
     {
         if (! Schema::hasTable('team_tasks')) {
-            Schema::create('team_tasks', function (Blueprint $table) {
-                $table->increments('id');
-                $table->integer('team_id');
-                $table->integer('user_id');
-                $table->text('task');
-                $table->integer('status_id');
-                $table->timestamps();
+            Schema::create('team_tasks', function (Blueprint $blueprint) {
+                $blueprint->increments('id');
+                $blueprint->integer('team_id');
+                $blueprint->integer('user_id');
+                $blueprint->text('task');
+                $blueprint->integer('status_id');
+                $blueprint->timestamps();
             });
         }
     }
