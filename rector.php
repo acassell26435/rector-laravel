@@ -9,7 +9,7 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/src',
         __DIR__ . '/tests',
     ]);
-    $rectorConfig->phpVersion(PhpVersion::PHP_80);
+
     $rectorConfig->skip([
         __DIR__ . '/src/gpauto/vendor',
     ]);
