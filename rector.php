@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
 use RectorLaravel\Set\LaravelSetList;
 use Rector\Config\RectorConfig;
-use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
-use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
+
+
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->importNames();
 
-    $rectorConfig->paths([__DIR__ . '/src/auto', __DIR__ . '/tests']);
+    $rectorConfig->paths([__DIR__ . '/src/auto']);
 
     $rectorConfig->skip([
         // for tests
@@ -25,5 +23,5 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
     $rectorConfig->disableParallel();
 
-    $rectorConfig->sets([LaravelSetList::LARAVEL_80, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
+    $rectorConfig->sets([LaravelSetList::LARAVEL_80]);
 };
