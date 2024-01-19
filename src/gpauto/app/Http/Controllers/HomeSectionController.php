@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\HomeSection;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class HomeSectionController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeSectionController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function __construct()
     {
@@ -30,7 +31,7 @@ class HomeSectionController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -40,7 +41,7 @@ class HomeSectionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {

@@ -15,16 +15,16 @@ class Team_task extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function team()
     {
-        return $this->belongsTo(\App\Team::class);
+        return $this->belongsTo(Team::class);
     }
 
     public function status()
     {
-        return $this->belongsTo(\App\Status::class);
+        return $this->belongsTo(Status::class);
     }
 }

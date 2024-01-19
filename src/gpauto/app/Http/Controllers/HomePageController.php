@@ -24,6 +24,7 @@ use App\Washing_plan;
 use App\Washing_plan_include;
 use App\Washing_price;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class HomePageController extends Controller
@@ -31,7 +32,7 @@ class HomePageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -66,7 +67,7 @@ class HomePageController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -76,7 +77,7 @@ class HomePageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -94,7 +95,7 @@ class HomePageController extends Controller
             $appointment_date = $input['appointment_date'];
             $time_frame = $input['time_frame'];
 
-            $input['appointment_date'] = date('Y/m/d', strtotime($request->appointment_date));
+            $input['appointment_date'] = date('Y/m/d', strtotime((string) $request->appointment_date));
 
             $new = Appointment::create($input);
 
@@ -137,7 +138,7 @@ class HomePageController extends Controller
 
             $input['user_id'] = $user->id;
 
-            $input['appointment_date'] = date('Y/m/d', strtotime($request->appointment_date));
+            $input['appointment_date'] = date('Y/m/d', strtotime((string) $request->appointment_date));
 
             $new = Appointment::create($input);
 
@@ -180,7 +181,7 @@ class HomePageController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -191,7 +192,7 @@ class HomePageController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -202,7 +203,7 @@ class HomePageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -213,7 +214,7 @@ class HomePageController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

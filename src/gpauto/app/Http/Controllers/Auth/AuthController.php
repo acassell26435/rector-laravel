@@ -34,7 +34,7 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
 
-        } catch (Exception $e) {
+        } catch (Exception) {
             $user = Socialite::driver($provider)->stateless()->user();
         }
 

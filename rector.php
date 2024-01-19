@@ -17,7 +17,7 @@ return static function (RectorConfig $rectorConfig): void {
         '*/Source/*',
         '*/Fixture/*',
         __DIR__ . '/tests',
-        __DIR__ . '/src/gpauto/vendor',                   
+        __DIR__ . '/src/gpauto/vendor',
 
         // skip for handle scoped, like in the rector-src as well
         // @see https://github.com/rectorphp/rector-src/blob/7f73cf017214257c170d34db3af7283eaeeab657/rector.php#L71
@@ -27,4 +27,3 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->sets([LevelSetList::UP_TO_PHP_82, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
 };
-   

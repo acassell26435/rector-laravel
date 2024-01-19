@@ -13,11 +13,11 @@ class Team extends Model
 
     public function social_teams()
     {
-        return $this->hasOne(\App\Social_team::class);
+        return $this->hasOne(Social_team::class);
     }
 
     public function team_task()
     {
-        return $this->hasOne(\App\Team_task::class);
+        return $this->hasOne(Team_task::class);
     }
 }

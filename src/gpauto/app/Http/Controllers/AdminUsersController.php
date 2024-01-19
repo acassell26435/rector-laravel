@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UsersCreateRequest;
 use App\Http\Requests\UsersUpdateRequest;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -13,7 +15,7 @@ class AdminUsersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -35,7 +37,7 @@ class AdminUsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -56,8 +58,8 @@ class AdminUsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $usersCreateRequest
-     * @return \Illuminate\Http\Response
+     * @param  Request  $usersCreateRequest
+     * @return Response
      */
     public function store(UsersCreateRequest $usersCreateRequest)
     {
@@ -76,7 +78,7 @@ class AdminUsersController extends Controller
 
         $input['password'] = bcrypt($usersCreateRequest->password);
 
-        $input['dob'] = date('Y/m/d', strtotime($usersCreateRequest->dob));
+        $input['dob'] = date('Y/m/d', strtotime((string) $usersCreateRequest->dob));
 
         User::create($input);
 
@@ -87,7 +89,7 @@ class AdminUsersController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -98,7 +100,7 @@ class AdminUsersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -112,9 +114,9 @@ class AdminUsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $usersUpdateRequest
+     * @param  Request  $usersUpdateRequest
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(UsersUpdateRequest $usersUpdateRequest, $id)
     {
@@ -144,7 +146,7 @@ class AdminUsersController extends Controller
             $input['password'] = bcrypt($usersUpdateRequest->password);
 
         }
-        $input['dob'] = date('Y/m/d', strtotime($usersUpdateRequest->dob));
+        $input['dob'] = date('Y/m/d', strtotime((string) $usersUpdateRequest->dob));
 
         $user->update($input);
 
@@ -155,7 +157,7 @@ class AdminUsersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

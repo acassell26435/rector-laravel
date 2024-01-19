@@ -6,6 +6,8 @@ use App\Http\Requests\TeamCreateRequest;
 use App\Http\Requests\TeamUpdateRequest;
 use App\Social_team;
 use App\Team;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 
 class AdminTeamController extends Controller
@@ -13,7 +15,7 @@ class AdminTeamController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -27,7 +29,7 @@ class AdminTeamController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -37,8 +39,8 @@ class AdminTeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $teamCreateRequest
-     * @return \Illuminate\Http\Response
+     * @param  Request  $teamCreateRequest
+     * @return Response
      */
     public function store(TeamCreateRequest $teamCreateRequest)
     {
@@ -55,8 +57,8 @@ class AdminTeamController extends Controller
 
         }
 
-        $input['dob'] = date('Y/m/d', strtotime($teamCreateRequest->dob));
-        $input['join_date'] = date('Y/m/d', strtotime($teamCreateRequest->join_date));
+        $input['dob'] = date('Y/m/d', strtotime((string) $teamCreateRequest->dob));
+        $input['join_date'] = date('Y/m/d', strtotime((string) $teamCreateRequest->join_date));
 
         Team::create($input);
 
@@ -67,7 +69,7 @@ class AdminTeamController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -78,7 +80,7 @@ class AdminTeamController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -92,9 +94,9 @@ class AdminTeamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $teamUpdateRequest
+     * @param  Request  $teamUpdateRequest
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(TeamUpdateRequest $teamUpdateRequest, $id)
     {
@@ -119,8 +121,8 @@ class AdminTeamController extends Controller
 
         }
 
-        $input['dob'] = date('Y/m/d', strtotime($teamUpdateRequest->dob));
-        $input['join_date'] = date('Y/m/d', strtotime($teamUpdateRequest->join_date));
+        $input['dob'] = date('Y/m/d', strtotime((string) $teamUpdateRequest->dob));
+        $input['join_date'] = date('Y/m/d', strtotime((string) $teamUpdateRequest->join_date));
 
         $team->update($input);
 
@@ -131,7 +133,7 @@ class AdminTeamController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

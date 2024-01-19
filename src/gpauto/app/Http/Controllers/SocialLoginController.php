@@ -12,12 +12,12 @@ class SocialLoginController extends Controller
     {
         $social_login = SocialLogin::first();
         $env_files = [
-            'FACEBOOK_CLIENT_ID' => env('FACEBOOK_CLIENT_ID') ? env('FACEBOOK_CLIENT_ID') : '',
-            'FACEBOOK_CLIENT_SECRET' => env('FACEBOOK_CLIENT_SECRET') ? env('FACEBOOK_CLIENT_SECRET') : '',
-            'FACEBOOK_CALLBACK' => env('FACEBOOK_CALLBACK') ? env('FACEBOOK_CALLBACK') : '',
-            'GOOGLE_CLIENT_ID' => env('GOOGLE_CLIENT_ID') ? env('GOOGLE_CLIENT_ID') : '',
-            'GOOGLE_CLIENT_SECRET' => env('GOOGLE_CLIENT_SECRET') ? env('GOOGLE_CLIENT_SECRET') : '',
-            'GOOGLE_CALLBACK' => env('GOOGLE_CALLBACK') ? env('GOOGLE_CALLBACK') : '',
+            'FACEBOOK_CLIENT_ID' => env('FACEBOOK_CLIENT_ID') ?: '',
+            'FACEBOOK_CLIENT_SECRET' => env('FACEBOOK_CLIENT_SECRET') ?: '',
+            'FACEBOOK_CALLBACK' => env('FACEBOOK_CALLBACK') ?: '',
+            'GOOGLE_CLIENT_ID' => env('GOOGLE_CLIENT_ID') ?: '',
+            'GOOGLE_CLIENT_SECRET' => env('GOOGLE_CLIENT_SECRET') ?: '',
+            'GOOGLE_CALLBACK' => env('GOOGLE_CALLBACK') ?: '',
 
         ];
 
@@ -27,12 +27,12 @@ class SocialLoginController extends Controller
     public function facebook()
     {
         $env_files = [
-            'FACEBOOK_CLIENT_ID' => env('FACEBOOK_CLIENT_ID') ? env('FACEBOOK_CLIENT_ID') : '',
-            'FACEBOOK_CLIENT_SECRET' => env('FACEBOOK_CLIENT_SECRET') ? env('FACEBOOK_CLIENT_SECRET') : '',
-            'FACEBOOK_CALLBACK' => env('FACEBOOK_CALLBACK') ? env('FACEBOOK_CALLBACK') : '',
-            'GOOGLE_CLIENT_ID' => env('GOOGLE_CLIENT_ID') ? env('GOOGLE_CLIENT_ID') : '',
-            'GOOGLE_CLIENT_SECRET' => env('GOOGLE_CLIENT_SECRET') ? env('GOOGLE_CLIENT_SECRET') : '',
-            'GOOGLE_CALLBACK' => env('GOOGLE_CALLBACK') ? env('GOOGLE_CALLBACK') : '',
+            'FACEBOOK_CLIENT_ID' => env('FACEBOOK_CLIENT_ID') ?: '',
+            'FACEBOOK_CLIENT_SECRET' => env('FACEBOOK_CLIENT_SECRET') ?: '',
+            'FACEBOOK_CALLBACK' => env('FACEBOOK_CALLBACK') ?: '',
+            'GOOGLE_CLIENT_ID' => env('GOOGLE_CLIENT_ID') ?: '',
+            'GOOGLE_CLIENT_SECRET' => env('GOOGLE_CLIENT_SECRET') ?: '',
+            'GOOGLE_CALLBACK' => env('GOOGLE_CALLBACK') ?: '',
         ];
 
         return view('admin.sociallogin.index', ['env_files' => $env_files]);

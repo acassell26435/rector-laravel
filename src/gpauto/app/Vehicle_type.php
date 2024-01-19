@@ -13,11 +13,11 @@ class Vehicle_type extends Model
 
     public function washing_price()
     {
-        return $this->hasOne(\App\Washing_price::class);
+        return $this->hasOne(Washing_price::class);
     }
 
     public function appointment()
     {
-        return $this->hasOne(\App\Appointment::class);
+        return $this->hasOne(Appointment::class);
     }
 }

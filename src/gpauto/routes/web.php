@@ -27,9 +27,7 @@ Route::resource('/', 'HomePageController');
 
 Auth::routes();
 
-Route::get('home', function () {
-    return Redirect('/');
-});
+Route::get('home', fn () => Redirect('/'));
 
 Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
 Route::get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@getRegister']);
@@ -126,9 +124,7 @@ Route::group(['middleware' => 'iscommon'], function () {
 
     Route::get('admin', 'AdminController@index');
 
-    Route::get('admin/profile', function () {
-        return view('profile');
-    });
+    Route::get('admin/profile', fn () => view('profile'));
 
     Route::resource('admin/users', 'AdminUsersController');
 

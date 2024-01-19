@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Contact;
 use DotenvEditor;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AdminContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -23,7 +24,7 @@ class AdminContactController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -33,7 +34,7 @@ class AdminContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -65,7 +66,7 @@ class AdminContactController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -76,7 +77,7 @@ class AdminContactController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit()
     {
@@ -89,7 +90,7 @@ class AdminContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -145,7 +146,7 @@ class AdminContactController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
@@ -184,7 +185,7 @@ class AdminContactController extends Controller
             'MAIL_HOST' => $request->MAIL_HOST,
             'MAIL_PORT' => $request->MAIL_PORT,
             'MAIL_USERNAME' => $request->MAIL_USERNAME,
-            'MAIL_FROM_ADDRESS' => $string = preg_replace('/\s+/', '', $request->MAIL_FROM_ADDRESS),
+            'MAIL_FROM_ADDRESS' => $string = preg_replace('/\s+/', '', (string) $request->MAIL_FROM_ADDRESS),
             'MAIL_PASSWORD' => $request->MAIL_PASSWORD,
             'MAIL_ENCRYPTION' => $request->MAIL_ENCRYPTION,
         ]);
