@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use RectorLaravel\Set\LaravelLevelSetList;
-use RectorLaravel\Set\LaravelSetList;
+use Rector\Set\LaravelLevelSetList;
+use Rector\Set\LaravelSetList;
 use Rector\Config\RectorConfig;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
 use Rector\Set\ValueObject\LevelSetList;
