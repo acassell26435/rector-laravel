@@ -16,5 +16,5 @@ return static function (RectorConfig $rectorConfig): void {
                      
     ]);
     $rectorConfig->disableParallel();
-   $rectorConfig->sets([LevelSetList::LARAVEL_70, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
+   $rectorConfig->sets([LaravelSetList::LARAVEL_70, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
 };
