@@ -14,8 +14,5 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/src/gpauto/vendor',
     ]);
     $rectorConfig->disableParallel();
-
-    $rectorConfig->sets([
-        SetList::DEAD_CODE,
-    ]);
+   $rectorConfig->sets([LevelSetList::UP_TO_PHP_82, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
 };
