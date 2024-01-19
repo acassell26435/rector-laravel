@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use RectorLaravel\Set\LaravelLevelSetList;
+use RectorLaravel\Set\LaravelSetList;
 use Rector\Config\RectorConfig;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
 use Rector\Set\ValueObject\LevelSetList;
@@ -25,5 +27,5 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
     $rectorConfig->disableParallel();
 
-    $rectorConfig->sets([LevelSetList::UP_TO_PHP_82, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
+    $rectorConfig->sets([LaravelSetList::LARAVEL_80, SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::NAMING]);
 };
