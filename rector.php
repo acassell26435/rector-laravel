@@ -1,9 +1,9 @@
 <?php
-
+use RectorLaravel\Set\LaravelSetList;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\SetList;
 use Rector\ValueObject\PhpVersion;
-use Rector\ValueObject\LaravelSetList;
+
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
