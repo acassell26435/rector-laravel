@@ -12,7 +12,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->phpVersion(PhpVersion::PHP_74);
      $rectorConfig->skip([
         __DIR__ . '/src/gpauto/vendor',
-
+]);
 $rectorConfig->disableParallel();
 
     $rectorConfig->sets([
