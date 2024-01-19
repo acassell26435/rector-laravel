@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Artisan;
 use DotenvEditor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Image;
 
 /*==========================================
