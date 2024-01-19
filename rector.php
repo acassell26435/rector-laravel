@@ -1,9 +1,7 @@
 <?php
 
-use RectorLaravel\Set\LaravelSetList;
 use Rector\Config\RectorConfig;
-
-
+use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->importNames();
