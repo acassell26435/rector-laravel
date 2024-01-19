@@ -10,6 +10,7 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__ . '/tests',
     ]);
     $rectorConfig->phpVersion(PhpVersion::PHP_80);
+$rectorConfig->disableParallel();
 
     $rectorConfig->sets([
         SetList::DEAD_CODE,
