@@ -21,7 +21,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-
+        cache: 'npm'
+        cache-dependency-path: src/gpauto-main/package-lock.json
     - name: Build
       run: |
         npm install
