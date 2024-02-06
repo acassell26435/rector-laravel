@@ -18,5 +18,5 @@ return static function (RectorConfig $rectorConfig): void {
     ]);
     $rectorConfig->disableParallel();
 
-    $rectorConfig->sets([LaravelSetList::LARAVEL_80]);
+    $rectorConfig->sets([LaravelSetList::LARAVEL_90]);
 };
