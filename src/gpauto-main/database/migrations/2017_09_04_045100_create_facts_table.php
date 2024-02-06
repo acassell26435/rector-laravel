@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFactsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('facts')) {
@@ -24,11 +19,6 @@ class CreateFactsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('facts');

@@ -44,7 +44,7 @@ class AdminTestimonialController extends Controller
 
         if ($file = $request->file('image')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/testimonial', $name);
 
@@ -97,11 +97,11 @@ class AdminTestimonialController extends Controller
 
         if ($file = $request->file('image')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/testimonial', $name);
 
-            unlink(public_path().'/images/testimonial/'.$testimonial->image);
+            unlink(public_path() . '/images/testimonial/' . $testimonial->image);
 
             $input['image'] = $name;
 
@@ -124,7 +124,7 @@ class AdminTestimonialController extends Controller
 
         if ($testimonial->image) {
 
-            unlink(public_path().'/images/testimonial/'.$testimonial->image);
+            unlink(public_path() . '/images/testimonial/' . $testimonial->image);
 
         }
 

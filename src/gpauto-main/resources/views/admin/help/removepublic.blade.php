@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'active','system_status'=>'','remove_public'=>'active','clear_cache'=>'',
     'booking_report'=>'',
@@ -32,16 +32,16 @@
           <div class="admin-form-block z-depth-1">
             <div class="callout callout-danger">
             <i class="fa fa-info-circle"></i>
-             {{__('Important Notes')}}
+             {{ __('Important Notes') }}
              <ol type="1">
-              <li> {{__('Removing public from URL is only works when you have installed script in main domain.')}}</li>
-              <li> {{__('Do not remove public when you have Installed script in subfolders.')}}</li>
+              <li> {{ __('Removing public from URL is only works when you have installed script in main domain.') }}</li>
+              <li> {{ __('Do not remove public when you have Installed script in subfolders.') }}</li>
              </ol>
           </div>
-            <form method="POST" action="{{route('remove.public')}}">
+            <form method="POST" action="{{ route('remove.public') }}">
               @csrf
-              <button type="submit" class="btn btn-success">{{__('Remove Public')}}</button>
-              
+              <button type="submit" class="btn btn-success">{{ __('Remove Public') }}</button>
+
             </form>
           </div>
 

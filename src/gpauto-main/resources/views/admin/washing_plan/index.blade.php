@@ -7,7 +7,7 @@
     'plan' => 'active', 'all_plan' => 'active', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -73,14 +73,14 @@
           @foreach ($washing_plans as $washing_plan)
             <tr>
               <td>
-                {{$i}}
+                {{ $i }}
                 @php($i++)
               </td>
-              <td>{{$washing_plan->name}}</td>
+              <td>{{ $washing_plan->name }}</td>
               <td>
-                <a href="#" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#{{$washing_plan->id}}createModal">Service Include</a>
+                <a href="#" type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#{{ $washing_plan->id }}createModal">Service Include</a>
                 <!-- Social Modal -->
-                <div id="{{$washing_plan->id}}createModal" class="modal fade" role="dialog">
+                <div id="{{ $washing_plan->id }}createModal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -104,14 +104,14 @@
                                 @if ($washing_include->washing_plan_id == $washing_plan->id)
                                   <tr>
                                     <td>
-                                      {{$k}}
+                                      {{ $k }}
                                       @php($k++)
                                     </td>
-                                    <td>{{$washing_include->washing_plan_include}}</td>
+                                    <td>{{ $washing_include->washing_plan_include }}</td>
                                     <td>
-                                      <a href="" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit_modal{{$washing_include->id}}">Edit</a>
+                                      <a href="" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#edit_modal{{ $washing_include->id }}">Edit</a>
                                       <!-- Social Modal -->
-                                      <div id="edit_modal{{$washing_include->id}}" class="modal fade" role="dialog">
+                                      <div id="edit_modal{{ $washing_include->id }}" class="modal fade" role="dialog">
                                         <div class="modal-dialog modal-sm">
                                           <!-- Modal content-->
                                           <div class="modal-content">
@@ -138,9 +138,9 @@
                                         </div>
                                       </div>
                                       <!-- delete button -->
-                                      <a href="" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete_modal{{$washing_include->id}}">Delete</a>
+                                      <a href="" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete_modal{{ $washing_include->id }}">Delete</a>
                                       <!-- Social Modal -->
-                                      <div id="delete_modal{{$washing_include->id}}" class="delete-modal modal fade" role="dialog">
+                                      <div id="delete_modal{{ $washing_include->id }}" class="delete-modal modal fade" role="dialog">
                                         <div class="modal-dialog modal-sm">
                                           <!-- Modal content-->
                                           <div class="modal-content">
@@ -187,13 +187,13 @@
                   </div>
                 </div>
               </td>
-              <td>{{$washing_plan->created_at->diffForHumans()}}</td>
-              <td>{{$washing_plan->updated_at->diffForHumans()}}</td>
+              <td>{{ $washing_plan->created_at->diffForHumans() }}</td>
+              <td>{{ $washing_plan->updated_at->diffForHumans() }}</td>
               <td>
                 <!-- Edit Button -->
-                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$washing_plan->id}}washing_edit_Modal">Edit</button>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $washing_plan->id }}washing_edit_Modal">Edit</button>
                 <!-- Edit Washing Plan Modal -->
-                <div id="{{$washing_plan->id}}washing_edit_Modal" class="modal fade" role="dialog">
+                <div id="{{ $washing_plan->id }}washing_edit_Modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -219,9 +219,9 @@
                 </div>
                 <!-- End Edit Button -->
                 <!-- Delete Button -->
-                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#{{$washing_plan->id}}del_Modal">Delete</button>
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#{{ $washing_plan->id }}del_Modal">Delete</button>
                 <!-- Delete Modal -->
-                <div id="{{$washing_plan->id}}del_Modal" class="delete-modal modal fade" role="dialog">
+                <div id="{{ $washing_plan->id }}del_Modal" class="delete-modal modal fade" role="dialog">
                   <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                       <div class="modal-header">

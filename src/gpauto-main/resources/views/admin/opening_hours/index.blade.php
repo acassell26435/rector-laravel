@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> 'active', 'settings'=>'','company_social' => '','opening_hours' => 'active', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -88,20 +88,20 @@
             @foreach ($timings as $timing)
               <tr>
                 <td>
-                  {{$i}}
+                  {{ $i }}
                   @php($i++)
                 </td>
-                <td>{{$timing->day}}</td>
-                <td>{{$timing->opening_time}}</td>
-                <td>{{$timing->closing_time}}</td>
-                <td>{{$timing->created_at->diffForHumans()}}</td>
-                <td>{{$timing->updated_at->diffForHumans()}}</td>
+                <td>{{ $timing->day }}</td>
+                <td>{{ $timing->opening_time }}</td>
+                <td>{{ $timing->closing_time }}</td>
+                <td>{{ $timing->created_at->diffForHumans() }}</td>
+                <td>{{ $timing->updated_at->diffForHumans() }}</td>
                 <td>
                   <div class="action-btns">
                     <!-- Edit Button -->
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$timing->id}}editModal">Edit</button>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{ $timing->id }}editModal">Edit</button>
                     <!-- Edit Modal -->
-                    <div id="{{$timing->id}}editModal" class="modal fade" role="dialog">
+                    <div id="{{ $timing->id }}editModal" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -129,7 +129,7 @@
                                     {!! Form::text('closing_time', null, ['class' => 'form-control timepicker', 'placeholder'=>'eg: 8:00 pm']) !!}
                                     <small class="text-danger">{{ $errors->first('closing_time') }}</small>
                                 </div>
-                              </div>  
+                              </div>
                             </div>
                             <div class="modal-footer">
                               <div class="btn-group pull-right">
@@ -141,9 +141,9 @@
                       </div>
                     </div>
                     <!-- Delete Button -->
-                    <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{$timing->id}}DeleteModal">Delete</button>
+                    <button type="button" class="btn btn-info btn-sm btn-danger" data-toggle="modal" data-target="#{{ $timing->id }}DeleteModal">Delete</button>
                     <!-- Delete Modal -->
-                    <div id="{{$timing->id}}DeleteModal" class="delete-modal modal fade" role="dialog">
+                    <div id="{{ $timing->id }}DeleteModal" class="delete-modal modal fade" role="dialog">
                       <div class="modal-dialog modal-sm">
                         <!-- Modal content-->
                         <div class="modal-content">

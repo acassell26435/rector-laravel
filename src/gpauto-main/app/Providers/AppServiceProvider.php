@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Contact;
 use App\SocialLogin;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 

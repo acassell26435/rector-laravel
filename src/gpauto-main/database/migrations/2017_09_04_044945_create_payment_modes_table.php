@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePaymentModesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('payment_modes')) {
@@ -22,11 +17,6 @@ class CreatePaymentModesTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('payment_modes');

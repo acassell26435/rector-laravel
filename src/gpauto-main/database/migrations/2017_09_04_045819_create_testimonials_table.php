@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTestimonialsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('testimonials')) {
@@ -25,11 +20,6 @@ class CreateTestimonialsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('testimonials');

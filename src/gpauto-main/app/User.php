@@ -30,17 +30,17 @@ class User extends Authenticatable
 
     public function team_task()
     {
-        return $this->hasOne(\App\Team_task::class);
+        return $this->hasOne(Team_task::class);
     }
 
     public function blogs()
     {
-        return $this->hasOne(\App\Blog::class);
+        return $this->hasOne(Blog::class);
     }
 
     public function appointment()
     {
-        return $this->belongsToMany(\App\Appointment::class, 'appointment_users');
+        return $this->belongsToMany(Appointment::class, 'appointment_users');
     }
 
     public function is_admin()

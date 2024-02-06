@@ -44,7 +44,7 @@ class AdminClientsController extends Controller
 
         $file = $request->file('image');
 
-        $name = time().$file->getClientOriginalName();
+        $name = time() . $file->getClientOriginalName();
 
         $file->move('images/clients', $name);
 
@@ -95,9 +95,9 @@ class AdminClientsController extends Controller
 
         $file = $request->file('image');
 
-        $name = time().$file->getClientOriginalName();
+        $name = time() . $file->getClientOriginalName();
 
-        unlink(public_path().'/images/clients/'.$client->image);
+        unlink(public_path() . '/images/clients/' . $client->image);
 
         $input['image'] = $name;
 
@@ -116,7 +116,7 @@ class AdminClientsController extends Controller
     {
         $client = Clients::findOrFail($id);
 
-        unlink(public_path().'/images/clients/'.$client->image);
+        unlink(public_path() . '/images/clients/' . $client->image);
 
         $client->delete();
 

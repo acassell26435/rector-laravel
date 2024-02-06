@@ -9,7 +9,7 @@ class MailChimpController extends Controller
 {
     public function subscribe(Request $request)
     {
-        $this->validate($request, [
+        request()->validate($request, [
             'email' => 'required|email',
         ]);
 

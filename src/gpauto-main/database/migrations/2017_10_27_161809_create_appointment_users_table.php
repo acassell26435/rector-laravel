@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAppointmentUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('appointment_users')) {
@@ -29,11 +24,6 @@ class CreateAppointmentUsersTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('appointment_users');

@@ -7,7 +7,7 @@
     'plan' => '', 'all_plan' => '', 'plan_price' => '',
     'vehicle' => '', 'vehicle_company' => '', 'vehicle_modal' => '', 'vehicle_type' => '',
     'appointments' => '', 'appointment' => '', 'payment' => '', 'payment_mode' => '', 'currency' => '', 'status' => '',
-    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '', 
+    'home_settings_section' => '','home_section'=>'','slider' => '', 'services' => '', 'gallery' => '', 'facts' => '', 'testimonial' => '', 'blog' => '', 'clients' => '',
     'settings_section'=> '', 'settings'=>'','company_social' => '','opening_hours' => '', 'mail_setting'=>'', 'other_api'=>'','pwa'=>'','social_login' => '',
     'help'=>'','system_status'=>'','remove_public'=>'','clear_cache'=>'',
     'booking_report'=>'',
@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="user-img-block">
-            <img src="{{asset('images/users')}}/{{$user->photo}}" alt="" class="img-responsive img-thumbnail">
+            <img src="{{ asset('images/users') }}/{{ $user->photo }}" alt="" class="img-responsive img-thumbnail">
           </div>
         </div>
         <div class="col-md-3">
@@ -107,7 +107,7 @@
     </div>
     <div class="box-footer">
       <div class="btn-group pull-left">
-       
+
         {!! Form::submit("Update", ['class' => 'btn btn-add btn-default']) !!}
       </div>
     </div>

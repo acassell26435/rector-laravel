@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddLogoTwoColInContactTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (Schema::hasTable('contacts')) {
@@ -22,11 +17,6 @@ class AddLogoTwoColInContactTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('contacts', function (Blueprint $table) {

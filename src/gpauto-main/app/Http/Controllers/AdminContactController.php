@@ -106,7 +106,7 @@ class AdminContactController extends Controller
 
             $name = $file->getClientOriginalName();
 
-            unlink(public_path().'/images/logo/'.$contact->logo);
+            unlink(public_path() . '/images/logo/' . $contact->logo);
 
             $file->move('images/logo', $name);
 
@@ -118,7 +118,7 @@ class AdminContactController extends Controller
 
             $name2 = $file2->getClientOriginalName();
 
-            unlink(public_path().'/images/logo/'.$contact->logo_two);
+            unlink(public_path() . '/images/logo/' . $contact->logo_two);
 
             $file2->move('images/logo', $name2);
             $input['logo_two'] = $name2;
@@ -151,7 +151,7 @@ class AdminContactController extends Controller
     {
         $contact = Contact::findOrFail($id);
 
-        unlink(public_path().'/images/logo/'.$contact->logo);
+        unlink(public_path() . '/images/logo/' . $contact->logo);
 
         $contact->delete();
 

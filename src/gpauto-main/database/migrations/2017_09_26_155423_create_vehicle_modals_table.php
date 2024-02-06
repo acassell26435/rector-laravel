@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateVehicleModalsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('vehicle_modals')) {
@@ -24,11 +19,6 @@ class CreateVehicleModalsTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('vehicle_modals');

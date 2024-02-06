@@ -7,7 +7,7 @@ use App\Contact;
 use App\Opening_hour;
 use App\Service;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class contactMailController extends Controller
 {
@@ -23,7 +23,7 @@ class contactMailController extends Controller
 
     public function send(Request $request)
     {
-        $this->validate($request, [
+        request()->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',

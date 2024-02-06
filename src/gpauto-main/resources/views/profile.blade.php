@@ -24,18 +24,18 @@
   <div class="box-body profile-card">
     <div class="box box-widget widget-user">
       <div class="widget-user-header">
-        <h3 class="widget-user-username">{{Auth::user()->name}}</h3>
-        <h5 class="widget-user-desc">{{Auth::user()->role == 'A' ? 'Administrator' : 'Subscriber'}}</h5>
+        <h3 class="widget-user-username">{{ Auth::user()->name }}</h3>
+        <h5 class="widget-user-desc">{{ Auth::user()->role == 'A' ? 'Administrator' : 'Subscriber' }}</h5>
       </div>
       <div class="widget-user-image">
-        <img src="{{asset('images/users')}}/{{Auth::user()->photo}}" class="img-responsive img-circle" alt="Profile">
+        <img src="{{ asset('images/users') }}/{{ Auth::user()->photo }}" class="img-responsive img-circle" alt="Profile">
       </div>
       <div class="box-footer">
         <div class="row">
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Name</h5>
-              <span class="description-text">{{Auth::user()->name}}</span>
+              <span class="description-text">{{ Auth::user()->name }}</span>
             </div>
             <!-- /.description-block -->
           </div>
@@ -43,7 +43,7 @@
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Email</h5>
-              <span class="description-text">{{Auth::user()->email}}</span>
+              <span class="description-text">{{ Auth::user()->email }}</span>
             </div>
             <!-- /.description-block -->
           </div>
@@ -51,7 +51,7 @@
           <div class="col-sm-4">
             <div class="description-block">
               <h5 class="description-header">Gender</h5>
-              <span class="description-text">{{Auth::user()->sex == 'M' ? 'Male' : 'Female'}}</span>
+              <span class="description-text">{{ Auth::user()->sex == 'M' ? 'Male' : 'Female' }}</span>
             </div>
             <!-- /.description-block -->
           </div>
@@ -59,56 +59,56 @@
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Date Of Birth</h5>
-              <span class="description-text">{{Auth::user()->dob}}</span>
+              <span class="description-text">{{ Auth::user()->dob }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Mobile</h5>
-              <span class="description-text">{{Auth::user()->mobile}}</span>
+              <span class="description-text">{{ Auth::user()->mobile }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Phone</h5>
-              <span class="description-text">{{Auth::user()->phone ? Auth::user()->phone : '-'}}</span>
+              <span class="description-text">{{ Auth::user()->phone ? Auth::user()->phone : '-' }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Address</h5>
-              <span class="description-text">{{Auth::user()->address}}</span>
+              <span class="description-text">{{ Auth::user()->address }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Role</h5>
-              <span class="description-text">{{Auth::user()->role == 'A' ? 'Administrator' : 'Subscriber'}}</span>
+              <span class="description-text">{{ Auth::user()->role == 'A' ? 'Administrator' : 'Subscriber' }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Created At</h5>
-              <span class="description-text">{{Auth::user()->created_at->diffForHumans()}}</span>
+              <span class="description-text">{{ Auth::user()->created_at->diffForHumans() }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Updated At</h5>
-              <span class="description-text">{{Auth::user()->updated_at->diffForHumans()}}</span>
+              <span class="description-text">{{ Auth::user()->updated_at->diffForHumans() }}</span>
             </div>
             <!-- /.description-block -->
           </div>
           <div class="col-sm-4 border-right">
             <div class="description-block">
               <h5 class="description-header">Edit</h5>
-              <span class="description-text"><a href="{{route('users.edit', Auth::user()->id)}}" class="btn btn-sm btn-info">Edit</a></span>
+              <span class="description-text"><a href="{{ route('users.edit', Auth::user()->id) }}" class="btn btn-sm btn-info">Edit</a></span>
             </div>
             <!-- /.description-block -->
           </div>

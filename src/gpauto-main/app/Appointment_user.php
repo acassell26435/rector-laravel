@@ -17,16 +17,16 @@ class Appointment_user extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function appointment()
     {
-        return $this->belongsTo(\App\Appointment::class);
+        return $this->belongsTo(Appointment::class);
     }
 
     public function payment_mode()
     {
-        return $this->belongsTo(\App\Payment_mode::class);
+        return $this->belongsTo(Payment_mode::class);
     }
 }

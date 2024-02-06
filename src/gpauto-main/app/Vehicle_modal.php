@@ -13,11 +13,11 @@ class Vehicle_modal extends Model
 
     public function vehicle_company()
     {
-        return $this->belongsTo(\App\Vehicle_company::class);
+        return $this->belongsTo(Vehicle_company::class);
     }
 
     public function appointment()
     {
-        return $this->hasOne(\App\Appointment::class);
+        return $this->hasOne(Appointment::class);
     }
 }

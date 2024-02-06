@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use Auth;
+use Exception;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 
 class AuthController extends Controller
@@ -33,7 +34,7 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $user = Socialite::driver($provider)->stateless()->user();
         }
 
@@ -55,7 +56,7 @@ class AuthController extends Controller
     public function findOrCreateUser($user, $provider)
     {
         if ($user->email == null) {
-            $user->email = $user->id.'@facebook.com';
+            $user->email = $user->id . '@facebook.com';
         }
         $authUser = User::where('email', $user->email)->first();
         $providerField = "{$provider}_id";

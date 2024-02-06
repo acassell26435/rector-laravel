@@ -11,7 +11,7 @@ use App\Vehicle_type;
 use App\Washing_plan;
 use App\Washing_price;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use PDF;
 
 class AdminAppointmentController extends Controller
@@ -197,11 +197,11 @@ class AdminAppointmentController extends Controller
                                 <th>Time Frame</th>
                                 <th>Status</th>
                                 <th>Transaction Date</th>
-                                
+
                               </tr>
                             </thead>
                                      <th colspan="7"> <center> <b> No Result Found </b> <center> <th>
-                                              
+
                             </table>';
 
             return $appointments;

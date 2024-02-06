@@ -19,7 +19,7 @@ Author: Media City
   @if ($contacts)
     @foreach ($contacts as $contact)
       @for ($i=1; $i <= 1; $i++)
-        {{$contact->c_name}}
+        {{ $contact->c_name }}
       @endfor
     @endforeach
   @else
@@ -34,16 +34,16 @@ Author: Media City
 <meta name="MobileOptimized" content="320" />
 <link rel="icon" type="image/icon" href="images/favicon/favicon.ico"> <!-- favicon-icon -->
 <!-- theme style -->
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
-<link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css"/> <!-- fontawesome css -->
-<link href="{{asset('css/icon-font.css')}}" rel="stylesheet" type="text/css"/> <!-- icon-font css -->
+<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/> <!-- bootstrap css -->
+<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/> <!-- fontawesome css -->
+<link href="{{ asset('css/icon-font.css') }}" rel="stylesheet" type="text/css"/> <!-- icon-font css -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Poppins:400,500,700" rel="stylesheet"> <!-- google font -->
-<link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css"> <!-- Select2 -->
-<link href="{{asset('css/menumaker.css')}}" rel="stylesheet" type="text/css"/> <!-- menu css -->
-<link href="{{asset('css/owl.carousel.css')}}" rel="stylesheet" type="text/css"/> <!-- owl carousel css -->
-<link href="{{asset('css/magnific-popup.css')}}" rel="stylesheet" type="text/css"/> <!-- magnify popup css -->
-<link href="{{asset('css/datepicker.css')}}" rel="stylesheet" type="text/css"/> <!-- datepicker css -->
-<link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/> <!-- custom css -->
+<link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" type="text/css"> <!-- Select2 -->
+<link href="{{ asset('css/menumaker.css') }}" rel="stylesheet" type="text/css"/> <!-- menu css -->
+<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css"/> <!-- owl carousel css -->
+<link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet" type="text/css"/> <!-- magnify popup css -->
+<link href="{{ asset('css/datepicker.css') }}" rel="stylesheet" type="text/css"/> <!-- datepicker css -->
+<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/> <!-- custom css -->
 @laravelPWA
 <!-- end theme style -->
 </head>
@@ -61,11 +61,11 @@ Author: Media City
 <!-- session -->
 @if (Session::has('added'))
   <div id="sessionModal" class="sessionmodal alert alert-success">
-    <p>{{session('added')}}</p>
+    <p>{{ session('added') }}</p>
   </div>
 @elseif (Session::has('error'))
   <div id="sessionModal" class="sessionmodal alert alert-danger">
-    <p>{{session('error')}}</p>
+    <p>{{ session('error') }}</p>
   </div>
 @endif
 <!-- end session -->
@@ -79,9 +79,9 @@ Author: Media City
               @if ($contacts)
                 @foreach ($contacts as $contact)
                   @for ($i=0; $i < 1; $i++)
-                    <li><i class="fa fa-envelope" aria-hidden="true"></i> {{$contact->email}}</li>
+                    <li><i class="fa fa-envelope" aria-hidden="true"></i> {{ $contact->email }}</li>
                     <li>|</li>
-                    <li><i class="fa fa-phone" aria-hidden="true"></i>{{$contact->mobile}}</li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>{{ $contact->mobile }}</li>
                   @endfor
                 @endforeach
               @endif
@@ -94,10 +94,10 @@ Author: Media City
               <ul>
                 @if (Route::has('login'))
                   @auth
-                    <li><a href="{{url('/admin')}}"> Dashboard </a></li>
+                    <li><a href="{{ url('/admin') }}"> Dashboard </a></li>
                     <li>
                       <div class="dropdown user-menu">
-                        <button class="btn btn-default dropdown-toggle name" type="button" data-toggle="dropdown">{{Auth::user()->name}}<span class="caret"></span></button>
+                        <button class="btn btn-default dropdown-toggle name" type="button" data-toggle="dropdown">{{ Auth::user()->name }}<span class="caret"></span></button>
                         <ul class="dropdown-menu">
                           <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -121,7 +121,7 @@ Author: Media City
               <ul>
                 @if ($company_socials)
                   @foreach ($company_socials as $company_social)
-                    <li><a href="{{$company_social->link}}" title="{{$company_social->social_site}}" target="_blank"><i class="fa {{$company_social->social_icon}}" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $company_social->link }}" title="{{ $company_social->social_site }}" target="_blank"><i class="fa {{ $company_social->social_icon }}" aria-hidden="true"></i></a></li>
                   @endforeach
                 @endif
               </ul>
@@ -141,7 +141,7 @@ Author: Media City
             @if ($contacts)
               @foreach ($contacts as $contact)
                 @for ($i=0; $i < 1; $i++)
-                  <a href="{{url('/')}}"><img src="{{asset('images/logo')}}/{{$contact->logo}}" class="img-responsive" alt="logo"></a>
+                  <a href="{{ url('/') }}"><img src="{{ asset('images/logo') }}/{{ $contact->logo }}" class="img-responsive" alt="logo"></a>
                 @endfor
               @endforeach
             @endif
@@ -151,27 +151,27 @@ Author: Media City
           <div class="navigation">
             <div id="cssmenu">
               <ul>
-                <li><a href="{{url('/')}}">Home</a>
+                <li><a href="{{ url('/') }}">Home</a>
                 </li>
                 <li><a href="#">Pages</a>
                   <ul>
-                    <li><a href="{{url('/pricing_plan')}}">Pricing Plan</a></li>
-                    <li><a href="{{url('/faq')}}">Faq's</a></li>
-                    <li><a href="{{url('/404')}}">404 Page</a></li>
-                    <li><a href="{{url('/403')}}">403</a></li>
-                    <li><a href="{{url('/coming_soon')}}">Coming Soon</a></li>
-                    <li><a href="{{url('/under_construction')}}">Under Construction</a></li>
+                    <li><a href="{{ url('/pricing_plan') }}">Pricing Plan</a></li>
+                    <li><a href="{{ url('/faq') }}">Faq's</a></li>
+                    <li><a href="{{ url('/404') }}">404 Page</a></li>
+                    <li><a href="{{ url('/403') }}">403</a></li>
+                    <li><a href="{{ url('/coming_soon') }}">Coming Soon</a></li>
+                    <li><a href="{{ url('/under_construction') }}">Under Construction</a></li>
                   </ul>
                 </li>
-                <li><a href="{{url('/gallery')}}">Gallery</a>
+                <li><a href="{{ url('/gallery') }}">Gallery</a>
                 </li>
-                 <li><a href="{{url('/team')}}">Team</a>
+                 <li><a href="{{ url('/team') }}">Team</a>
                 </li>
-                <li><a href="{{url('/contact')}}">Contact</a>
+                <li><a href="{{ url('/contact') }}">Contact</a>
                 </li>
                 @if (Route::has('login'))
                   @auth
-                    <li class="hidden-md hidden-lg"><a href="{{url('/admin')}}"> Dashboard </a></li>
+                    <li class="hidden-md hidden-lg"><a href="{{ url('/admin') }}"> Dashboard </a></li>
                     <li class="hidden-md hidden-lg">
                       <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
@@ -205,7 +205,7 @@ Author: Media City
               @if ($contacts)
                 @foreach ($contacts as $contact)
                   @for ($i=0; $i < 1; $i++)
-                    <img src="{{asset('images/logo')}}/{{$contact->logo_two}}" class="img-responsive" alt="logo">
+                    <img src="{{ asset('images/logo') }}/{{ $contact->logo_two }}" class="img-responsive" alt="logo">
                   @endfor
                 @endforeach
               @endif
@@ -219,7 +219,7 @@ Author: Media City
               <ul>
                 @if ($services)
                   @foreach ($services as $service)
-                    <li><i class="fa fa-caret-right" aria-hidden="true"></i>{{$service->name}}</li>
+                    <li><i class="fa fa-caret-right" aria-hidden="true"></i>{{ $service->name }}</li>
                   @endforeach
                 @endif
               </ul>
@@ -232,12 +232,12 @@ Author: Media City
                 @if ($opening_times)
                   @foreach ($opening_times as $opening_time)
                     <div class="col-xs-5">
-                      <div class="opening-day">{{$opening_time->day}}</div>
+                      <div class="opening-day">{{ $opening_time->day }}</div>
                     </div>
                     <div class="col-xs-7">
                       <div class="opening-time">
                         @if ($opening_time->opening_time !== '-' ? true : false)
-                          {{$opening_time->opening_time}} - {{$opening_time->closing_time}}
+                          {{ $opening_time->opening_time }} - {{ $opening_time->closing_time }}
                         @endif
                         @if ($opening_time->opening_time == '-' ? true : false)
                          Closed
@@ -277,7 +277,7 @@ Author: Media City
                 <ul>
                   @if ($company_socials)
                     @foreach ($company_socials as $company_social)
-                      <li><a href="{{$company_social->link}}" title="{{$company_social->social_site}}" target="_blank"><i class="fa {{$company_social->social_icon}}" aria-hidden="true"></i></a></li>
+                      <li><a href="{{ $company_social->link }}" title="{{ $company_social->social_site }}" target="_blank"><i class="fa {{ $company_social->social_icon }}" aria-hidden="true"></i></a></li>
                     @endforeach
                   @endif
                 </ul>
@@ -302,22 +302,22 @@ Author: Media City
   </footer>
 <!--  end footer -->
 <!-- jquery -->
-<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script> <!-- jquery library js -->
-<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script> <!-- bootstrap js -->
-<script type="text/javascript" src="{{asset('js/owl.carousel.js')}}"></script> <!-- owl carousel js -->
-<script type="text/javascript" src="{{asset('js/select2.full.min.js')}}"></script> <!-- Select2 -->
-<script type="text/javascript" src="{{asset('js/jquery.ajaxchimp.js')}}"></script> <!-- mail chimp js -->
-<script type="text/javascript" src="{{asset('js/smooth-scroll.js')}}"></script> <!-- smooth scroll js -->
-<script type="text/javascript" src="{{asset('js/jquery.magnific-popup.min.js')}}"></script> <!-- magnify popup js -->
-<script type="text/javascript" src="{{asset('js/waypoints.min.js')}}"></script> <!-- facts count js required for jquery.counterup.js file -->
-<script type="text/javascript" src="{{asset('js/jquery.counterup.js')}}"></script> <!-- facts count js-->
-<script type="text/javascript" src="{{asset('js/menumaker.js')}}"></script> <!-- menu js-->
-<script type="text/javascript" src="{{asset('js/jquery.appear.js')}}"></script> <!-- progress bar js -->
-<script type="text/javascript" src="{{asset('js/jquery.countdown.js')}}"></script>  <!-- event countdown js -->
-<script type="text/javascript" src="{{asset('js/price-slider.js')}}"></script> <!-- price slider / filter js-->
-<script type="text/javascript" src="{{asset('js/bootstrap-datepicker.js')}}"></script> <!-- bootstrap datepicker js-->
-<script type="text/javascript" src="{{asset('js/jquery.elevatezoom.js')}}"></script> <!-- image zoom js-->
-<script type="text/javascript" src="{{asset('js/theme.js')}}"></script> <!-- custom js -->
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script> <!-- jquery library js -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script> <!-- bootstrap js -->
+<script type="text/javascript" src="{{ asset('js/owl.carousel.js') }}"></script> <!-- owl carousel js -->
+<script type="text/javascript" src="{{ asset('js/select2.full.min.js') }}"></script> <!-- Select2 -->
+<script type="text/javascript" src="{{ asset('js/jquery.ajaxchimp.js') }}"></script> <!-- mail chimp js -->
+<script type="text/javascript" src="{{ asset('js/smooth-scroll.js') }}"></script> <!-- smooth scroll js -->
+<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script> <!-- magnify popup js -->
+<script type="text/javascript" src="{{ asset('js/waypoints.min.js') }}"></script> <!-- facts count js required for jquery.counterup.js file -->
+<script type="text/javascript" src="{{ asset('js/jquery.counterup.js') }}"></script> <!-- facts count js-->
+<script type="text/javascript" src="{{ asset('js/menumaker.js') }}"></script> <!-- menu js-->
+<script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script> <!-- progress bar js -->
+<script type="text/javascript" src="{{ asset('js/jquery.countdown.js') }}"></script>  <!-- event countdown js -->
+<script type="text/javascript" src="{{ asset('js/price-slider.js') }}"></script> <!-- price slider / filter js-->
+<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script> <!-- bootstrap datepicker js-->
+<script type="text/javascript" src="{{ asset('js/jquery.elevatezoom.js') }}"></script> <!-- image zoom js-->
+<script type="text/javascript" src="{{ asset('js/theme.js') }}"></script> <!-- custom js -->
 <!-- end jquery -->
 <script>
   $( document ).ready(function() {
@@ -330,20 +330,20 @@ Author: Media City
   //Select2
   $('.select2').select2();
 </script>
-@if($contact->right_click == 1)
+@if ($contact->right_click == 1)
   <script type="text/javascript" language="javascript">
-   // Right click disable 
+   // Right click disable
     $(function() {
       $(this).bind("contextmenu", function(inspect) {
         inspect.preventDefault();
       });
     });
-      // End Right click disable 
+      // End Right click disable
   </script>
 @endif
-@if($contact->inspect == 1)
+@if ($contact->inspect == 1)
 <script type="text/javascript" language="javascript">
-//all controller is disable 
+//all controller is disable
   $(function() {
     var isCtrl = false;
     document.onkeyup=function(e){
@@ -358,13 +358,13 @@ Author: Media City
     $(document).keydown(function (event) {
       if (event.keyCode == 123) { // Prevent F12
         return false;
-      } 
+      }
       else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
         return false;
       }
-    });  
+    });
   });
-   // end all controller is disable 
+   // end all controller is disable
 </script>@endif
 </body>
 <!--body end -->

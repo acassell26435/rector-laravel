@@ -8,7 +8,7 @@
           <h3 class="section-heading">Contact Us</h3>
         </div>
         <ol class="breadcrumb">
-          <li><a href="{{url('/')}}">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li><a href="#">Contact</a></li>
           <li class="active"><a>Contact</a></li>
         </ol>
@@ -19,7 +19,7 @@
 <!--  contact page   -->
   @if (Session::has('added'))
     <div id="sessionModal" class="sessionmodal alert alert-success">
-      <p>{{session('added')}}</p>
+      <p>{{ session('added') }}</p>
     </div>
   @endif
   <div id="contact-page" class="contact-page-main-block">
@@ -35,11 +35,11 @@
               @if ($contacts)
                 @foreach ($contacts as $contact)
                   @for ($i=1; $i <= 1; $i++)
-                    <li><i class="fa fa-mobile-phone" aria-hidden="true"></i><a href="#">{{$contact->mobile}}</a></li>
-                    <li><i class="fa fa-phone" aria-hidden="true"></i><a href="#">{{$contact->phone}}</a></li>
-                    <li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="#">{{$contact->address}}</a></li>
-                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="#">{{$contact->email}}</a></li>
-                    <li><i class="fa fa-globe" aria-hidden="true"></i><a href="#">{{$contact->website}}</a></li>
+                    <li><i class="fa fa-mobile-phone" aria-hidden="true"></i><a href="#">{{ $contact->mobile }}</a></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i><a href="#">{{ $contact->phone }}</a></li>
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i><a href="#">{{ $contact->address }}</a></li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="#">{{ $contact->email }}</a></li>
+                    <li><i class="fa fa-globe" aria-hidden="true"></i><a href="#">{{ $contact->website }}</a></li>
                   @endfor
                 @endforeach
               @endif

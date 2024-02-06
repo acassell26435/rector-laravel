@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HomeSection;
+use Exception;
 use Illuminate\Http\Request;
 
 class HomeSectionController extends Controller
@@ -64,7 +65,7 @@ class HomeSectionController extends Controller
 
                 return back()->with('added', 'Home Section has been successfully updated!');
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return back()->with('deleted', $e->getMessage());
         }
 

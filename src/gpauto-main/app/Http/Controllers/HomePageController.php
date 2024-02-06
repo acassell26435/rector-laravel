@@ -178,11 +178,6 @@ class HomePageController extends Controller
 
     }
 
-    public function mailError()
-    {
-        return back()->with('error', 'Please Provide MailChimp API Key...!');
-    }
-
     /**
      * Display the specified resource.
      *
@@ -225,5 +220,10 @@ class HomePageController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function mailError()
+    {
+        return back()->with('error', 'Please Provide MailChimp API Key...!');
     }
 }

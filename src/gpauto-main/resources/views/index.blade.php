@@ -3,24 +3,24 @@
   @section('inner_content')
     @if (Session::has('appointment_added'))
       <div id="sessionModal" class="sessionmodal appointment-session alert alert-success">
-        <p>{{session('appointment_added')}}</p>
+        <p>{{ session('appointment_added') }}</p>
       </div>
     @endif
-    @if($homeSection->slider_section == 1)
+    @if ($homeSection->slider_section == 1)
       <div id="home-slider" class="home-slider">
-        @foreach($slider as $item)
+        @foreach ($slider as $item)
         <div class="item home-slider-bg" style="background-image: url({{ asset('images/slider/'.$item->image) }})">
           <div class="container">
             <div class="slider-dtl">
-              <h4 class="slider-sub-heading">{{$item->heading}}</h4>
-              <h1 class="slider-heading">{{$item->sub_heading}}</h1>
-              <p>{{Str::limit($item->detail,100,'...')}}</p>
+              <h4 class="slider-sub-heading">{{ $item->heading }}</h4>
+              <h1 class="slider-heading">{{ $item->sub_heading }}</h1>
+              <p>{{ Str::limit($item->detail,100,'...') }}</p>
               <div class="slider-btn">
-                @if($item->button1 == 1)
-                  <a href="{{$item->button1_link}}" class="btn btn-orange">{{$item->button1_text}}</a>
+                @if ($item->button1 == 1)
+                  <a href="{{ $item->button1_link }}" class="btn btn-orange">{{ $item->button1_text }}</a>
                 @endif
-                @if($item->button2 == 1)
-                  <a href="{{$item->button2_link}}" class="btn btn-orange">{{$item->button2_text}}</a>
+                @if ($item->button2 == 1)
+                  <a href="{{ $item->button2_link }}" class="btn btn-orange">{{ $item->button2_text }}</a>
                 @endif
               </div>
             </div>
@@ -57,7 +57,7 @@
     </div>
     @endif
   <!--  end slider -->
-  @if($homeSection->about_section == 1)
+  @if ($homeSection->about_section == 1)
   <!--  who we are -->
     <div id ="who-we-are" class="who-we-are-main-block">
       <div class="container">
@@ -125,7 +125,7 @@
   <!--  end who we are -->
   @endif
 
-  @if($homeSection->service_section == 1)
+  @if ($homeSection->service_section == 1)
   <!--  services -->
     <div id="services" class="services-main-block">
       <div class="container">
@@ -139,11 +139,11 @@
               <div class="col-md-3 col-sm-6">
                 <div class="service-block text-center">
                   <div class="service-icon">
-                    <a href="#"><img src="{{asset('images/services')}}/{{$service->icon}}" class="img-responsive" alt="service-01"></a>
+                    <a href="#"><img src="{{ asset('images/services') }}/{{ $service->icon }}" class="img-responsive" alt="service-01"></a>
                   </div>
                   <div class="service-dtl">
-                    <a href="#"><h5 class="service-heading">{{$service->name}}</h5></a>
-                    <p>{{$service->description}}</p>
+                    <a href="#"><h5 class="service-heading">{{ $service->name }}</h5></a>
+                    <p>{{ $service->description }}</p>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@
   <!--  end services -->
   @endif
 
-  @if($homeSection->gallery_section == 1)
+  @if ($homeSection->gallery_section == 1)
   <!--  gallery -->
     <div id="work-gallery" class="work-gallery-main-block">
       <div class="parallax" style="background-image: url('images/bg/work-gallery-bg.jpg')">
@@ -169,8 +169,8 @@
             @if ($galleries)
               @foreach ($galleries as $gallery)
                 <div class="item work-gallery-block">
-                  <img src="{{asset('images/gallery')}}/{{$gallery->gallery_img}}" class="img-responsive" alt="gallery">
-                  <div class="overlay-bg"><a href="{{asset('images/gallery')}}/{{$gallery->gallery_img}}" title="Your Image Title"><i class="fa fa-plus"></i></a></div>
+                  <img src="{{ asset('images/gallery') }}/{{ $gallery->gallery_img }}" class="img-responsive" alt="gallery">
+                  <div class="overlay-bg"><a href="{{ asset('images/gallery') }}/{{ $gallery->gallery_img }}" title="Your Image Title"><i class="fa fa-plus"></i></a></div>
                 </div>
               @endforeach
             @endif
@@ -181,7 +181,7 @@
   <!--  end gallery -->
   @endif
 
-  @if($homeSection->team_section == 1)
+  @if ($homeSection->team_section == 1)
   <!--  team -->
     <div id="team" class="team-main-block">
       <div class="container">
@@ -196,17 +196,17 @@
                 <div class="col-md-3 col-sm-6">
                   <div class="team-block text-center">
                     <div class="team-img">
-                      <a href="#"><img src="{{asset('images/teams')}}/{{$team->photo}}" class="img-responsive" alt="team">
+                      <a href="#"><img src="{{ asset('images/teams') }}/{{ $team->photo }}" class="img-responsive" alt="team">
                       <div class="overlay-bg"></div></a>
                     </div>
                     <div class="team-dtl">
-                      <a href="#"><h6 class="team-heading">{{$team->name}}</h6></a>
-                      <div class="team-post">{{$team->post}}</div>
+                      <a href="#"><h6 class="team-heading">{{ $team->name }}</h6></a>
+                      <div class="team-post">{{ $team->post }}</div>
                       <div class="team-social">
                         <ul>
                           @foreach ($socials as $social)
-                            @if($social->team_id == $team->id)
-                              <li><a href="{{$social->url}}" title="{{$social->social}}" target="_blank"><i class="fa {{$social->social_icon}}"></i></a></li>
+                            @if ($social->team_id == $team->id)
+                              <li><a href="{{ $social->url }}" title="{{ $social->social }}" target="_blank"><i class="fa {{ $social->social_icon }}"></i></a></li>
                             @endif
                           @endforeach
                         </ul>
@@ -223,7 +223,7 @@
   <!--  end team -->
   @endif
 
-  @if($homeSection->facts_section == 1)
+  @if ($homeSection->facts_section == 1)
   <!--  facts -->
     <div id="facts" class="facts-main-block">
       <div class="parallax" style="background-image: url('images/bg/facts-bg.jpg')">
@@ -235,10 +235,10 @@
                 <div class="col-md-3 col-sm-6">
                   <div class="facts-block text-center">
                     <div class="facts-icon">
-                      <i class="fa {{$fact->icon}}" aria-hidden="true"></i>
+                      <i class="fa {{ $fact->icon }}" aria-hidden="true"></i>
                     </div>
-                    <h2 class="facts-number counter">{{$fact->number}}</h2>
-                    <div class="facts-text">{{$fact->detail}}</div>
+                    <h2 class="facts-number counter">{{ $fact->number }}</h2>
+                    <div class="facts-text">{{ $fact->detail }}</div>
                   </div>
                 </div>
               @endforeach
@@ -250,7 +250,7 @@
   <!--  end facts -->
   @endif
 
-  @if($homeSection->plan_section == 1)
+  @if ($homeSection->plan_section == 1)
   <!--  plans -->
     <div id="pricing-plan" class="pricing-plan-main-block">
       <div class="container">
@@ -263,7 +263,7 @@
             @if ($vehicle_types)
               @foreach ($vehicle_types as $count => $vehicle_type)
                 @if ($vehicle_type->washing_price->vehicle_type_id == $vehicle_type->id)
-                  <li role="presentation" @if ($count == 0) class="active" @endif><a href="#plan-{{$vehicle_type->id}}" aria-controls="plan-{{$vehicle_type->id}}" role="tab" data-toggle="tab"><span><i class="fa {{$vehicle_type->icon}}"></i></span>{{$vehicle_type->type}}</a></li>
+                  <li role="presentation" @if ($count == 0) class="active" @endif><a href="#plan-{{ $vehicle_type->id }}" aria-controls="plan-{{ $vehicle_type->id }}" role="tab" data-toggle="tab"><span><i class="fa {{ $vehicle_type->icon }}"></i></span>{{ $vehicle_type->type }}</a></li>
                 @endif
               @endforeach
             @endif
@@ -274,9 +274,9 @@
           @if ($washing_prices)
             @for ($i=1; $i <= 6; $i++)
               @if ($i == 1)
-                <div role="tabpanel" class="tab-pane active" id="plan-{{$i}}">
+                <div role="tabpanel" class="tab-pane active" id="plan-{{ $i }}">
               @else
-                <div role="tabpanel" class="tab-pane" id="plan-{{$i}}">
+                <div role="tabpanel" class="tab-pane" id="plan-{{ $i }}">
               @endif
                 <div class="row">
                   @foreach ($washing_prices as $washing_price)
@@ -284,18 +284,18 @@
                       @if ($washing_price->washing_plan_id == $k && $washing_price->vehicle_type_id == $i)
                         <div class="col-md-3 col-sm-6">
                           <div class="pricing-block text-center">
-                            <h6 class="pricing-heding">{{$washing_price->washing_plan->name}}</h6>
+                            <h6 class="pricing-heding">{{ $washing_price->washing_plan->name }}</h6>
                             <div class="pricing-price-block">
                               <h2 class="pricing-price">
-                                  {{$washing_price->price}}
+                                  {{ $washing_price->price }}
                               </h2>
-                              <div class="pricing-duration">{{$washing_price->duration}}</div>
+                              <div class="pricing-duration">{{ $washing_price->duration }}</div>
                             </div>
                             <div class="pricing-dtl">
                               <ul>
                                 @foreach ($washing_includes as $washing_include)
                                   @if ($washing_include->washing_plan_id == $washing_price->washing_plan_id)
-                                    <li>{{$washing_include->washing_plan_include}}</li>
+                                    <li>{{ $washing_include->washing_plan_include }}</li>
                                   @endif
                                 @endforeach
                               </ul>
@@ -316,7 +316,7 @@
   <!--  end plans -->
   @endif
 
-  @if($homeSection->testimonials_section == 1)
+  @if ($homeSection->testimonials_section == 1)
   <!--  testimonials -->
     <div id="testimonials" class="testimonials-main-block">
       <div class="parallax" style="background-image: url('images/bg/testimonials-bg.jpg')">
@@ -330,15 +330,15 @@
               @foreach ($testimonials as $testimonial)
                 <div class="item testimonials-block">
                   <div class="testimonials-dtl text-center">
-                    <p>{{$testimonial->detail}}</p>
+                    <p>{{ $testimonial->detail }}</p>
                   </div>
                   <div class="testimonials-client">
                     <div class="testimonials-client-img">
-                      <img src="{{asset('images/testimonial')}}/{{$testimonial->image}}" class="img-responsive" alt="client-01">
+                      <img src="{{ asset('images/testimonial') }}/{{ $testimonial->image }}" class="img-responsive" alt="client-01">
                     </div>
                     <div class="testimonials-client-dtl">
-                      <h6 class="client-name">{{$testimonial->name}}</h6>
-                      <div class="client-since">{{$testimonial->post}}</div>
+                      <h6 class="client-name">{{ $testimonial->name }}</h6>
+                      <div class="client-since">{{ $testimonial->post }}</div>
                     </div>
                   </div>
                 </div>
@@ -350,7 +350,7 @@
     </div>
   <!--  end testimonials -->
   @endif
-  @if($homeSection->appointment_section == 1)
+  @if ($homeSection->appointment_section == 1)
   <!--  appointment -->
     <div id="appointment" class="appointment-main-block">
       <div class="container">
@@ -453,7 +453,7 @@
   <!--  end appointment -->
   @endif
 
-  @if($homeSection->blog_section == 1)
+  @if ($homeSection->blog_section == 1)
   <!--  latest news -->
     <div id="news" class="news-main-block">
       <div class="container">
@@ -467,23 +467,23 @@
               <div class="col-md-4 col-sm-6">
                 <div class="news-block">
                   <div class="news-img">
-                    <a href="#"><img src="{{asset('images/blog')}}/{{$blog->img}}" class="img-responsive" alt="news">
+                    <a href="#"><img src="{{ asset('images/blog') }}/{{ $blog->img }}" class="img-responsive" alt="news">
                       <div class="overlay-bg"></div>
                     </a>
                   </div>
                   <div class="news-top">
                     <div class="news-date text-center">
-                      <h4 class="news-day">{{$blog->date->toFormattedDateString()}}</h4>
+                      <h4 class="news-day">{{ $blog->date->toFormattedDateString() }}</h4>
                     </div>
                     <div class="news-heading-block">
-                      <a href="#"><h6 class="news-heading">{{$blog->title}}</h6></a>
+                      <a href="#"><h6 class="news-heading">{{ $blog->title }}</h6></a>
                       <ul class="news-tag">
-                        <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">{{$blog->users->name}}</a></li>
+                        <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">{{ $blog->users->name }}</a></li>
                       </ul>
                     </div>
                   </div>
                   <div class="news-dtl">
-                    <p>{{$blog->dtl}}</p>
+                    <p>{{ $blog->dtl }}</p>
                   </div>
                 </div>
               </div>
@@ -495,7 +495,7 @@
   <!--  end latest news -->
   @endif
 
-  @if($homeSection->client_section == 1)
+  @if ($homeSection->client_section == 1)
   <!--  clients -->
     <div id="clients" class="clients-main-block">
       <div class="container">
@@ -503,7 +503,7 @@
           @if ($clients)
             @foreach ($clients as $client)
               <div class="item client-img">
-                <img src="{{asset('images/clients')}}/{{$client->image}}" class="img-responsive" alt="client-1">
+                <img src="{{ asset('images/clients') }}/{{ $client->image }}" class="img-responsive" alt="client-1">
               </div>
             @endforeach
           @endif

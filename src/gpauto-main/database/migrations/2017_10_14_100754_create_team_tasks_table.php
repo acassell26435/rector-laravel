@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTeamTasksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         if (! Schema::hasTable('team_tasks')) {
@@ -25,11 +20,6 @@ class CreateTeamTasksTable extends Migration
         }
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('team_tasks');

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateOpeningHoursTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('opening_hours', function (Blueprint $table) {
@@ -22,11 +17,6 @@ class CreateOpeningHoursTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('opening_hours');

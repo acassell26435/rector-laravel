@@ -47,7 +47,7 @@ class AdminTeamController extends Controller
 
         if ($file = $request->file('photo')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/Teams', $name);
 
@@ -105,13 +105,13 @@ class AdminTeamController extends Controller
 
         if ($file = $request->file('photo')) {
 
-            $name = time().$file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images/teams', $name);
 
             if ($team->photo) {
 
-                unlink(public_path().'/images/teams/'.$team->photo);
+                unlink(public_path() . '/images/teams/' . $team->photo);
 
             }
 
@@ -140,7 +140,7 @@ class AdminTeamController extends Controller
 
         if ($team->photo) {
 
-            unlink(public_path().'/images/teams/'.$team->photo);
+            unlink(public_path() . '/images/teams/' . $team->photo);
 
         }
 

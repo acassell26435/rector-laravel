@@ -40,6 +40,34 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function getRegister()
+    {
+        $contacts = Contact::all();
+
+        return view('auth.register', compact('contacts'));
+    }
+
+    public function postLogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+
+            return redirect($this->redirectPath());
+
+        } else {
+            return redirect('/auth/login')
+                ->withInput($request->only('email'))
+                ->withErrors([
+                    'email' => 'These credentials do not match our record',
+                ]);
+        }
+    }
+
+    public function redirectPath()
+    {
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -75,33 +103,5 @@ class RegisterController extends Controller
             'dob' => $data['dob'],
             'sex' => $data['sex'],
         ]);
-    }
-
-    public function getRegister()
-    {
-        $contacts = Contact::all();
-
-        return view('auth.register', compact('contacts'));
-    }
-
-    public function postLogin(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
-
-            return redirect($this->redirectPath());
-
-        } else {
-            return redirect('/auth/login')
-                ->withInput($request->only('email'))
-                ->withErrors([
-                    'email' => 'These credentials do not match our record',
-                ]);
-        }
-    }
-
-    public function redirectPath()
-    {
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
     }
 }

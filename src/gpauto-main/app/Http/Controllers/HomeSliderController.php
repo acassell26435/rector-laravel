@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HomeSlider;
+use Exception;
 use Illuminate\Http\Request;
 
 class HomeSliderController extends Controller
@@ -71,7 +72,7 @@ class HomeSliderController extends Controller
 
         if ($file = $request->file('image')) {
 
-            $name = 'slider_'.time().$file->getClientOriginalName();
+            $name = 'slider_' . time() . $file->getClientOriginalName();
             $file->move('images/slider', $name);
             $input['image'] = $name;
         }
@@ -80,7 +81,7 @@ class HomeSliderController extends Controller
             $query = $this->sliders->create($input);
 
             return redirect()->route('slider.index')->with('added', 'Slider has been added Successfully!');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return back()->with('deleted', $e->getMessage());
         }
 
@@ -99,7 +100,7 @@ class HomeSliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\HomeSlider  $homeSlider
+     * @param  HomeSlider  $homeSlider
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -112,7 +113,7 @@ class HomeSliderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\HomeSlider  $homeSlider
+     * @param  HomeSlider  $homeSlider
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -153,11 +154,11 @@ class HomeSliderController extends Controller
 
         if ($file = $request->file('image')) {
 
-            $name = 'slider_'.time().$file->getClientOriginalName();
+            $name = 'slider_' . time() . $file->getClientOriginalName();
             if ($slider->image != null) {
-                $content = @file_get_contents(public_path().'/images/slider/'.$slider->image);
+                $content = @file_get_contents(public_path() . '/images/slider/' . $slider->image);
                 if ($content) {
-                    unlink(public_path().'/images/slider/'.$slider->image);
+                    unlink(public_path() . '/images/slider/' . $slider->image);
                 }
 
             }
@@ -173,7 +174,7 @@ class HomeSliderController extends Controller
             $query = $slider->update($input);
 
             return redirect()->route('slider.index')->with('updated', 'Slider has been updated Successfully!');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return back()->with('deleted', $e->getMessage());
         }
     }
@@ -181,7 +182,7 @@ class HomeSliderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\HomeSlider  $homeSlider
+     * @param  HomeSlider  $homeSlider
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
