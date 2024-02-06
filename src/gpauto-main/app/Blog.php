@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    protected $dates = ['date'];
-
     protected $fillable = [
         'title',
         'img',
@@ -15,6 +13,7 @@ class Blog extends Model
         'date',
         'dtl',
     ];
+    protected $casts = ['date' => 'datetime'];
 
     public function users()
     {
